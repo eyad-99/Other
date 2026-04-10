@@ -1,0 +1,18 @@
+| Command       | What it does                   | Simple meaning                         |
+| ------------- | ------------------------------ | -------------------------------------- |
+| `FROM`        | Sets base image                | “Start from this OS/runtime”           |
+| `WORKDIR`     | Sets working directory         | “Go to this folder inside container”   |
+| `COPY`        | Copies files into image        | “Move files from PC → container”       |
+| `RUN`         | Executes commands during build | “Run this while building image”        |
+| `ARG`         | Build-time variable            | “Temporary variable for build only”    |
+| `ENV`         | Environment variable           | “Set config inside container”          |
+| `EXPOSE`      | Declares ports                 | “App listens on this port (info only)” |
+| `ENTRYPOINT`  | Main startup command           | “What runs when container starts”      |
+| `CMD`         | Default command                | “Fallback command if none given”       |
+| `COPY --from` | Copy from another stage        | “Move files between build stages”      |
+
+
+
+1-build image : docker build -t my-image .
+2- run container : docker run -d -p 8080:8080 --name my-container my-image
+3- docker stop :  docker stop docker-test-container
