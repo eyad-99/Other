@@ -1,3 +1,4 @@
+refrence https://github.com/delaneybrian/jumpstartCS-rabbitmq-csharp/tree/master/2-Competing-Consumers
 1- setup erlang then rabbitmq
 2- ack : mean there is a consumer take the message from the broker
 3- inside rabbitmq
@@ -6,4 +7,50 @@
 4- exchange push messages to the queues
 5- queues tied to exchanges (binding) if queue is not tied to any exchange cannot receive any messages
 6- prducer and consumer open tcp connection to rabbirm mq broker  (each connection can have many channels each channel use different thread)
-7- amq is the internet protocol for business messaging 
+7- amqb is the internet protocol for business messaging  used by azure service bus  and rabbitmq amqb talk by messages called frames
+broker consumer producer undertstand frames 
+8-competing consumer if producer rate faster than consumer ou can add many consumer with the first one to consume from same queue
+9- in receiver catch you tell rabbitmq 👉 “I failed to process this message — put it back in the queue.”
+try
+{
+    // process
+    channel.BasicAck(ea.DeliveryTag, false);
+}
+catch
+{
+    channel.BasicNack(ea.DeliveryTag, false, true);
+}
+
+so if you enable auto ack rabbitmq dequeue it onse send it to consumer if there is exception with consumer message will lost
+manual ack- consumer ack message after success process
+
+
+
+
+
+10- channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+🔍 What it means (simple)
+
+👉 “Give me only 1 message at a time, and don’t send another until I ACK it.”
+
+🔹 Parameters explained
+1) prefetchSize: 0
+Limit based on message size (bytes)
+0 = ignore size limit
+👉 Almost always left as 0
+2) prefetchCount: 1
+Max number of unacknowledged messages allowed per consumer
+
+👉 1 means:
+
+Consumer gets one message
+Must ACK it before receiving the next
+3) global: false
+false → applies per consumer
+true → applies to the whole channel
+
+👉 Usually: false
+
+
+
+11- default algoritm is round robin so this is the real importance of this  channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false); make rule about wehn consumer receive a new mesaage

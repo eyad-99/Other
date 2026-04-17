@@ -1,17 +1,38 @@
-﻿using RabbitMQ.Client;
-using System;
+﻿using System;
+using System.Threading.Tasks;
 using System.Text;
-var factory = new ConnectionFactory { HostName = "localhost" };
-using var Connection = factory.CreateConnection();
-using var channel = Connection.CreateModel();
+using RabbitMQ.Client;
+
+var factory = new ConnectionFactory() { HostName = "localhost" };
+
+using var connection = factory.CreateConnection();
+
+using var channel = connection.CreateModel();
+
 channel.QueueDeclare(
     queue: "letterbox",
     durable: false,
     exclusive: false,
     autoDelete: false,
-    arguments: null
-    );
-var message = "this is my first message";
-var encodedmessage  = Encoding.UTF8.GetBytes(message);
-channel.BasicPublish("", "letterbox", null, encodedmessage);
-Console.WriteLine("published messagge    "+message);
+    arguments: null);
+
+var messageId = 1;
+
+var random = new Random();
+
+while (true)
+{
+    var message = $"Sending Message Id: {messageId}";
+
+    var body = Encoding.UTF8.GetBytes(message);
+
+    channel.BasicPublish("", "letterbox", null, body);
+
+    Console.WriteLine($"Send message: {message}");
+
+    var waitTime = random.Next(1, 4);
+
+    Task.Delay(TimeSpan.FromSeconds(waitTime)).Wait();
+
+    messageId++;
+}
