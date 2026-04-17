@@ -1,0 +1,17 @@
+G:\test\RabbitMQ-test\Producer\bin\Debug\net10.0\Producer.exe
+G:\test\RabbitMQ-test\Producer\bin\Debug\net10.0\Producer.deps.json
+G:\test\RabbitMQ-test\Producer\bin\Debug\net10.0\Producer.runtimeconfig.json
+G:\test\RabbitMQ-test\Producer\bin\Debug\net10.0\Producer.dll
+G:\test\RabbitMQ-test\Producer\bin\Debug\net10.0\Producer.pdb
+G:\test\RabbitMQ-test\Producer\bin\Debug\net10.0\RabbitMQ.Client.dll
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.csproj.AssemblyReference.cache
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.GeneratedMSBuildEditorConfig.editorconfig
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.AssemblyInfoInputs.cache
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.AssemblyInfo.cs
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.csproj.CoreCompileInputs.cache
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.csproj.Up2Date
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.dll
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\refint\Producer.dll
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.pdb
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\Producer.genruntimeconfig.cache
+G:\test\RabbitMQ-test\Producer\obj\Debug\net10.0\ref\Producer.dll

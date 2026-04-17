@@ -1,0 +1,9 @@
+1- setup erlang then rabbitmq
+2- ack : mean there is a consumer take the message from the broker
+3- inside rabbitmq
+	- exchange : component that take message from producer
+	- queues : comonent that consumer take message from
+4- exchange push messages to the queues
+5- queues tied to exchanges (binding) if queue is not tied to any exchange cannot receive any messages
+6- prducer and consumer open tcp connection to rabbirm mq broker  (each connection can have many channels each channel use different thread)
+7- amq is the internet protocol for business messaging 
