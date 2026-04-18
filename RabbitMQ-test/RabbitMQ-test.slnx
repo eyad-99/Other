@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="Consumer/Consumer.csproj" Id="c5a9d134-42f0-42e4-9e18-0e6496ea75bb" />
+  <Project Path="FirstConsumer/FirstConsumer.csproj" Id="034846d3-b392-4e26-babd-b1b1d5a30587" />
   <Project Path="Producer/Producer.csproj" Id="70eccfe2-2b59-4557-aeee-aa4058ede610" />
+  <Project Path="SecondConsumer/SecondConsumer.csproj" Id="33748f94-e7c6-45b6-a76c-76b18a90151d" />
 </Solution>

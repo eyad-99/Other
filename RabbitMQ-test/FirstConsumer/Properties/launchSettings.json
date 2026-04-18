@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FirstConsumer": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

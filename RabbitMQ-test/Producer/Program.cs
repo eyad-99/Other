@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Text;
 using RabbitMQ.Client;
 
@@ -9,30 +8,12 @@ using var connection = factory.CreateConnection();
 
 using var channel = connection.CreateModel();
 
-channel.QueueDeclare(
-    queue: "letterbox",
-    durable: false,
-    exclusive: false,
-    autoDelete: false,
-    arguments: null);
+channel.ExchangeDeclare(exchange: "pubsub", type: ExchangeType.Fanout);
 
-var messageId = 1;
+var message = "Hello I want to broadcast this message";
 
-var random = new Random();
+var body = Encoding.UTF8.GetBytes(message);
 
-while (true)
-{
-    var message = $"Sending Message Id: {messageId}";
+channel.BasicPublish(exchange: "pubsub", "", null, body);
 
-    var body = Encoding.UTF8.GetBytes(message);
-
-    channel.BasicPublish("", "letterbox", null, body);
-
-    Console.WriteLine($"Send message: {message}");
-
-    var waitTime = random.Next(1, 4);
-
-    Task.Delay(TimeSpan.FromSeconds(waitTime)).Wait();
-
-    messageId++;
-}
+Console.WriteLine($"Send message: {message}");

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PaymentConsumer": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

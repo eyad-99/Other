@@ -1,0 +1,17 @@
+G:\test\RabbitMQ-test\SecondConsumer\bin\Debug\net10.0\SecondConsumer.exe
+G:\test\RabbitMQ-test\SecondConsumer\bin\Debug\net10.0\SecondConsumer.deps.json
+G:\test\RabbitMQ-test\SecondConsumer\bin\Debug\net10.0\SecondConsumer.runtimeconfig.json
+G:\test\RabbitMQ-test\SecondConsumer\bin\Debug\net10.0\SecondConsumer.dll
+G:\test\RabbitMQ-test\SecondConsumer\bin\Debug\net10.0\SecondConsumer.pdb
+G:\test\RabbitMQ-test\SecondConsumer\bin\Debug\net10.0\RabbitMQ.Client.dll
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondConsumer.csproj.AssemblyReference.cache
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondConsumer.GeneratedMSBuildEditorConfig.editorconfig
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondConsumer.AssemblyInfoInputs.cache
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondConsumer.AssemblyInfo.cs
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondConsumer.csproj.CoreCompileInputs.cache
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondCo.C879FBA0.Up2Date
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondConsumer.dll
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\refint\SecondConsumer.dll
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondConsumer.pdb
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\SecondConsumer.genruntimeconfig.cache
+G:\test\RabbitMQ-test\SecondConsumer\obj\Debug\net10.0\ref\SecondConsumer.dll

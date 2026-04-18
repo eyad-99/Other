@@ -1,4 +1,15 @@
 refrence https://github.com/delaneybrian/jumpstartCS-rabbitmq-csharp/tree/master/2-Competing-Consumers
+
+
+simple arctitcture
+
+
+
+producer -------->exchange----------->queue------------->consumer
+
+
+
+
 1- setup erlang then rabbitmq
 2- ack : mean there is a consumer take the message from the broker
 3- inside rabbitmq
@@ -54,3 +65,72 @@ true → applies to the whole channel
 
 
 11- default algoritm is round robin so this is the real importance of this  channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false); make rule about wehn consumer receive a new mesaage
+12- competition consumer : multiple consumers can connect to the same queue, and this is a core RabbitMQ pattern.   
+13-pub sub patern oppoiste of competeion consumers  mean send same message to multiple consumer foe example message must be proceesed bt many services in microservices   (fanout exchange) fanout to all queues
+14- fanout exchange    It broadcasts every message to all bound queues, without caring about routing keys.
+15-must bind queue with exchange so queue can receive message from exchange
+
+16- topic exchange vs direct exchange   
+
+🔹 1) Direct Exchange
+
+👉 Routes messages based on exact match of routing key
+
+How it works
+Producer sends message with a routing key (e.g., "order.created")
+Exchange delivers it only to queues bound with the same exact key
+🧠 Example
+Routing Key: "order.created"
+
+Bindings:
+Queue A → "order.created"   ✅ gets message
+Queue B → "order.updated"   ❌ ignored
+🔹 2) Topic Exchange
+
+👉 Routes messages based on pattern matching
+
+Uses wildcards
+Much more flexible
+🔹 Wildcards in topic exchange
+* → matches one word
+# → matches zero or more words
+🧠 Example
+Message:
+Routing Key: "order.created.eu"
+Bindings:
+Queue A → "order.*"          ❌ (only 2 words expected)
+Queue B → "order.#"          ✅ (matches anything after order)
+Queue C → "*.created.*"      ✅ (pattern match)
+
+
+17- if i use routing do i still need bind between exchange and queue ?
+
+Yes — you absolutely still need a binding between the queue and the exchange.
+
+👉 Routing keys alone are not enough.
+
+
+
+
+
+
+
+
+18-   can a queue connect to more than one exchange
+
+Yes — a queue can be bound to multiple exchanges, and this is a very normal pattern in RabbitMQ.
+
+🔹 How it works
+
+A queue doesn’t “connect” directly — it gets bound to exchanges.
+
+👉 You can create multiple bindings like this:
+
+channel.QueueBind("my_queue", "exchange_A", "key1");
+channel.QueueBind("my_queue", "exchange_B", "key2");
+🧠 What this means
+
+Your queue will receive messages from:
+
+exchange_A (when routing key = "key1")
+exchange_B (when routing key = "key2")
