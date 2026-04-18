@@ -1,0 +1,17 @@
+G:\test\RabbitMQ-test\server\bin\Debug\net10.0\server.exe
+G:\test\RabbitMQ-test\server\bin\Debug\net10.0\server.deps.json
+G:\test\RabbitMQ-test\server\bin\Debug\net10.0\server.runtimeconfig.json
+G:\test\RabbitMQ-test\server\bin\Debug\net10.0\server.dll
+G:\test\RabbitMQ-test\server\bin\Debug\net10.0\server.pdb
+G:\test\RabbitMQ-test\server\bin\Debug\net10.0\RabbitMQ.Client.dll
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.csproj.AssemblyReference.cache
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.GeneratedMSBuildEditorConfig.editorconfig
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.AssemblyInfoInputs.cache
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.AssemblyInfo.cs
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.csproj.CoreCompileInputs.cache
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.csproj.Up2Date
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.dll
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\refint\server.dll
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.pdb
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\server.genruntimeconfig.cache
+G:\test\RabbitMQ-test\server\obj\Debug\net10.0\ref\server.dll

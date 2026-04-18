@@ -1,8 +1,10 @@
 <Solution>
   <Project Path="AnalyticConsumer/AnalyticConsumer.csproj" />
+  <Project Path="client/client.csproj" Id="8e111ca7-4eb8-47d0-b0c5-f94a49f386d5" />
   <Project Path="Consumer/Consumer.csproj" Id="c5a9d134-42f0-42e4-9e18-0e6496ea75bb" />
   <Project Path="FirstConsumer/FirstConsumer.csproj" Id="034846d3-b392-4e26-babd-b1b1d5a30587" />
   <Project Path="PaymentConsumer/PaymentConsumer.csproj" />
   <Project Path="Producer/Producer.csproj" Id="70eccfe2-2b59-4557-aeee-aa4058ede610" />
   <Project Path="SecondConsumer/SecondConsumer.csproj" Id="33748f94-e7c6-45b6-a76c-76b18a90151d" />
+  <Project Path="server/server.csproj" Id="40994d32-0e8e-492f-9f67-c9b288bebcd3" />
 </Solution>

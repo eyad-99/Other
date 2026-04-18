@@ -1,0 +1,17 @@
+G:\test\RabbitMQ-test\PaymentConsumer\bin\Debug\net10.0\PaymentConsumer.exe
+G:\test\RabbitMQ-test\PaymentConsumer\bin\Debug\net10.0\PaymentConsumer.deps.json
+G:\test\RabbitMQ-test\PaymentConsumer\bin\Debug\net10.0\PaymentConsumer.runtimeconfig.json
+G:\test\RabbitMQ-test\PaymentConsumer\bin\Debug\net10.0\PaymentConsumer.dll
+G:\test\RabbitMQ-test\PaymentConsumer\bin\Debug\net10.0\PaymentConsumer.pdb
+G:\test\RabbitMQ-test\PaymentConsumer\bin\Debug\net10.0\RabbitMQ.Client.dll
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentConsumer.csproj.AssemblyReference.cache
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentConsumer.GeneratedMSBuildEditorConfig.editorconfig
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentConsumer.AssemblyInfoInputs.cache
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentConsumer.AssemblyInfo.cs
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentConsumer.csproj.CoreCompileInputs.cache
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentC.D065A907.Up2Date
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentConsumer.dll
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\refint\PaymentConsumer.dll
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentConsumer.pdb
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\PaymentConsumer.genruntimeconfig.cache
+G:\test\RabbitMQ-test\PaymentConsumer\obj\Debug\net10.0\ref\PaymentConsumer.dll

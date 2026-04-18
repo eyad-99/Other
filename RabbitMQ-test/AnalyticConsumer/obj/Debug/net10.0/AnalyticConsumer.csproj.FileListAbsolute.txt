@@ -1,0 +1,17 @@
+G:\test\RabbitMQ-test\AnalyticConsumer\bin\Debug\net10.0\AnalyticConsumer.exe
+G:\test\RabbitMQ-test\AnalyticConsumer\bin\Debug\net10.0\AnalyticConsumer.deps.json
+G:\test\RabbitMQ-test\AnalyticConsumer\bin\Debug\net10.0\AnalyticConsumer.runtimeconfig.json
+G:\test\RabbitMQ-test\AnalyticConsumer\bin\Debug\net10.0\AnalyticConsumer.dll
+G:\test\RabbitMQ-test\AnalyticConsumer\bin\Debug\net10.0\AnalyticConsumer.pdb
+G:\test\RabbitMQ-test\AnalyticConsumer\bin\Debug\net10.0\RabbitMQ.Client.dll
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\AnalyticConsumer.csproj.AssemblyReference.cache
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\AnalyticConsumer.GeneratedMSBuildEditorConfig.editorconfig
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\AnalyticConsumer.AssemblyInfoInputs.cache
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\AnalyticConsumer.AssemblyInfo.cs
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\AnalyticConsumer.csproj.CoreCompileInputs.cache
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\Analytic.4ED73539.Up2Date
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\AnalyticConsumer.dll
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\refint\AnalyticConsumer.dll
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\AnalyticConsumer.pdb
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\AnalyticConsumer.genruntimeconfig.cache
+G:\test\RabbitMQ-test\AnalyticConsumer\obj\Debug\net10.0\ref\AnalyticConsumer.dll
