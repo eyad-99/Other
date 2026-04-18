@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnalyticConsumer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2c2f76adcab6c5dbcf66aa3c400da98aa58f7d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e53c700cba3405844a5248b247a32d3b678d3d61")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnalyticConsumer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnalyticConsumer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

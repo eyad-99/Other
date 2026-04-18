@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "vXj91BjKCSE=",
+  "dgSpecHash": "Bb8Iza8z7OM=",
   "success": true,
   "projectFilePath": "G:\\test\\RabbitMQ-test\\PaymentConsumer\\PaymentConsumer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\hp\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\rabbitmq.client\\6.2.2\\rabbitmq.client.6.2.2.nupkg.sha512"
   ],
   "logs": []
 }
