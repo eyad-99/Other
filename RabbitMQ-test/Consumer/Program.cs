@@ -9,41 +9,29 @@ using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
 
 channel.ExchangeDeclare(
-    exchange: "mainexchange",
-    type: ExchangeType.Direct);
-
-channel.ExchangeDeclare(
-    exchange: "dlx",
+    exchange: "acceptrejectexchange",
     type: ExchangeType.Fanout);
 
-channel.QueueDeclare(
-    queue: "mainexchangequeue",
-    arguments: new Dictionary<string, object>{
-    {"x-dead-letter-exchange", "dlx"},
-    {"x-message-ttl", 1000},
-});
-channel.QueueBind("mainexchangequeue", "mainexchange", "test");
+channel.QueueDeclare(queue: "letterbox");
+channel.QueueBind("letterbox", "acceptrejectexchange", "");
 
-var mainConsumer = new EventingBasicConsumer(channel);
-mainConsumer.Received += (model, ea) =>
+var consumer = new EventingBasicConsumer(channel);
+consumer.Received += (model, ea) =>
 {
     var body = ea.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
+
+    if (ea.DeliveryTag % 5 is 0)
+    {
+        channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: true);
+        //channel.BasicNack(deliveryTag: ea.DeliveryTag, requeue: false, multiple: true);
+    }
+
+    //channel.BasicReject(deliveryTag: ea.DeliveryTag, requeue: false);
+
     Console.WriteLine($"Main - Recieved new message: {message}");
 };
-//channel.BasicConsume(queue: "mainexchangequeue", consumer: mainConsumer);
-
-channel.QueueDeclare(queue: "dlxexchangequeue");
-channel.QueueBind("dlxexchangequeue", "dlx", "");
-
-var dlxConsumer = new EventingBasicConsumer(channel);
-dlxConsumer.Received += (model, ea) =>
-{
-    var body = ea.Body.ToArray();
-    var message = Encoding.UTF8.GetString(body);
-    Console.WriteLine($"DLX - Recieved new message: {message}");
-};
-channel.BasicConsume(queue: "dlxexchangequeue", consumer: dlxConsumer);
+channel.BasicConsume(queue: "letterbox", consumer: consumer);
 
 Console.WriteLine("Consuming");
 

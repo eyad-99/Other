@@ -8,13 +8,18 @@ using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
 
 channel.ExchangeDeclare(
-    exchange: "mainexchange",
-    type: ExchangeType.Direct);
+    exchange: "acceptrejectexchange",
+    type: ExchangeType.Fanout);
 
-var message = "This message might expire";
+var message = "Lets send this";
 
 var body = Encoding.UTF8.GetBytes(message);
 
-channel.BasicPublish("mainexchange", "test", null, body);
+while (true)
+{
+    channel.BasicPublish("acceptrejectexchange", "test", null, body);
+    Console.WriteLine($"Send message: {message}");
 
-Console.WriteLine($"Send message: {message}");
+    Console.WriteLine("Press any key to continue");
+    Console.ReadKey();
+}
