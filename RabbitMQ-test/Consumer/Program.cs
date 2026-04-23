@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -9,22 +8,40 @@ using var connection = factory.CreateConnection();
 
 using var channel = connection.CreateModel();
 
-channel.ExchangeDeclare(exchange: "secondexchange", type: ExchangeType.Fanout);
+channel.ExchangeDeclare(
+    exchange: "altexchange",
+    type: ExchangeType.Fanout);
 
-channel.QueueDeclare("letterbox");
+channel.ExchangeDeclare(
+    exchange: "mainexchange",
+    type: ExchangeType.Direct,
+    arguments: new Dictionary<string, object>{
+        {"alternate-exchange", "altexchange"}
+});
 
-channel.QueueBind("letterbox", "secondexchange", "");
+channel.QueueDeclare(queue: "altexchangequeue");
+channel.QueueBind("altexchangequeue", "altexchange", "");
 
-var consumer = new EventingBasicConsumer(channel);
-
-consumer.Received += (model, ea) =>
+var altConsumer = new EventingBasicConsumer(channel);
+altConsumer.Received += (model, ea) =>
 {
     var body = ea.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
-    Console.WriteLine($"Recieved new message: {message}");
+    Console.WriteLine($"Alt - Recieved new message: {message}");
 };
+channel.BasicConsume(queue: "altexchangequeue", consumer: altConsumer);
 
-channel.BasicConsume(queue: "letterbox", autoAck: true, consumer: consumer);
+channel.QueueDeclare(queue: "mainexchangequeue");
+channel.QueueBind("mainexchangequeue", "mainexchange", "test");
+
+var mainConsumer = new EventingBasicConsumer(channel);
+mainConsumer.Received += (model, ea) =>
+{
+    var body = ea.Body.ToArray();
+    var message = Encoding.UTF8.GetString(body);
+    Console.WriteLine($"Main - Recieved new message: {message}");
+};
+channel.BasicConsume(queue: "mainexchangequeue", consumer: mainConsumer);
 
 Console.WriteLine("Consuming");
 

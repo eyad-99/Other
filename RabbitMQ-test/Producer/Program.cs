@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
 
 var factory = new ConnectionFactory() { HostName = "localhost" };
 
@@ -8,29 +7,22 @@ using var connection = factory.CreateConnection();
 
 using var channel = connection.CreateModel();
 
-channel.ExchangeDeclare(exchange: "headersexchange", type: ExchangeType.Headers);
 
-channel.QueueDeclare("letterbox");
+channel.ExchangeDeclare(
+    exchange: "altexchange",
+    type: ExchangeType.Fanout);
 
-var bindingArguments = new Dictionary<string, object>{
-    {"x-match", "all"},
-    {"name", "brian"},
-    {"age", "21"}
-};
+channel.ExchangeDeclare(
+    exchange: "mainexchange",
+    type: ExchangeType.Direct,
+    arguments: new Dictionary<string, object>{
+        {"alternate-exchange", "altexchange"}
+});
 
-channel.QueueBind("letterbox", "headersexchange", "", bindingArguments);
+var message = "This is my first Message";
 
-var consumer = new EventingBasicConsumer(channel);
+var body = Encoding.UTF8.GetBytes(message);
 
-consumer.Received += (model, ea) =>
-{
-    var body = ea.Body.ToArray();
-    var message = Encoding.UTF8.GetString(body);
-    Console.WriteLine($"Recieved new message: {message}");
-};
+channel.BasicPublish("mainexchange", "test", null, body);
 
-channel.BasicConsume(queue: "letterbox", autoAck: true, consumer: consumer);
-
-Console.WriteLine("Consuming");
-
-Console.ReadKey();
+Console.WriteLine($"Send message: {message}");

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecondConsumer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4922838e3f6123a69b43d186b88175e7957abef5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d885ff189aac06ebb6a7aea6141686af320d3f6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecondConsumer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecondConsumer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
