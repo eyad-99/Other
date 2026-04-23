@@ -7,19 +7,11 @@ using var connection = factory.CreateConnection();
 
 using var channel = connection.CreateModel();
 
-
-channel.ExchangeDeclare(
-    exchange: "altexchange",
-    type: ExchangeType.Fanout);
-
 channel.ExchangeDeclare(
     exchange: "mainexchange",
-    type: ExchangeType.Direct,
-    arguments: new Dictionary<string, object>{
-        {"alternate-exchange", "altexchange"}
-});
+    type: ExchangeType.Direct);
 
-var message = "This is my first Message";
+var message = "This message might expire";
 
 var body = Encoding.UTF8.GetBytes(message);
 
