@@ -371,3 +371,34 @@ All messages for same key go to same queue
 So order is preserved for that key
 ✅ 3) Stateful processing
 Example: user sessions, carts, accounts
+
+
+
+
+24-
+
+Short answer: No — RabbitMQ channels are NOT thread-safe.
+
+🔹 What exactly is not thread-safe?
+❌ IModel (channel)
+You must NOT use the same channel from multiple threads at the same time
+🔹 What is safe?
+✅ IConnection
+Thread-safe
+Can be shared across threads
+🔥 Why channels are not thread-safe?
+
+A channel is a lightweight communication stream over a TCP connection.
+
+If multiple threads use it:
+
+Commands can interleave
+Frames get corrupted
+You get random bugs / protocol errors
+🔹 Example of WRONG usage
+Parallel.For(0, 10, i =>
+{
+    channel.BasicPublish(...); // ❌ unsafe
+});
+
+👉 Multiple threads using same channel → problems
