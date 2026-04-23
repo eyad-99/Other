@@ -1,6 +1,6 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 
 var factory = new ConnectionFactory() { HostName = "localhost" };
 
@@ -8,16 +8,29 @@ using var connection = factory.CreateConnection();
 
 using var channel = connection.CreateModel();
 
-channel.ExchangeDeclare(exchange: "firstexchange", type: ExchangeType.Direct);
+channel.ExchangeDeclare(exchange: "headersexchange", type: ExchangeType.Headers);
 
-channel.ExchangeDeclare(exchange: "secondexchange", type: ExchangeType.Fanout);
+channel.QueueDeclare("letterbox");
 
-channel.ExchangeBind("secondexchange", "firstexchange", "");
+var bindingArguments = new Dictionary<string, object>{
+    {"x-match", "all"},
+    {"name", "brian"},
+    {"age", "21"}
+};
 
-var message = "This message has gone through multiple exchanges";
+channel.QueueBind("letterbox", "headersexchange", "", bindingArguments);
 
-var body = Encoding.UTF8.GetBytes(message);
+var consumer = new EventingBasicConsumer(channel);
 
-channel.BasicPublish("firstexchange", "", null, body);
+consumer.Received += (model, ea) =>
+{
+    var body = ea.Body.ToArray();
+    var message = Encoding.UTF8.GetString(body);
+    Console.WriteLine($"Recieved new message: {message}");
+};
 
-Console.WriteLine($"Send message: {message}");
+channel.BasicConsume(queue: "letterbox", autoAck: true, consumer: consumer);
+
+Console.WriteLine("Consuming");
+
+Console.ReadKey();
