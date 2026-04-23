@@ -267,4 +267,107 @@ var body = Encoding.UTF8.GetBytes(message);
 
 
 
-20- if ypu didnot pass exchange name while send message rabbitmq use default exchange
+20- if ypu didnot pass exchange name while send message rabbitmq use default exchange.
+21-exchange can also be bind to another exchange not just queue.
+
+22-header exchange
+
+🔥 Key Differences
+Feature	Direct Exchange	Headers Exchange
+Routing based on	Routing key	Headers
+Matching	Exact match	Key-value matching
+Flexibility	❌ Limited	✅ Very flexible
+Performance	✅ Faster	❌ Slightly slower
+Routing key used	✅ Yes	❌ Ignored
+🔥 When to use each
+✅ Direct Exchange
+
+Use when:
+
+Simple routing
+Known keys
+
+👉 Example:
+
+"email"
+"sms"
+"push"
+✅ Headers Exchange
+
+Use when:
+
+Multiple conditions
+Complex filtering
+Dynamic routing
+
+👉 Example:
+
+type=order, region=EU, priority=high
+⚠️ Important note
+
+Headers exchange is:
+
+More flexible
+But less common in practice
+
+👉 Most systems use:
+
+Direct
+Topic
+🧠 Analogy
+Direct exchange
+
+👉 Like matching exact address
+
+“Send to department = finance”
+
+Headers exchange
+
+👉 Like filtering by multiple fields
+
+“Send to employees where department=finance AND role=manager”
+
+✅ Final summary
+Direct → simple, fast, routing key based
+Headers → flexible, uses message metadata.
+
+
+23- consistent exchange queue  
+
+What is a Consistent Hash Exchange?
+
+👉 It routes messages based on a hash value, so that messages with the same key always go to the same queue.
+
+🔥 Core idea
+
+“Same key → same queue (consistently)”
+
+🧠 How it works
+Producer sends a message with a key
+(usually routing key or header)
+Exchange computes a hash
+Based on that hash → selects one queue
+🔹 Example
+
+Queues:
+
+Queue A
+Queue B
+Queue C
+
+Messages:
+
+user1 → always goes to Queue A
+user2 → always goes to Queue B
+user3 → always goes to Queue C
+
+👉 Even if messages are sent at different times
+
+🔥 Why this is useful
+✅ 1) Load balancing
+Distributes messages evenly across queues
+✅ 2) Ordering guarantee (per key)
+All messages for same key go to same queue
+So order is preserved for that key
+✅ 3) Stateful processing
+Example: user sessions, carts, accounts

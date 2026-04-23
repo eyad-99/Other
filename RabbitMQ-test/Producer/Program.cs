@@ -8,12 +8,16 @@ using var connection = factory.CreateConnection();
 
 using var channel = connection.CreateModel();
 
-channel.ExchangeDeclare(exchange: "routing", type: ExchangeType.Direct);
+channel.ExchangeDeclare(exchange: "firstexchange", type: ExchangeType.Direct);
 
-var message = "This message needs to be routed";
+channel.ExchangeDeclare(exchange: "secondexchange", type: ExchangeType.Fanout);
+
+channel.ExchangeBind("secondexchange", "firstexchange", "");
+
+var message = "This message has gone through multiple exchanges";
 
 var body = Encoding.UTF8.GetBytes(message);
 
-channel.BasicPublish(exchange: "routing", routingKey: "analyticsonly", null, body);
+channel.BasicPublish("firstexchange", "", null, body);
 
 Console.WriteLine($"Send message: {message}");

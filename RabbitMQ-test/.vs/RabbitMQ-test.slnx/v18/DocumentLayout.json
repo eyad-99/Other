@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "G:\\test\\RabbitMQ-test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E111CA7-4EB8-47D0-B0C5-F94A49F386D5}|client\\client.csproj|g:\\test\\rabbitmq-test\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E111CA7-4EB8-47D0-B0C5-F94A49F386D5}|client\\client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5A9D134-42F0-42E4-9E18-0E6496EA75BB}|Consumer\\Consumer.csproj|g:\\test\\rabbitmq-test\\consumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5A9D134-42F0-42E4-9E18-0E6496EA75BB}|Consumer\\Consumer.csproj|solutionrelative:consumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70ECCFE2-2B59-4557-AEEE-AA4058EDE610}|Producer\\Producer.csproj|g:\\test\\rabbitmq-test\\producer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70ECCFE2-2B59-4557-AEEE-AA4058EDE610}|Producer\\Producer.csproj|solutionrelative:producer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{40994D32-0E8E-492F-9F67-C9B288BEBCD3}|server\\server.csproj|g:\\test\\rabbitmq-test\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40994D32-0E8E-492F-9F67-C9B288BEBCD3}|server\\server.csproj|solutionrelative:server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E111CA7-4EB8-47D0-B0C5-F94A49F386D5}|client\\client.csproj|g:\\test\\rabbitmq-test\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E111CA7-4EB8-47D0-B0C5-F94A49F386D5}|client\\client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FF9FFAD3-B1C2-9F98-AD43-283863D6FCDC}|PaymentConsumer\\PaymentConsumer.csproj|g:\\test\\rabbitmq-test\\paymentconsumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BAF2185B-8DB0-1BB6-7F33-2F1753702A9A}|AnalyticConsumer\\AnalyticConsumer.csproj|g:\\test\\rabbitmq-test\\analyticconsumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAF2185B-8DB0-1BB6-7F33-2F1753702A9A}|AnalyticConsumer\\AnalyticConsumer.csproj|solutionrelative:analyticconsumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{70ECCFE2-2B59-4557-AEEE-AA4058EDE610}|Producer\\Producer.csproj|g:\\test\\rabbitmq-test\\producer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70ECCFE2-2B59-4557-AEEE-AA4058EDE610}|Producer\\Producer.csproj|solutionrelative:producer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +34,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\test\\RabbitMQ-test\\Consumer\\Program.cs",
+              "RelativeDocumentMoniker": "Consumer\\Program.cs",
+              "ToolTip": "G:\\test\\RabbitMQ-test\\Consumer\\Program.cs",
+              "RelativeToolTip": "Consumer\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAQwB4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T21:01:31.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\test\\RabbitMQ-test\\server\\Program.cs",
               "RelativeDocumentMoniker": "server\\Program.cs",
@@ -47,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\test\\RabbitMQ-test\\client\\Program.cs",
               "RelativeDocumentMoniker": "client\\Program.cs",
@@ -60,20 +77,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\test\\RabbitMQ-test\\Producer\\Program.cs",
               "RelativeDocumentMoniker": "Producer\\Program.cs",
               "ToolTip": "G:\\test\\RabbitMQ-test\\Producer\\Program.cs",
               "RelativeToolTip": "Producer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T12:51:31.199Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\test\\RabbitMQ-test\\AnalyticConsumer\\Program.cs",
               "RelativeDocumentMoniker": "AnalyticConsumer\\Program.cs",
@@ -81,12 +98,11 @@
               "RelativeToolTip": "AnalyticConsumer\\Program.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAUwB8AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T12:48:42.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-18T12:48:42.361Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\test\\RabbitMQ-test\\PaymentConsumer\\Program.cs",
               "RelativeDocumentMoniker": "PaymentConsumer\\Program.cs",
@@ -94,8 +110,7 @@
               "RelativeToolTip": "PaymentConsumer\\Program.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAQwB8AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T12:48:39.503Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-18T12:48:39.503Z"
             }
           ]
         }
