@@ -402,3 +402,321 @@ Parallel.For(0, 10, i =>
 });
 
 👉 Multiple threads using same channel → problems
+
+25-publishing options 
+🔥 Important publishing options
+🔹 1) Routing Key
+routingKey: "order.created"
+
+👉 Used by the exchange to decide which queue gets the message
+
+Direct → exact match
+Topic → pattern match
+Fanout → ignored
+🔹 2) Exchange
+exchange: "orders_exchange"
+
+👉 Where you send the message first
+
+Exchange decides routing
+Empty string "" → default exchange (direct to queue)
+🔹 3) Delivery Mode (Persistence)
+props.DeliveryMode = 2;
+1 → non-persistent (in memory)
+2 → persistent (saved to disk)
+
+👉 Use 2 for reliability
+
+🔹 4) Headers
+props.Headers = new Dictionary<string, object>
+{
+    { "type", "order" },
+    { "priority", "high" }
+};
+
+👉 Used with headers exchange or custom logic
+
+🔹 5) CorrelationId
+props.CorrelationId = Guid.NewGuid().ToString();
+
+👉 Used in:
+
+Request/Reply pattern
+Matching response to request
+🔹 6) ReplyTo
+props.ReplyTo = "reply_queue";
+
+👉 Tells the consumer:
+
+“Send response to this queue”
+
+🔹 7) MessageId
+props.MessageId = Guid.NewGuid().ToString();
+
+👉 Helps with:
+
+Deduplication
+Tracking
+🔹 8) Expiration (TTL)
+props.Expiration = "60000"; // 60 seconds
+
+👉 Message expires after time
+
+🔹 9) Priority
+props.Priority = 5;
+
+👉 Used if queue supports priority
+
+🔹 10) ContentType
+props.ContentType = "application/json";
+
+👉 Describes message format
+
+
+26-publisher confirm  
+
+Short answer: No — ACK is not used between producer and RabbitMQ.
+
+🔹 Where ACK is used
+
+ACK happens only between:
+
+Consumer → RabbitMQ
+
+👉 It means:
+
+“I processed the message successfully”
+
+🔹 What happens when producer sends a message?
+Producer → RabbitMQ → Queue → Consumer
+
+There is no ACK step by default when:
+
+Producer → RabbitMQ
+🔥 So how does a producer know the message arrived?
+
+RabbitMQ uses a different mechanism:
+
+✅ Publisher Confirms
+
+👉 This is the producer-side equivalent of ACK
+
+🔹 How it works
+Producer enables confirms:
+channel.ConfirmSelect();
+Publish message
+Wait for confirmation:
+channel.WaitForConfirms();
+
+👉 RabbitMQ responds:
+
+✅ ACK → message safely received by broker
+❌ NACK → something went wrong
+
+27- mandatory messages
+The idea
+
+👉 Normally, if you publish a message and no queue matches it, RabbitMQ will:
+
+❌ silently drop the message
+
+🔥 Mandatory flag solves this
+
+When you publish with:
+
+channel.BasicPublish(
+    exchange,
+    routingKey,
+    mandatory: true,
+    basicProperties,
+    body
+);
+
+👉 You’re telling RabbitMQ:
+
+“If you can’t route this message to at least one queue, send it back to me.”
+
+How you receive it (important)
+
+You must handle the return event:
+
+channel.BasicReturn += (sender, ea) =>
+{
+    Console.WriteLine("Message returned!");
+};
+
+28-Alternate Exchange
+
+An Alternate Exchange (AE) in RabbitMQ is a fallback exchange used when a message cannot be routed by the main exchange.
+
+🔹 The idea
+
+👉 Instead of losing unroutable messages, send them somewhere else automatically.
+
+🔥 Normal behavior (no AE)
+Producer → Exchange → ❌ no matching queue → 💀 message lost
+🔥 With Alternate Exchange
+Producer → Main Exchange → ❌ no route
+                         ↓
+                  Alternate Exchange → Queue ✅
+
+👉 Message is not lost
+
+🔹 How it works
+You define a main exchange
+Attach an alternate exchange to it
+If routing fails → message goes to AE
+
+29-dead letter exchange 
+
+A Dead Letter Exchange (DLX) in RabbitMQ is where messages go when they cannot be processed normally.
+
+🔹 The idea
+
+👉 Instead of losing failed messages, RabbitMQ redirects them to another exchange (DLX)
+
+🔥 When does a message become “dead”?
+
+A message is sent to DLX when one of these happens:
+
+1) ❌ Rejected / NACK (without requeue)
+channel.BasicNack(ea.DeliveryTag, false, false);
+
+👉 You said:
+
+“I don’t want this message anymore”
+
+2) ⏰ TTL expired
+props.Expiration = "60000";
+
+👉 Message stayed too long in queue
+
+3) 📦 Queue is full
+Queue has max length
+New messages push old ones out → DLX
+4) 🔁 Message rejected multiple times (common pattern)
+Often used with retry logic
+🔹 How it works
+        Normal Queue
+             |
+   (fail / expire / reject)
+             ↓
+     Dead Letter Exchange
+             ↓
+     Dead Letter Queue
+🔹 Setup example
+1) Create DLX
+channel.ExchangeDeclare("dlx_exchange", ExchangeType.Direct);
+2) Create DLQ (dead letter queue)
+channel.QueueDeclare("dlq", durable: true);
+channel.QueueBind("dlq", "dlx_exchange", "dead");
+3) Attach DLX to your main queue
+var args = new Dictionary<string, object>
+{
+    { "x-dead-letter-exchange", "dlx_exchange" },
+    { "x-dead-letter-routing-key", "dead" }
+};
+
+channel.QueueDeclare("main_queue", durable: true, arguments: args);
+
+30-
+
+🔥 DLX vs Alternate Exchange
+Feature	             DLX	                             Alternate Exchange
+Trigger 	    Message failure	                     Routing failure
+Level   	    Queue	                             Exchange
+PurposeHandle       processing errors	                     Handle routing errors
+
+
+31-
+🔹 1) BasicReject
+
+👉 Rejects ONLY ONE message
+
+channel.BasicReject(deliveryTag, requeue: true);
+🔹 Meaning
+Reject this specific message
+Optionally:
+true → put back in queue
+false → drop it (or send to DLX if configured)
+⚠️ Limitation
+❌ Cannot reject multiple messages
+❌ No batch operation
+🔹 2) BasicNack
+
+👉 “Negative Acknowledgement” (more powerful)
+
+channel.BasicNack(deliveryTag, multiple: false, requeue: true);
+🔹 Meaning
+Reject one or more messages
+More flexible than Reject
+🔥 Parameters
+BasicNack(deliveryTag, multiple, requeue)
+Parameter	Meaning
+deliveryTag	message ID
+multiple	true = apply to multiple messages
+requeue	true = put back in queue
+
+32- auto delete -----> delete queue when no longer needed no consumer consume from this queue
+33- auto expire -----> delete queue when expired (you declare queue with expiraton time  (x-expire)
+34- auto expire messages ------> expire messages if they sit on a queue for long time  (x-message-ttl)
+35- max length queue x-max-length  ------> set max number of message allowed on queue
+36-execlusive 
+In RabbitMQ, the exclusive property is a setting used when you declare a queue or a consumer, and it controls who is allowed to use that queue.
+
+🔹 What does exclusive mean?
+
+👉 An exclusive queue can only be used by:
+
+the connection that created it
+and it is automatically deleted when that connection closes
+🔥 When declaring a queue
+channel.QueueDeclare(
+    queue: "my_queue",
+    durable: false,
+    exclusive: true,
+    autoDelete: false,
+    arguments: null
+);
+🔹 Behavior
+
+If exclusive = true:
+
+✔ Only one connection can use it
+Other connections cannot consume or bind to it
+✔ Auto-delete on disconnect
+When the connection closes → queue is deleted automatically
+37-durable  
+
+In RabbitMQ, durable means:
+
+👉 The queue (or exchange) will survive a broker restart.
+
+🔹 What does durable = true mean?
+
+When you declare a queue like this:
+
+channel.QueueDeclare(
+    queue: "my_queue",
+    durable: true,
+    exclusive: false,
+    autoDelete: false,
+    arguments: null
+);
+
+👉 RabbitMQ will persist the queue definition to disk.
+
+So if RabbitMQ restarts:
+
+✅ Queue still exists
+❌ Messages may or may not survive (depends on message durability)
+🔥 Important clarification
+🔹 Durable queue ≠ Durable message
+
+These are two separate things:
+
+1. Durable Queue
+Queue survives restart
+2. Durable Message
+props.DeliveryMode = 2;
+Message is written to disk
