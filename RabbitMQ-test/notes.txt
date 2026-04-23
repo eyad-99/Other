@@ -720,3 +720,4 @@ Queue survives restart
 2. Durable Message
 props.DeliveryMode = 2;
 Message is written to disk
+38- delivery tag ----->  In RabbitMQ, a delivery tag is a unique identifier assigned by the broker to each message that is delivered to a consumer on a specific channel.
