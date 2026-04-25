@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="consumer/consumer.csproj" />
+  <Project Path="prducer/prducer.csproj" />
+</Solution>
