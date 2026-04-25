@@ -8,8 +8,12 @@ class Program
     {
         var config = new ProducerConfig
         {
-            BootstrapServers = "localhost:9092"
-        };
+            BootstrapServers = "localhost:9092",
+
+            // 👇 IMPORTANT: ACK level
+            Acks = Acks.None   
+            
+    };
 
         using var producer = new ProducerBuilder<Null, string>(config).Build();
 
@@ -18,12 +22,21 @@ class Program
             Console.Write("Enter message: ");
             var value = Console.ReadLine();
 
-            var result = await producer.ProduceAsync(
-                new TopicPartition("test-topic", new Partition(0)), // 👈 FORCE partition 0
-                new Message<Null, string> { Value = value }
-            );
+            try
+            {
+                var result = await producer.ProduceAsync(
+                    new TopicPartition("test-topic", new Partition(0)),
+                    new Message<Null, string> { Value = value }
+                );
 
-            Console.WriteLine($"Sent to Partition: {result.Partition}, Offset: {result.Offset}");
+                Console.WriteLine(
+                    $"ACK received ✔ | Partition: {result.Partition}, Offset: {result.Offset}"
+                );
+            }
+            catch (ProduceException<Null, string> ex)
+            {
+                Console.WriteLine($"Failed ❌: {ex.Error.Reason}");
+            }
         }
     }
 }
