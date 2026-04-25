@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "G:\\test\\Kafka-test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C7C2A9F5-B373-4123-9B47-54AD753645D4}|prducer\\prducer.csproj|g:\\test\\kafka-test\\prducer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C7C2A9F5-B373-4123-9B47-54AD753645D4}|prducer\\prducer.csproj|solutionrelative:prducer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CECDAB19-E54A-8F26-C3DD-E57B057B446A}|prducer\\prducer.csproj|g:\\test\\kafka-test\\prducer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CECDAB19-E54A-8F26-C3DD-E57B057B446A}|prducer\\prducer.csproj|solutionrelative:prducer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E8A59F33-2B8B-4437-9869-1744BB9E40DE}|consumer\\consumer.csproj|g:\\test\\kafka-test\\consumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8A59F33-2B8B-4437-9869-1744BB9E40DE}|consumer\\consumer.csproj|solutionrelative:consumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{798B7A60-3539-2188-B332-29A7F94CD1F6}|consumer\\consumer.csproj|g:\\test\\kafka-test\\consumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{798B7A60-3539-2188-B332-29A7F94CD1F6}|consumer\\consumer.csproj|solutionrelative:consumer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,7 +28,7 @@
               "RelativeDocumentMoniker": "consumer\\Program.cs",
               "ToolTip": "G:\\test\\Kafka-test\\consumer\\Program.cs",
               "RelativeToolTip": "consumer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAACEAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-25T08:42:44.497Z",
               "IsPinned": true,

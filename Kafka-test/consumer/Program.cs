@@ -5,14 +5,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        var config = new ConsumerConfig
+        var consumerConfig = new ConsumerConfig
         {
             BootstrapServers = "localhost:9092",
             GroupId = "test-group",
             AutoOffsetReset = AutoOffsetReset.Earliest
         };
 
-        using var consumer = new ConsumerBuilder<Ignore, string>(config).Build();
+        var producerConfig = new ProducerConfig
+        {
+            BootstrapServers = "localhost:9092"
+        };
+
+        using var consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
+        using var producer = new ProducerBuilder<Null, string>(producerConfig).Build();
 
         consumer.Subscribe("test-topic");
 
@@ -20,17 +26,29 @@ class Program
 
         while (true)
         {
+            var result = consumer.Consume();
+
             try
             {
-                var result = consumer.Consume();
+                // simulate failure condition
+                if (result.Message.Value.Contains("fail"))
+                    throw new Exception("Processing failed");
 
-                Console.WriteLine(
-                    $"Received: {result.Message.Value} | " +
-                    $"Partition: {result.Partition} | Offset: {result.Offset}");
+                Console.WriteLine($"Processed: {result.Message.Value}");
             }
-            catch (ConsumeException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Error.Reason}");
+                Console.WriteLine($"Error: {ex.Message}");
+
+                // send to dead letter topic
+                producer.Produce(
+                    "dead-letter-topic",
+                    new Message<Null, string>
+                    {
+                        Value = result.Message.Value
+                    });
+
+                Console.WriteLine("Sent to dead-letter-topic");
             }
         }
     }
