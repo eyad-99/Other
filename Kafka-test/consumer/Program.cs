@@ -3,53 +3,29 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        var consumerConfig = new ConsumerConfig
+        var config = new ConsumerConfig
         {
             BootstrapServers = "localhost:9092",
-            GroupId = "test-group",
+            GroupId = "my-group",
             AutoOffsetReset = AutoOffsetReset.Earliest
         };
 
-        var producerConfig = new ProducerConfig
-        {
-            BootstrapServers = "localhost:9092"
-        };
+        using var consumer = new ConsumerBuilder<Ignore, string>(config).Build();
 
-        using var consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
-        using var producer = new ProducerBuilder<Null, string>(producerConfig).Build();
+        // 👇 Assign specific partition manually
+        var topicPartition = new TopicPartition("test-topic", new Partition(0));
 
-        consumer.Subscribe("test-topic");
+        consumer.Assign(topicPartition);
 
-        Console.WriteLine("Listening...");
+        Console.WriteLine("Consuming from partition 0...");
 
         while (true)
         {
             var result = consumer.Consume();
 
-            try
-            {
-                // simulate failure condition
-                if (result.Message.Value.Contains("fail"))
-                    throw new Exception("Processing failed");
-
-                Console.WriteLine($"Processed: {result.Message.Value}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-
-                // send to dead letter topic
-                producer.Produce(
-                    "dead-letter-topic",
-                    new Message<Null, string>
-                    {
-                        Value = result.Message.Value
-                    });
-
-                Console.WriteLine("Sent to dead-letter-topic");
-            }
+            Console.WriteLine($"Partition: {result.Partition}, Offset: {result.Offset}, Value: {result.Message.Value}");
         }
     }
 }
