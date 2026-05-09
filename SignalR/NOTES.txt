@@ -1,0 +1,104 @@
+1- AJAX REQUEST EVERY SEPECIFIC VERY SHORT PERIOD TIME  
+2-POOLING    BUT UNNECESSARY requests
+3-long pooling one request but will not closed till receive data from server   but still simple request and response as when receive data from server you
+need to send request again  and long pooling can time out also
+4-so we can enhance long pooling by not time out   by (forever frame techniqe) as i send fake chunks even if there is not any data from server to not time out and each real chunk
+(not fake one for prevent time out) chunk render immeditly the issue is this reqire change in interpreter of browser microsoft only has internet exeplorel how about oher browser ?
+and also it is one way just receive
+5- server send event client interest with something will subscribe to server and severs send when ever change happen (http) only receive but can manage
+reconnect when browser want out and send data then come back aagain to receive unlike forever frame do not manage reconnect
+6- we caaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanot use http for real time as long request response architicture
+7-web socket new protocol full duplex connection built on top of tcp/ip model and it is state protocol  need t all technology must be >= 2012 windoes server .net version iis and so on
+8- singla r pick the most appropirate real time connection model and useit you only write code that you want it to be real time so singnalr is not just about websocket
+9- signalr negtiate with client an serveer if applicable websocket then serer sent event then long pooling
+10-connection lyer
+11- hub layer
+12- in code 2 main parts   1- functon call service , 2- call back function (what to do upon recee a new message)
+
+-define connection 
+-strart connection
+-define consume service function
+-define call back function
+13- signalr provide an api for creating server to client remote procedure call  (call js function on client from server side .net core code)
+14- as a client you connect on hub (connection is per hub not a service)
+15- each connection betwee server and client has a unique connection id stored on both side
+16- each hub has 2 main event onconnected    ,      on disconnected
+17- on coonected ------->     context.connectionid
+18- you can call client .all send to all   , client.others   send to all except client thata make the call , client.group    group.add (connectionid,groupname)
+19- on connected you ca add connection id  in table se connection
+20- on disconnected remove connection id from table usercon
+21- join mechanism also in the hub claas and client call it normally like consume the main service
+22-
+In SignalR:
+
+👉 Server does NOT literally execute code inside client process.
+👉 Server only sends a message/signal/event.
+
+Then:
+
+Client receives signal
+↓
+Client runtime finds registered handler
+↓
+Client executes local callback itself
+
+
+23-
+using Microsoft.AspNetCore.SignalR;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSignalR();
+
+var app = builder.Build();
+
+app.MapHub<ChatHub>("/chat");
+
+app.Run("http://localhost:5000");
+
+public class ChatHub : Hub
+{
+    public async Task SendMessage(string user, string message)
+    {
+        Console.WriteLine($"{user}: {message}");
+
+        await Clients.All.SendAsync("ReceiveMessage", user, message);
+    }
+} 
+for clients when to use sendmessage key when to use receivemessage key?
+
+🟢 SendMessage
+
+This is a server Hub method.
+
+Defined here:
+
+public async Task SendMessage(string user, string message)
+
+Client calls it using:
+
+await connection.InvokeAsync("SendMessage", "Eyad", "Hello");
+
+Meaning:
+
+Client → Server
+🔵 ReceiveMessage
+
+This is a client event name.
+
+Server triggers it:
+
+await Clients.All.SendAsync("ReceiveMessage", user, message);
+
+Client listens for it:
+
+connection.On<string, string>("ReceiveMessage", (user, msg) =>
+{
+    Console.WriteLine($"{user}: {msg}");
+});
+
+Meaning:
+
+Server → Client
+
+24- maaaaain point each client to 2 thing listen on event    ,     invoke server method this make it full duplex

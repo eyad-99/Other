@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "imTX45L6OWw=",
+  "success": true,
+  "projectFilePath": "G:\\test\\SignalR\\server\\server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\10.0.7\\microsoft.aspnetcore.http.connections.client.10.0.7.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.aspnetcore.signalr.client\\10.0.7\\microsoft.aspnetcore.signalr.client.10.0.7.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core\\10.0.7\\microsoft.aspnetcore.signalr.client.core.10.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SignalR": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -534,3 +534,27 @@ __consumer_offsets
 
 
 9-repartiotning can be difiicult so must pick a consistent number of partition when initiate kafka
+10- head of ine blocking consumer consume same message and fail every time so it prevent other messages from be consumer untill the failed one get done
+
+11- with ack.none
+
+🧠 Simple truth
+
+With Acks.None:
+
+✔ message may be sent
+✔ ProduceAsync returns
+❌ no broker confirmation
+❌ no offset
+❌ no guarantee message exists
+
+⚡ Why Kafka still returns something?
+
+Because Kafka producer works like this:
+
+App → producer buffer → network → broker (maybe)
+
+With Acks.None:
+
+step stops early
+Kafka doesn’t wait for broker response
