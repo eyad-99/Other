@@ -1,0 +1,921 @@
+1-Nosql   =  Not Only sql
+npn relational, distributed,  open source , horizontal scalable eventually consistent
+
+2- acid vs base
+
+acid vs base
+
+In databases, ACID and BASE are two different approaches to consistency and availability.
+
+🟢 ACID
+
+Used mostly by relational databases like:
+
+Microsoft SQL Server
+PostgreSQL
+MySQL
+
+ACID means:
+
+A = Atomicity → all or nothing
+C = Consistency → data stays valid
+I = Isolation → concurrent transactions don't interfere
+D = Durability → committed data survives crashes
+
+Example: Bank transfer
+
+Account A -100
+Account B +100
+
+Either both happen or neither happens.
+
+🔵 BASE
+
+Common in distributed NoSQL systems like:
+
+Apache Cassandra
+Apache CouchDB
+
+BASE means:
+
+B = Basically Available
+A = Soft State
+E = Eventual Consistency
+
+Idea:
+
+Prioritize availability and scalability, even if all nodes are not immediately consistent.
+
+
+
+3-can eventuall consistency happen in sql server 
+
+Yes 👍
+
+Microsoft SQL Server is an ACID database, but eventual consistency can still happen in some architectures.
+
+The key point is:
+
+Eventual consistency is often an architecture choice, not just a database feature.
+
+🟢 Single SQL Server
+
+If you have one SQL Server instance:
+
+Application
+    ↓
+SQL Server
+
+After a transaction commits:
+
+COMMIT
+
+everyone sees the new data immediately.
+
+This is strong consistency, not eventual consistency.
+
+🔵 SQL Server Replication
+
+Example:
+
+Primary SQL Server
+        ↓
+Secondary SQL Server
+
+If replication is asynchronous:
+
+Write to Primary
+Replication happens later
+
+A user reading from the secondary might temporarily see old data.
+
+That's eventual consistency.
+
+4- challenges of rdb,s
+- assumed a well defined structure of data
+- it needs a schema of the app to be defined upfront before build the app , this doesnot match well with agile for high dynamic app
+- as data start to grow you have to scale your database vertically
+
+5- why relational is best for complex queries
+
+The main advantages of SQL Server for complex queries are:
+
+Better support for many-table relationships.
+More advanced query optimizer.
+More mature join algorithms.
+Strong aggregation/reporting capabilities.
+Decades of optimization for relational workloads.
+SQL Server has a far more sophisticated cost-based query optimizer for multi-table joins and aggregations.
+because its optimizer, statistics, and join algorithms were built specifically for that workload.
+
+
+
+
+
+
+6- nosql lomitaion
+-not a single type the limitaion differ from databse to database, but each one of them has itis strength
+-no standaralization
+-limited query capabilities
+
+7-cap theorem     apllied to distributed systmes ya3ny 7ata sql server bntklm primary replicas
+
+CAP theorem says that in a distributed system, you can only fully guarantee 2 out of these 3 properties at the same time:
+
+Letter	Meaning
+C	Consistency  data is written to one node , immedietly replicated to other nodes
+A	Availability   replicating data across different servers  (alays get response even it is not consitent)
+P	Partition Tolerance  lw noda w23t wa7ad t5osh takhod makanha
+🟢 Consistency (C)
+
+Every node sees the same data.
+
+Example:
+
+Node A = 100
+Node B = 100
+Node C = 100
+
+After an update:
+
+Node A = 200
+Node B = 200
+Node C = 200
+
+No node returns old data.
+
+🔵 Availability (A)
+
+Every request gets a response.
+
+Even if some nodes are down:
+
+Client → Database
+
+Database always answers.
+
+The answer might be stale, but you get a response.
+
+🟡 Partition Tolerance (P)
+
+Network communication between nodes can fail.
+
+Example:
+
+Node A  X----X  Node B
+
+The network link is broken.
+
+The system continues operating despite the partition.
+
+
+8- relational d  always preffer c + a consistence and availability over partion tolerance  (when single machine)
+9- no sql ---> parttion tolerance w ai wa7da mn el c aw el a
+10-
+
+🔵  Key takeaway
+Case	CAP applies?	Result
+Single SQL Server	❌ No	Appears CA
+Distributed DB	✅ Yes	Must choose CP or AP
+🟢 Final simple answer
+
+You “get CA” on a single machine because:
+
+there is no network partition problem at all, so CAP trade-offs never appear.
+
+So it is not that SQL Server “achieves CA”, but that CAP simply doesn’t apply in that case.
+
+
+
+11-in mongo db is created on th fly when refrencing it first time 
+12- schemaless ,  bson : binary form of json
+13-can have _id key almost like ph in sql server   ===guid
+14-bson : data storage and network transfer format
+15- json on hdd is bson
+16 - _id ia a 12 byte hexa decimal number which ensure uniqiness of every doc
+these 12 bytes consist of  4 byte current timestamp  +3 byte machine id + 2bytes process id + 3 byte simple incemental value
+17- most of cammands use camelcase convention first letter small all other first leter capital  ex---> db.createCollecton("Categories")
+18- db.Categpries.insert ({json doc})
+19- db will not created till create one collection and insert at least one doc in this collection
+20- db.Categories.find()
+21- db.Categories.find({title:'Mongodb',by:'iti'})   zai el where
+22- db.Categories.find({title:'Mongodb',by:'iti'},{title:1,id:1}) el object el tany ba5tar el filds ely tt3rd makan el * kda f el sql server
+23- db.Categories.find({"LIKES":{$gt:50}},{title:1,id:1}) el object el tany ba5tar el filds ely tt3rd makan el * kda f el sql server
+24-db.collection.find(
+{
+   $or:[{key1:value1},{key2:value2}]
+}
+)
+
+
+25-db.collection.find(
+{
+   $and:[{key1:value1},{key2:value2}]
+}
+)
+
+26-crud
+-db.tutorial.insert({title:'mongo',by:'iti'})
+-db.getCollection("tutorial").find({})
+-db.tutorial.insert([{title:'dds',by:'itqweqweqwi'},{title:'monsewwwgo',by:'iwwwwti',url:"ewrwerwerwer"}])
+-insertone
+-insertmany
+-await db.collection('inventory').insertMany([
+  {
+    item: 'journal',
+    qty: 25,
+    size: { h: 14, w: 21, uom: 'cm' },
+    status: 'A'
+  },
+  {
+    item: 'notebook',
+    qty: 50,
+    size: { h: 8.5, w: 11, uom: 'in' },
+    status: 'A'
+  },
+  {
+    item: 'paper',
+    qty: 100,
+    size: { h: 8.5, w: 11, uom: 'in' },
+    status: 'D'
+  },
+  {
+    item: 'planner',
+    qty: 75,
+    size: { h: 22.85, w: 30, uom: 'cm' },
+    status: 'D'
+  },
+  {
+    item: 'postcard',
+    qty: 45,
+    size: { h: 10, w: 15.25, uom: 'cm' },
+    status: 'A'
+  }
+]);
+-db.inventory.find({status:'A'})
+- inner field db.inventory.find({"size.w":11})
+-db.inventory.find({"size.w":11,status:'D'})
+-db.inventory.find({status:{$in:['A','B']}})
+-db.inventory.find({$OR:[{status:'A'},{status:'B'}]})
+-db.inventory.find({$or:[{status:'A'},{status:'B'}],qty:{$gte:46}})
+-db.inventory.find({ tags: { $all: ["red", "blank"] } }) exact rea , black bas lw fy zyada yb2a msh haimatch
+-db.inventory.find({ tags: ["red", "blank"]  }) contain red, bblack m3 ba3d  
+-db.inventory.find({ dim_cm: { $gt: 15, $lt: 20 } })   match dy or dy
+-db.inventory.find({ dim_cm: { $elemMatch: { $gt: 22, $lt: 30 } } }) el 2 condition sawa
+-db.inventory.find( { "dim_cm.1": { $gt: 25 } }) second element in dim_cm array match 25
+-db.inventory.find( { item: null }) haygbalk ely el item b null + el docs ely mafehash item
+=
+- cursor
+let myCursor = db.users.find( { type: "user" } )
+myCursor.next()
+
+let myCursor = db.users.find( { type: "user" } )
+
+while ( myCursor.hasNext() ) {
+   printjson( myCursor.next() )
+}
+myCursor.hasNext()
+
+
+-  db.movies.updateOne(
+   { title: "The Godfather" },
+   {
+     $set: { rated: "PG", "tomatoes.viewer.rating": 4.5 },
+     $currentDate: { lastupdated: true }
+   }
+)
+
+
+-  db.movies.updateMany(
+   { "num_mflix_comments": { $gt: 100 } },
+   {
+     $set: { popular: true },
+     $currentDate: { lastupdated: true }
+   }
+)
+
+ $currentDate: { lastupdated: true } dy 3ashan by default fy field esmo lastupdated:  ma3 kol doc bitcreate automatic fant bt3rfo enta hat updateo howa kaman wala la 
+
+-db.movies.replaceOne(
+   { title: "The Godfather" },
+   { title: "The Godfather", plot: "Updated plot summary", year: 1972, rated: "R", runtime: 175 }
+)
+
+
+byms7 el doc kolaha w y7ot doc gdeda
+
+- db.collection('inventory').deleteMany({ status: 'A' });
+- db.collection('inventory').deleteOne({ status: 'D' });
+
+🟢 MongoDB Consistency, Isolation, Read Concerns, Transactions (Unified View)
+1. 🧠 Core Idea (Big Picture)
+
+MongoDB consistency model is based on:
+
+Read Concern → how fresh/consistent data is
+Write Concern → when a write is considered “safe”
+Isolation → what a query can see while operations are running
+Transactions → multi-document atomicity
+Causal consistency → “read your own writes” ordering guarantee
+🟡 2. Read Concern (Data visibility levels)
+
+Read concern controls what version of data you are allowed to read.
+
+🔹 1. local (default)
+Reads data from the node immediately
+Fastest
+May read data that:
+is NOT replicated yet
+may later be rolled back
+
+👉 Think:
+
+“What this node currently has”
+
+🔹 2. available
+Same as local but even less strict in sharded edge cases
+Can return:
+orphaned / inconsistent shard data
+Fastest but weakest consistency
+
+👉 Think:
+
+“Give me anything available right now”
+
+🔹 3. majority
+Reads only data that has been replicated to most nodes
+What “majority reached” means:
+
+Example (3 nodes):
+
+Primary + S1 + S2
+
+Majority = 2 nodes
+
+So a write is visible only if:
+
+at least 2 nodes have confirmed it
+
+✔ Safe from rollback
+✔ Durable after failover
+
+👉 Think:
+
+“Only read confirmed-safe data”
+
+🔹 4. linearizable
+Strongest consistency
+
+Behaves like:
+
+single database, single timeline
+
+Reads reflect the latest confirmed write before the read starts
+
+✔ Strongest
+❌ Slowest
+❌ Primary-only
+
+🔹 5. snapshot
+Provides a point-in-time view
+All reads inside transaction see same snapshot
+
+Example:
+
+A=100, B=200 at time T1
+Even if updated during query → still sees T1 state
+
+✔ Consistent view
+✔ Used in transactions
+✔ Cross-shard safe snapshot
+
+🟠 3. Write Concern (Related concept)
+🔹 w:1
+Write acknowledged by primary only
+Fast
+Can be rolled back
+🔹 w:"majority"
+Write acknowledged by majority of nodes
+Durable
+Safe from rollback
+
+👉 Relation:
+
+Read majority depends on write majority
+🔵 4. Isolation in MongoDB (VERY IMPORTANT)
+
+MongoDB does NOT use SQL-style isolation names internally.
+
+Conceptual mapping only:
+SQL Concept	MongoDB Equivalent
+Read Uncommitted	local / default behavior
+Read Committed	majority (partially)
+Repeatable Read	snapshot (transactions)
+Serializable	linearizable + transactions (closest approximation)
+🔹 Default Isolation
+MongoDB default = Read Uncommitted
+Meaning:
+You may see uncommitted / rolled-back data
+Reads are fast, not strict
+🔹 Single-document isolation
+ALWAYS atomic
+Never see partial update
+🔹 Multi-document (without transaction)
+NOT atomic
+NOT consistent snapshot
+Reads may see:
+partial updates
+mixed states
+🔹 Transactions fix this
+
+Inside transaction:
+
+All operations behave like atomic unit
+Either:
+ALL commit
+OR ALL rollback
+🟣 5. Oplog vs Journal
+🔹 Oplog (replication log)
+Cluster-level
+Used for replication
+Primary → secondaries
+Stores operations:
+insert / update / delete
+
+👉 Purpose:
+
+“Tell other nodes what changed”
+
+🔹 Journal
+Node-level
+Used for crash recovery
+Ensures durability on disk
+
+👉 Purpose:
+
+“Don’t lose data if server crashes”
+
+🔴 6. Causal Consistency
+Meaning:
+
+“Read your own writes in order”
+
+Example:
+
+Write name = "Ali"
+Read name → must return "Ali"
+
+✔ Works using sessions
+✔ Requires majority read/write concern
+
+Guarantees:
+Read your writes
+Monotonic reads (no going backwards)
+Writes follow reads (correct ordering)
+
+⚠ NOT a transaction
+It is a session-level ordering guarantee
+
+🟢 7. Transactions
+
+Used when you need:
+
+✔ Multi-document atomicity
+✔ Cross-collection updates
+✔ Cross-shard consistency
+
+Behavior:
+Either commit all changes
+Or rollback everything
+Inside transaction:
+Uses snapshot-like isolation
+Reads see consistent view
+Writes invisible until commit
+Cost:
+Slower than normal operations
+Should NOT replace good schema design
+🟡 8. Key Differences (Very Important)
+Read Concern vs Isolation
+Read Concern = “what data version you read”
+Isolation = “what you are protected from while reading”
+
+👉 They are related but NOT the same thing
+
+Causal consistency vs Transactions
+Feature	Meaning
+Causal consistency	ordering of operations
+Transaction	atomic multi-document execution
+Majority meaning (simple)
+Write majority = most nodes confirm write
+Read majority = read only confirmed-safe data
+
+9.MongoDB Search is a built-in full-text search engine that lets you search, rank, and filter text data efficiently without using external search systems.
+🔍 MongoDB Search vs Elasticsearch
+🟢 Similarities
+
+Both:
+
+Do full-text search
+Support ranking (relevance)
+Support fuzzy search (typos)
+Support autocomplete
+Use indexes for fast search
+10.By using MongoDB as a vector database, you can use MongoDB Vector Search to seamlessly search and index your vector data alongside your other MongoDB data. MongoDB Vector Search enables you to query data based on its semantic meaning, combine vector search with full-text search, and filter your queries on other fields in your collection, so you can retrieve the most relevant results for your use case.
+
+Use MongoDB Vector Search to power your AI applications and agentic systems by implementing retrieval-augmented generation (RAG). You can also integrate MongoDB Vector Search with popular AI frameworks and services to quickly build AI applications and agents.
+
+
+11.
+🧪 . Profiling & Debugging Tools
+Database Profiler → slow queries
+Logs → execution time tracking
+serverStatus → system health metrics
+🚨 . Critical Errors Monitoring
+Assert levels:
+warning
+regular
+user
+message (most severe)
+Profiler (queries) + Logs (errors) + serverStatus (health) + Atlas dashboards (production monitoring)
+
+
+12.
+🚨 Connection Storms
+
+Meaning: Sudden spike in MongoDB connections.
+
+🔍 Causes
+Bad connection pool settings (minPoolSize too low)
+High traffic / load spike
+Slow queries (connections stay busy)
+App creates new MongoClient per request ❌
+App restart → many reconnects
+Sharded cluster (mongos opens many connections)
+Cluster connection limit reached
+🛠 Fix
+Reuse one MongoClient
+Tune pool (minPoolSize ≈ normal load)
+Limit maxPoolSize
+Scale cluster if needed
+
+Check serverStatus:
+
+connections.current → suddenly increases
+connections.active → increases
+connections.totalCreated → spikes fast
+metrics.network.totalIngressTLSHandshakeTimeMillis → spikes
+Logs show many “Connection accepted”
+
+
+
+🚨 Server Selection Timeout
+
+Meaning: Driver cannot find/connect to MongoDB server.
+
+🔍 Causes
+Firewall / network blocked (port 27017)
+IP not allowed (Atlas)
+DNS/SRV lookup failure
+TLS/certificate issues
+MongoDB server down
+🛠 Fix
+Open network access
+Add IP to allowlist
+Fix DNS / connection string
+Fix TLS config
+Ensure server is running
+⚡ Difference
+Connection Storm = too many connections
+Server Timeout = no connection possible
+
+🛠 Fix
+Reuse single MongoClient (singleton)
+Set proper minPoolSize ≈ maxPoolSize
+Limit maxPoolSize
+Scale cluster if needed
+Tune mongos pools
+
+13. Model relationships using Embedding or Referencing
+embeding is good when number nested objects  is not to largee so i will not loop on many objects also when duplication is rarly as i should update all same docs on each update
+
+in refrences
+-var result=db.users.findone({"name":"tom"},{address_ids:1})
+- var addresses = db.address.find({"_id":{"$in":result["address_ids"]}})
+
+14. aggregation  match (filter) , then group (real aggregate)
+
+-
+db.movies.aggregate(
+  [
+    {
+        $match : {
+            "directors" : { $exists: true, $ne: null, $not: {$size: 0} }
+        }
+    },
+    {
+        $unwind : "$directors"
+    },
+    {
+        $group : {
+        _id : "$directors",
+        movieCount : {
+            $sum: 1
+            }
+        }
+    },
+    {
+        $sort : {
+            movieCount : -1
+        }
+    },
+    {
+        $limit : 3
+    }
+  ]
+)
+-
+$unwind is used to split an array into multiple documents.
+
+Suppose you have:
+
+{
+  title: "Movie A",
+  directors: ["Director1", "Director2"]
+}
+
+After:
+
+{
+  $unwind: "$directors"
+}
+
+MongoDB produces:
+
+{
+  title: "Movie A",
+  directors: "Director1"
+}
+
+{
+  title: "Movie A",
+  directors: "Director2"
+}
+
+So one document becomes multiple documents, one for each array element.
+
+
+
+
+-
+db.employees.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      count: { $sum: 1 }
+    }
+  }
+])
+
+-
+db.employees.aggregate([
+  {
+    $match: {
+      department: "IT"
+    }
+  },
+  {
+    $group: {
+      _id: "$department",
+      count: { $sum: 1 }
+    }
+  }
+])
+
+15- mapreduce
+db.employees.mapReduce(
+    function() {
+        emit(this.department, 1);
+    },
+    function(key, values) {
+        return Array.sum(values);
+    },
+    {
+        out: "departmentCounts"
+    }
+);
+
+Input:
+
+{ name: "Ali", department: "IT" }
+{ name: "Sara", department: "IT" }
+{ name: "Omar", department: "HR" }
+
+Output (departmentCounts collection):
+
+{ _id: "IT", value: 2 }
+{ _id: "HR", value: 1 }
+What happens?
+
+Map phase:
+
+IT -> 1
+IT -> 1
+HR -> 1
+
+Reduce phase:
+
+IT -> 2
+HR -> 1
+
+This is equivalent to the aggregation pipeline:
+
+db.employees.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      count: { $sum: 1 }
+    }
+  }
+]);
+
+Today, the aggregation pipeline is the preferred approach.
+
+
+
+
+
+-
+MVCC, Journal, Replication, and Read Concern are different layers.
+
+MVCC → controls which version of data a reader sees.
+Journal → crash recovery on a node.
+Replication → copies data to other nodes.
+Read Concern → rules about which versions are allowed to be read.
+local
+Read latest version on this node
+
+Implementation:
+
+Reader uses MVCC snapshot of the current state.
+Does NOT wait for journal.
+Does NOT wait for replication.
+Can read data written only on primary.
+
+Example:
+
+Write arrives
+↓
+Memory updated
+↓
+local read can see it immediately
+↓
+Journal later
+↓
+Replication later
+
+So:
+
+MVCC → yes
+Journal → ignored
+Replication → ignored
+available
+
+Same idea as local.
+
+Read whatever this shard currently has
+
+Implementation:
+
+Uses local node state.
+No replication requirement.
+No journal requirement.
+In sharded clusters may return data even during migrations.
+MVCC → yes
+Journal → ignored
+Replication → ignored
+majority
+Read only majority committed data
+
+Implementation:
+
+Write occurs.
+Replicated to majority of nodes.
+MongoDB advances majority commit point.
+Reader reads snapshot at or before that commit point.
+
+Example:
+
+Primary
+Secondary1
+Secondary2
+
+Write X
+↓
+Primary + Secondary1 have X
+↓
+Majority reached
+↓
+Majority read can see X
+
+So:
+
+MVCC → read snapshot at majority commit point
+Journal → indirectly involved
+Replication → REQUIRED
+
+The key thing is:
+
+Majority reads are based mainly on the replication commit point, not the journal.
+
+linearizable
+Show me the absolutely latest successful write
+
+Implementation:
+
+Read must go to primary.
+MongoDB checks primary is still primary.
+Read occurs after all previous majority-confirmed writes.
+
+Example:
+
+Write X
+↓
+Majority confirmed
+↓
+Linearizable read
+↓
+Must see X
+
+So:
+
+MVCC → yes
+Journal → usually tied to majority durability
+Replication → majority confirmation required
+Primary only
+
+Think:
+
+majority = safe data
+linearizable = latest safe data
+snapshot
+Read data exactly as it existed at time T
+
+Implementation:
+
+MVCC is the main mechanism here.
+
+Example:
+
+T1:
+A=100
+
+Transaction starts
+↓
+Snapshot created
+
+Another user:
+A=200
+
+Transaction reads A
+↓
+Still sees A=100
+
+MongoDB keeps older versions available through MVCC.
+
+So:
+
+MVCC → heavily used
+Journal → not the main mechanism
+Replication → only if snapshot must be majority committed
+Simple Interview Answer
+Read Concern	MVCC Used?	Journal Needed?	Replication Needed?
+local	          Yes             	No	         No
+available	      Yes	              No	         No
+majority	      Yes	              No 	         Yes
+linearizable	  Yes	              Indirectly	 Yes (majority)
+snapshot	      Yes (main mechanism)	No	Optional, depends on transaction settings
+Easy memory trick
+local       = latest on this node
+available   = anything available
+majority    = majority replicated
+linearizable= latest majority-confirmed write
+snapshot    = state at a specific time
+
+And regarding your question:
+
+Which feature actually provides the old versions needed for reads?
+
+MVCC provides the old versions.
+
+The journal does not store versions for readers. The journal exists mainly so MongoDB can recover after a crash.
+
+-schema validation
+-bkb and restore
+-atlas mongo on cloud
+
+
+- bad el : f el find 
+1-lw hatedy value 3ala toll 3ady aktbha  title :'ryad' 
+2-lw hatktb expression yb2a lazm gowa {}    qty:{$gt:46}  3ashan expression greater than 
+
+- (tranaction ,  replication ,  sharding , performance )  from mongo doc
