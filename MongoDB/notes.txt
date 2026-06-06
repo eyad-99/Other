@@ -911,7 +911,23 @@ The journal does not store versions for readers. The journal exists mainly so Mo
 
 -schema validation
 -bkb and restore
+MongoDB Database
+        │
+        ▼
+   mongodump
+        │
+        ▼
+   Backup Files
+        │
+        ▼
+  mongorestore
+        │
+        ▼
+MongoDB Database
+
+
 -atlas mongo on cloud
+
 
 
 - bad el : f el find 
