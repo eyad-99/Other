@@ -1,0 +1,19 @@
+-HTTP/2 uses a binary protocol instead of text. Data is split into small units called frames. Frames belong to streams,
+ and multiple streams can share the same TCP connection. This allows multiplexing, better performance, and more efficient communication than HTTP/1.1.
+-Converting data to binary and splitting it into frames does add a small processing cost. However,
+ HTTP/2 is faster because framing enables multiplexing, header compression, and the use of a single TCP connection for many requests.
+ The performance gains from reduced network latency and better connection utilization are much larger than the small overhead of framing.
+ stream identifier for each group of frames that belong to same message ,  frames-> smallest unit of communication in http2
+ -HTTP/2 uses a binary format because binary messages are easier and faster for machines to parse, have a strict structure with less ambiguity, and enable features such as multiplexing and efficient framing.
+ Although there is a small encoding/decoding cost, it is negligible compared to network latency, and the benefits greatly outweigh the overhead.
+
+
+
+ 1- rpc :Call a function on another machine as if it were a local function.
+ 2-grpc : google Remote Procedure Call
+ 3- grpc is a contract first api using protobuf----> define contract
+ el contract da mohm gedan l2n el meesage bbtb3t msh zai json {name:eyad, age 22} la hayb3at binary msln 44354544,
+awel 4 dol eyad wel el ba2y el age (client server know el contract mn 8ero m7dsh hayfham da 44354544 eh) w hwa beiparse bel length wel index w hakaza
+4-  package name in nuget : Grpc.AspNetCore
+5-Yes, gRPC essentially sends the Protobuf binary output inside HTTP/2 binary frames.
+Think of it as binary inside binary, but they serve different purposes.

@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\test\\grpc\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|g:\\test\\grpc\\grpcapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|solutionrelative:grpcapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|g:\\test\\grpc\\grpcapi\\grpcapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|solutionrelative:grpcapi\\grpcapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F24C6D8-0C99-40F2-981E-C2317EE5041E}|grpc\\grpc.csproj|g:\\test\\grpc\\grpc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5F24C6D8-0C99-40F2-981E-C2317EE5041E}|grpc\\grpc.csproj|solutionrelative:grpc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|g:\\test\\grpc\\grpcapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|solutionrelative:grpcapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|g:\\test\\grpc\\grpcapi\\greeterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|solutionrelative:grpcapi\\greeterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|g:\\test\\grpc\\grpcapi\\protos\\protobuf.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|solutionrelative:grpcapi\\protos\\protobuf.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|g:\\test\\grpc\\grpcapi\\grpcapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9D5053C4-E7F5-4338-BCBC-5505954F425D}|grpcapi\\grpcapi.csproj|solutionrelative:grpcapi\\grpcapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F24C6D8-0C99-40F2-981E-C2317EE5041E}|grpc\\grpc.csproj|g:\\test\\grpc\\grpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F24C6D8-0C99-40F2-981E-C2317EE5041E}|grpc\\grpc.csproj|solutionrelative:grpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "G:\\test\\grpc\\grpcapi\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "grpcapi\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "G:\\test\\grpc\\grpcapi\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "grpcapi\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvw8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T03:02:18.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "G:\\test\\grpc\\grpc\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "grpc\\Properties\\launchSettings.json",
+              "ToolTip": "G:\\test\\grpc\\grpc\\Properties\\launchSettings.json",
+              "RelativeToolTip": "grpc\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-09T02:43:00.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "grpcapi.http",
+              "DocumentMoniker": "G:\\test\\grpc\\grpcapi\\grpcapi.http",
+              "RelativeDocumentMoniker": "grpcapi\\grpcapi.http",
+              "ToolTip": "G:\\test\\grpc\\grpcapi\\grpcapi.http",
+              "RelativeToolTip": "grpcapi\\grpcapi.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-06-09T02:42:17.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\test\\grpc\\grpcapi\\Program.cs",
+              "RelativeDocumentMoniker": "grpcapi\\Program.cs",
+              "ToolTip": "G:\\test\\grpc\\grpcapi\\Program.cs*",
+              "RelativeToolTip": "grpcapi\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T02:40:22.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GreeterService.cs",
+              "DocumentMoniker": "G:\\test\\grpc\\grpcapi\\GreeterService.cs",
+              "RelativeDocumentMoniker": "grpcapi\\GreeterService.cs",
+              "ToolTip": "G:\\test\\grpc\\grpcapi\\GreeterService.cs",
+              "RelativeToolTip": "grpcapi\\GreeterService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T02:38:33.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "grpcapi",
+              "DocumentMoniker": "G:\\test\\grpc\\grpcapi\\grpcapi.csproj",
+              "RelativeDocumentMoniker": "grpcapi\\grpcapi.csproj",
+              "ToolTip": "G:\\test\\grpc\\grpcapi\\grpcapi.csproj",
+              "RelativeToolTip": "grpcapi\\grpcapi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-09T02:18:33.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "protobuf.proto",
+              "DocumentMoniker": "G:\\test\\grpc\\grpcapi\\protos\\protobuf.proto",
+              "RelativeDocumentMoniker": "grpcapi\\protos\\protobuf.proto",
+              "ToolTip": "G:\\test\\grpc\\grpcapi\\protos\\protobuf.proto",
+              "RelativeToolTip": "grpcapi\\protos\\protobuf.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2026-06-09T02:08:22.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\test\\grpc\\grpc\\Program.cs",
+              "RelativeDocumentMoniker": "grpc\\Program.cs",
+              "ToolTip": "G:\\test\\grpc\\grpc\\Program.cs",
+              "RelativeToolTip": "grpc\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T20:11:03.376Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
