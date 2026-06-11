@@ -4,8 +4,6 @@ G:\test\grpc\grpc\bin\Debug\net10.0\grpc.runtimeconfig.json
 G:\test\grpc\grpc\bin\Debug\net10.0\grpc.dll
 G:\test\grpc\grpc\bin\Debug\net10.0\grpc.pdb
 G:\test\grpc\grpc\bin\Debug\net10.0\Google.Protobuf.dll
-G:\test\grpc\grpc\bin\Debug\net10.0\Grpc.AspNetCore.Server.dll
-G:\test\grpc\grpc\bin\Debug\net10.0\Grpc.AspNetCore.Server.ClientFactory.dll
 G:\test\grpc\grpc\bin\Debug\net10.0\Grpc.Core.Api.dll
 G:\test\grpc\grpc\bin\Debug\net10.0\Grpc.Net.Client.dll
 G:\test\grpc\grpc\bin\Debug\net10.0\Grpc.Net.ClientFactory.dll
@@ -22,3 +20,13 @@ G:\test\grpc\grpc\obj\Debug\net10.0\refint\grpc.dll
 G:\test\grpc\grpc\obj\Debug\net10.0\grpc.pdb
 G:\test\grpc\grpc\obj\Debug\net10.0\grpc.genruntimeconfig.cache
 G:\test\grpc\grpc\obj\Debug\net10.0\ref\grpc.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.Configuration.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Binder.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.Http.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.Logging.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.Options.dll
+G:\test\grpc\grpc\bin\Debug\net10.0\Microsoft.Extensions.Primitives.dll

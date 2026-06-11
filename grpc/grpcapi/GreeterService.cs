@@ -12,4 +12,21 @@ public class GreeterService : Greeter.GreeterBase
             Message = $"Hello {request.Name}"
         });
     }
+
+    // Bidirectional streaming example
+    public override async Task Chat(
+        IAsyncStreamReader<HelloRequest> requestStream,
+        IServerStreamWriter<HelloReply> responseStream,
+        ServerCallContext context)
+    {
+        await foreach (var request in requestStream.ReadAllAsync())
+        {
+            var reply = new HelloReply
+            {
+                Message = $"Hello {request.Name}"
+            };
+
+            await responseStream.WriteAsync(reply);
+        }
+    }
 }

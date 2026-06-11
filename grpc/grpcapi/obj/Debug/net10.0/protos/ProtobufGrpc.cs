@@ -58,6 +58,14 @@ namespace GrpcDemo {
         __Marshaller_greet_HelloRequest,
         __Marshaller_greet_HelloReply);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcDemo.HelloRequest, global::GrpcDemo.HelloReply> __Method_Chat = new grpc::Method<global::GrpcDemo.HelloRequest, global::GrpcDemo.HelloReply>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "Chat",
+        __Marshaller_greet_HelloRequest,
+        __Marshaller_greet_HelloReply);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -74,6 +82,19 @@ namespace GrpcDemo {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      /// Bidirectional streaming
+      /// </summary>
+      /// <param name="requestStream">Used for reading requests from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task Chat(grpc::IAsyncStreamReader<global::GrpcDemo.HelloRequest> requestStream, grpc::IServerStreamWriter<global::GrpcDemo.HelloReply> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -82,7 +103,8 @@ namespace GrpcDemo {
     public static grpc::ServerServiceDefinition BindService(GreeterBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
+          .AddMethod(__Method_SayHello, serviceImpl.SayHello)
+          .AddMethod(__Method_Chat, serviceImpl.Chat).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -93,6 +115,7 @@ namespace GrpcDemo {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GreeterBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcDemo.HelloRequest, global::GrpcDemo.HelloReply>(serviceImpl.SayHello));
+      serviceBinder.AddMethod(__Method_Chat, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::GrpcDemo.HelloRequest, global::GrpcDemo.HelloReply>(serviceImpl.Chat));
     }
 
   }

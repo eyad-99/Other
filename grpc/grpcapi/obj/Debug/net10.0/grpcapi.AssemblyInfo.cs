@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("grpcapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44004248a4a8946d06638548556124121116fe28")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5aaef7e9099b90bcd4d82e1fbf5bc04abaa64170")]
 [assembly: System.Reflection.AssemblyProductAttribute("grpcapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("grpcapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

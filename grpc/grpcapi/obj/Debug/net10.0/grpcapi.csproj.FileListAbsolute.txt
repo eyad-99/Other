@@ -33,7 +33,6 @@ G:\test\grpc\grpcapi\obj\Debug\net10.0\staticwebassets.build.json.cache
 G:\test\grpc\grpcapi\obj\Debug\net10.0\staticwebassets.development.json
 G:\test\grpc\grpcapi\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 G:\test\grpc\grpcapi\obj\Debug\net10.0\swae.build.ex.cache
-G:\test\grpc\grpcapi\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 G:\test\grpc\grpcapi\obj\Debug\net10.0\grpcapi.csproj.Up2Date
 G:\test\grpc\grpcapi\obj\Debug\net10.0\grpcapi.dll
 G:\test\grpc\grpcapi\obj\Debug\net10.0\refint\grpcapi.dll
