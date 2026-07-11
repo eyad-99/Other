@@ -1,0 +1,765 @@
+Redis concept:
+1- key value in memory first key value data store
+2- redis insight gui
+
+3- redis insight cli
+
+> set color red
+"OK"
+
+> get color
+"red"
+
+> unlink color
+(integer) 1
+
+to update set it again
+
+-Which of the following is NOT a valid value that can be stored in a Redis string? Sets
+images and videos allowed
+
+Redis strings can only store values that are binary-safe strings (up to 512 MB). That means they can hold text, numbers, or even raw binary data. But they cannot directly store complex data types like sets, lists, or hashes.
+
+🔑 Valid Redis String Values
+Text → "hello world"
+
+Numbers → "42" (can be manipulated with INCR, DECR)
+
+Binary data → Images, serialized objects, JSON blobs
+
+
+> lpush products 1
+(integer) 1
+
+> lpush products 2
+(integer) 2
+
+> lpush products 3
+(integer) 3
+
+> llen products
+(integer) 3
+
+
+> rpop products
+"1"
+
+> rpop products
+"2"
+
+> rpop products
+"3"
+
+-also there is lpop,rpop    ,      lpush,rpush 
+-pop read then remove
+
+
+
+
+> lrange products 0 2
+1) "122"
+2) "111"
+3) "1"
+
+-sets in redis 
+> sadd set 1     setadd        set in normal name of set , could be any other name
+(integer) 1
+
+> sadd set 2
+(integer) 1
+
+> sad set 2
+"ERR unknown command 'sad', with args beginning with: 'set' '2' "
+
+> sadd set 2
+(integer) 0
+
+> smembers set
+1) "1"
+2) "2"
+
+
+> srem set 1
+(integer) 1
+
+
+
+
+
+-hashes
+collection of key value pairs
+> HSET name first eyad 
+(integer) 1
+
+> hget name first
+"eyad"
+
+use of hash
+
+
+
+-JSON
+✅ Example: Storing JSON in Redis
+Using JSON.SET
+bash
+JSON.SET user:1 $ '{"name":"Eyad","age":25,"skills":["Redis","Node.js","Python"]}'
+Key: user:1
+
+Path: $ (root of the JSON document)
+
+Value: JSON object
+
+Retrieving JSON
+bash
+JSON.GET user:1
+Returns:
+
+json
+{"name":"Eyad","age":25,"skills":["Redis","Node.js","Python"]}
+Accessing a Specific Field
+bash
+JSON.GET user:1 $.name
+Returns:
+
+json
+["Eyad"]
+Updating a Field
+bash
+JSON.SET user:1 $.age 26
+📊 Why Use JSON in Redis
+Structured data → Store complex objects without breaking them into multiple keys.
+
+Query support → Use JSONPath to fetch nested fields.
+
+Integration → Works seamlessly with RediSearch for indexing and querying JSON documents.
+
+Flexibility → Store arrays, nested objects, and update parts of the document without rewriting the whole value.
+
+Compact storage  
+Hashes are more memory‑efficient than storing each field as a separate string key. For small fields, Redis internally optimizes hashes to save space.
+
+Logical grouping  
+Instead of scattering keys like user:1:name, user:1:age, user:1:email, you can keep them all inside one hash:
+
+Code
+HSET user:1 name "Eyad" age 25 email "eyad@example.com"
+Fast field access  
+You can retrieve or update individual fields (HGET user:1 name) without touching the whole object.
+
+-When would you consider using JSON over hashes in Redis?
+When you need explicitly typed values or nested data structures
+
+
+
+
+
+-sorted set :A Redis sorted set is a collection of unique string members, each associated with a numeric score that determines the order
+⚙️ Common Commands
+ZADD → Add members with scores
+
+Code
+ZADD leaderboard 100 "Eyad" 95 "Ali" 120 "Sara"
+ZRANGE → Get members by rank (ascending order)
+
+Code
+ZRANGE leaderboard 0 -1 WITHSCORES
+ZREVRANGE → Get members by rank (descending order)
+
+Code
+ZREVRANGE leaderboard 0 2 WITHSCORES
+ZSCORE → Get the score of a member
+
+Code
+ZSCORE leaderboard "Eyad"
+ZREM → Remove a member
+
+Code
+ZREM leaderboard "Ali"
+
+ZADD leaderboard 100 "Eyad" 95 "Ali" 120 "Sara"
+ZRANK leaderboard "Ali"
+ZRANK leaderboard "Ali" → returns 0 (Ali is first in ascending order).
+
+-EXPIRE key seconds   to make key volatile (set expiration time in second)
+
+**********************************************************************************************************************************
+
+
+
+
+
+1-StackExchange.Redis is a popular .NET client library for working with Redis, the in‑memory key‑value store.
+
+
+2-ConnectionMultiplexer is the gateway object that manages your Redis connections efficiently,
+letting you run commands, pub/sub, and server ops all through one shared instance.
+
+
+3- why connection multiplexer open 2 tcp connection per redis server ?
+Yes — by design, ConnectionMultiplexer opens two TCP connections per Redis server.
+🔑 Why two connections?
+Primary connection → used for normal commands (GET, SET, etc.).
+Subscription connection → dedicated to Pub/Sub messaging.
+Redis requires a separate connection for Pub/Sub because once a connection subscribes to channels, it can’t be used for regular commands anymore.
+To avoid blocking, StackExchange.Redis automatically manages a second connection for subscriptions.
+
+
+4-sending more commands concurrently doesn’t make Redis execute them faster, because only one thread processes commands at a time.
+The benefit of concurrency is mainly on the client side (your app can issue requests without blocking), but Redis itself serves them sequentially.
+as redis itself is single threaded
+
+
+
+
+
+
+5-
+The public API of StackExchange.Redis is broken up across several critical interfaces. We'll briefly go over each of them in this section. You've actually already touched two of them IConnectionMultiplexer and IDatabase.
+
+THE INTERFACES
+
+IConnectionMultiplexer
+IDatabase
+IServer
+ISubscriber
+ITransaction
+
+
+6-IConnectionMultiplexer
+The IConnectionMultiplexer is responsible for maintaining all of the connections to Redis. As I described in the previous section. It routes all the commands to Redis through a single connection for interactive commands, and a separate connection for subscription, which we'll discuss more in depth later.
+
+The IConnectionMultiplexer is responsible for exposing a simple interface to get other critical interfaces of the library. Including the IDatabase, ISubscriber, and IServer.
+
+7-IDatabase
+The IDatabase can be thought of as the primary interactive interface to Redis. It provides a single interface for your entire Redis Instance, and is the preferred interface when you are executing single commands that manipulate your application's data to Redis.
+The IDatabase, unlike the IServer, abstracts the particulars of your Redis deployments away. Consequently, if you are running in a cluster and are performing a write, the IDatabase does not require you to know which server in particular you need to write to.
+Also, if you have many replicas per master shard in your Cluster or Sentinel Redis deployments, the IDatabase will leverage the ConnectionMultiplexer to automatically distribute your reads across your deployment.
+
+8-IServer
+The IServer is an abstraction to a single instance of a Redis Server. You can grab an instance of an IServer by using the IConnectionMultiplexer.
+GetServer command, passing in the exact endpoint information you want to retrieve.
+IServer has a fundamentally different role than IDatabase as you're going to use it to handle the server level commands.
+That means that in general, data modeling commands are not appropriate to be used on a server.
+Rather operations like checking the server's info (the basic info of Redis), it's configuration, updating it's configuration, checking memory statistics, and the like are IServer operations.
+Even scanning for the keys of a Redis server should be done at the server level
+
+
+
+9-ISubscriber
+The ISubscriber is the interface responsible for maintaining subscriptions to Redis in the pub/sub interface. Unlike the other interfaces we've looked at thus far, the subscriber does not leverage the interactive connection.
+The Multiplexer explicitly opens a separate connection for subscriptions because when you subscribe to any channel on a client in Redis, the client connection converts to subscription mode.
+This limits the connection to only use commands that implement subscriber functionality.
+True to it's name however, the Multiplexer continues to maintain a single connection per server, and all subscriptions are handled on that single connection.
+You you can get an instance of an ISubscriber by calling the IConnectionMultiplexer.GetSubscriber() method.
+
+
+10-ITransaction
+The ITransaction provides an interface for Redis Transactions. Transactions in Redis differ from transactions in other databases, for a full description of transactions check out the transaction section of Get Started with Redis
+The ITransaction interface is fundamentally an async interface. It exposes a very similar command set to the IDatabase, but it will only expose async versions of each command. That is because each command in ITransaction is async, as they will not be competed until after Execute is called. Only after the Execute is called can the underpinning tasks for the Transaction be awaited.
+You can get an instance of an ITransaction by calling IDatabase.GetTransaction() on your IDatabase object.
+
+
+ITransaction in StackExchange.Redis provides a way to execute Redis transactions atomically. Unlike traditional database transactions, Redis transactions queue commands with MULTI and only execute them when EXEC is called, ensuring isolation but without rollback support.
+
+🔑 How Redis Transactions Work
+MULTI → Starts a transaction, queues commands.
+
+EXEC → Executes all queued commands atomically.
+
+DISCARD → Cancels the transaction, clears the queue.
+
+WATCH → Implements optimistic locking; aborts if watched keys change.
+
+Redis guarantees:
+
+All commands in a transaction are executed sequentially.
+
+No other client’s commands interleave during execution.
+
+If EXEC is not called, nothing is applied.
+
+⚠️ Important difference from SQL transactions: Redis does not support rollback. Once EXEC runs, all queued commands are applied.
+
+
+Redis transactions: No rollback. If a command inside fails (e.g., wrong type), the others still run. 
+The atomicity is about execution order and isolation, not error recovery.
+
+-redis cluster
+Of the "advanced" Redis Connections, cluster is probably the easiest to understand. Connecting to an OSS Cluster instance is the same as connecting to a standalone Redis Instance. The only exception is that when you are listing endpoints, you'll want to use more than one. This is so that if the endpoint you are trying to reach has failed over, the Multiplexer still has a chance to connect to the other master instances.
+
+An example ConfigurationOptions for a cluster instance might look something along the lines of this, notice how the Endpoints collection takes multiple endpoints which the ConnectionMultiplexer can use as backups if one of the endpoints should fail to respond (possibly because it's failed over).
+
+   var options = new ConfigurationOptions
+
+    {
+
+        // add and update parameters as needed
+
+        EndPoints = {"redis-1:6379", "redis-2:6379", "redis-3:6379"}
+
+    };
+
+-redis sintenel
+
+what is Redis Sentinel
+Redis Sentinel is a system designed to provide high availability for Redis. It monitors Redis instances, detects failures, and automatically promotes replicas to masters when needed. Think of it as the “watchdog” and “orchestrator” for Redis deployments.
+🔑 Key Features of Redis Sentinel
+Monitoring → Constantly checks if your master and replica instances are working.
+Automatic failover → If a master goes down, Sentinel promotes a replica to master.
+Notification → Alerts clients or administrators about changes in the system.
+Configuration provider → Clients can query Sentinel to discover the current master, so they always connect to the right node.
+⚙️ How It Works
+You run multiple Sentinel processes (usually 3+ for quorum).
+Sentinel monitors the master and replicas.
+If the master fails, Sentinels vote to elect a replica as the new master.
+Clients ask Sentinel for the current master address, ensuring they connect to the right node.
+⚠️ Notes
+Sentinel does not shard data — it’s only about failover and monitoring.
+For large datasets, use Redis Cluster; for smaller setups needing resilience, Sentinel is often enough.
+Best practice: run multiple Sentinel instances (odd number, e.g., 3 or 5) to avoid split-brain scenarios.
+
+-pipelining
+
+Redis pipelining is a technique that lets a client send multiple commands to the server without waiting for each individual reply.
+Instead of the usual request–response cycle (send one command, wait for reply, send next),
+ pipelining batches commands together, reducing network latency and improving throughput.
+
+
+-EXPLICIT PIPELINING WITH IBATCH
+
+Finally, let's explicitly pipeline all of our pings using an IBatch. An IBatch will guarantee that the client sends the entire batch to Redis in one shot, with no other commands interleaved in the pipeline. This is slightly different behavior than our implicit pipelining as in the case of implicit pipelining, commands may be interleaved with any other commands the client was executing at the time.
+
+To explicitly pipeline these commands we'll follow a similar pattern, in this case, however, we will use the IDatabase.CreateBatch() method to create the batch, and use the batch's async methods to 'dispatch' the the tasks. It's important to note here that unlike in our implicit case, the tasks will not be truly dispatched until after the IBatch.Execute() method is called, if you try awaiting any of the tasks before then, you can accidentally deadlock your command. After calling Execute, you can then await all of the tasks.
+
+   // clear our ping tasks list.
+
+    pingTasks.Clear();
+
+ 
+
+    // Batches allow you to more intentionally group together the commands that you want to send to Redis.
+
+    // If you employee a batch, all commands in the batch will be sent to Redis in one contiguous block, with no
+
+    // other commands from the client interleaved. Of course, if there are other clients to Redis, commands from those
+
+    // other clients may be interleaved with your batched commands.
+
+    var batch = db.CreateBatch();
+
+ 
+
+    // restart stopwatch
+
+    stopwatch.Restart();
+
+ 
+
+    for (var i = 0; i < 1000; i++)
+
+    {
+
+        pingTasks.Add(batch.PingAsync());
+
+    }
+
+ 
+
+    batch.Execute();
+
+    await Task.WhenAll(pingTasks);
+
+    Console.WriteLine($"1000 batched commands took: {stopwatch.ElapsedMilliseconds}ms to execute, first result: {pingTasks[0].Result}");
+
+
+
+
+
+-redis stream
+
+Redis Streams are an append-only log like data structure that allows you to enqueue messages from producers to be consumed by consumers in your application. They are a powerful data structure with a rich feature set, and for a full explanation as to how and why to use Redis Streams, you can check out the Redis streams course.
+
+In this section, we'll explore using Redis Streams in .NET using the StackExchange.Redis library. We'll learn how to:
+
+Add Messages to a Stream.
+Read Messages from a Stream.
+Read Messages from a Stream in a Consumer Group.
+
+STREAM LIMITATIONS IN STACKEXCHANGE.REDIS
+
+Due to the multiplexed nature of StackExchange.Redis, it's important to note at the top that there is no mechanism for using the blocking paradigms available within the stream reading operations.
+
+This means that the Stream Read operations, StreamRead & StreamReadGroup, will not be able to use the XREAD and XREADGROUP block timer or the special $ id to read only new messages.
+
+Because StackExchange.Redis uses a multiplexed connection model (one TCP connection shared across many logical operations), it cannot safely support commands that block indefinitely.
+
+No blocking reads → You cannot use XREAD or XREADGROUP with BLOCK.
+
+No $ special ID for new messages only → Since blocking isn’t supported, you can’t sit and wait for new entries.
+
+Instead, you must poll the stream periodically with StreamRead or StreamReadGroup.
+
+-transaction
+ var transaction = db.CreateTransaction();
+
+ 
+
+    transaction.HashSetAsync("person:1", new HashEntry[]
+
+    {
+
+        new ("name", "Steve"),
+
+        new ("age", 32),
+
+        new ("postal_code", "32999")
+
+    });
+
+    transaction.SortedSetAddAsync("person:name:Steve", "person:1", 0);
+
+    transaction.SortedSetAddAsync("person:postal_code:32999", "person:1", 0);
+
+    transaction.SortedSetAddAsync("person:age", "person:1", 32);
+
+ 
+
+    var success = transaction.Execute();
+
+    Console.WriteLine($"Transaction Successful: {success}");
+
+ So in plain words: you can guard your transaction with conditions. If the data isn’t what you expect, Redis won’t run the transaction.
+
+
+ -pub/sub
+ Here’s what that explanation means in simpler terms:
+
+Redis Pub/Sub is a messaging system where publishers send messages to channels, and subscribers listen to those channels.
+
+In StackExchange.Redis, Pub/Sub is special because it uses a separate connection from the normal one you use for commands like SET or GET.
+
+🔑 Why a Separate Connection?
+When you subscribe to a channel, Redis switches that connection into subscriber mode.
+
+In subscriber mode, the connection can only handle Pub/Sub traffic — no normal commands.
+
+If StackExchange.Redis tried to share the same connection for both, your normal commands would be blocked by the subscription stream.
+
+So the library opens two connections:
+
+Interactive connection → for normal Redis commands.
+
+Subscriber connection → dedicated to Pub/Sub messages.
+
+subscriber.Subscribe("news", (channel, message) =>
+{
+    Console.WriteLine($"Received: {message}");
+}); is this line async  i mean it send and donot wait tull request and subscribption finish ?
+Exactly — subscriber.Subscribe("news", …) in StackExchange.Redis is non‑blocking.
+
+When you call Subscribe, the library sends a request to Redis to register your callback, but it doesn’t wait until Redis confirms the subscription is active.
+
+Because the connection is multiplexed and asynchronous, the method returns right away, and the callback will only start firing once Redis has processed the subscription internally.
+
+If you immediately publish after subscribing, there’s a race: the publish may happen before the subscription handshake completes, so the message is missed.
+
+
+
+
+
+
+-asp.net core
+
+   builder.Services.AddStackExchangeRedisCache(x => x.ConfigurationOptions = new ConfigurationOptions
+
+    {
+
+        EndPoints = { "localhost:6379" },
+
+        Password = ""
+
+    });
+
+
+
+
+
+
+
+
+    var cache = scope.ServiceProvider.GetRequiredService<IDistributedCache>();
+    var cachePipe = new List<Task>
+
+    {
+
+        cache.RemoveAsync("top:sales", cancellationToken),
+
+        cache.RemoveAsync("top:name", cancellationToken),
+
+        cache.RemoveAsync("totalSales", cancellationToken)
+
+    };
+
+    cachePipe.AddRange(salesDb.Employees.Select(employee => cache.RemoveAsync($"employee:{employee.EmployeeId}:avg", cancellationToken)));
+    await Task.WhenAll(cachePipe);
+
+
+DEPENDENCY INJECT IDISTRIBUTEDCACHE
+
+With the cache added to our DI container, we will need to inject it into our controller. Open up Controllers/EmployeeController.cs in there, add the IDistributedCache as a readonly field.
+
+   private readonly IDistributedCache _cache;
+
+ 
+
+Then, modify the EmployeeController constructor to accepted an IDistributedCache, when you're done, it should look like this:
+
+   public EmployeeController(SalesContext salesDb, IDistributedCache cache)
+
+    {
+
+        _cache = cache;
+
+        _salesDb = salesDb;
+
+    }
+
+ CACHE INDIVIDUAL AVERAGE SALE
+
+Next, we'll look at calculating the average sale of a given individual salesperson. To do that we'll have and endpoint that takes an Id, which we'll use to run a simple average on their sales like so:
+
+   var avg = await _salesDb.Employees.Include(x => x.Sales).Where(x => x.EmployeeId == id).Select(x => x.Sales.Average(y => y.Total)).FirstAsync();
+
+Again, we'll want to cache this by setting a key in Redis, find the spot marked // TODO Section 3.2 step 5 and add:
+
+   var key = $"employee:{id}:avg";
+
+    var cacheResult = await _cache.GetStringAsync(key);
+
+ 
+
+    if (cacheResult != null)
+
+    {
+
+        stopwatch.Stop();
+
+        return new Dictionary<string, double>
+
+        {
+
+            { "average", double.Parse(cacheResult) },
+
+            { "elapsed", stopwatch.ElapsedMilliseconds }
+
+        };
+
+    }
+
+
+
+
+    -add hoc
+
+    This hands‑on section is showing you how to use the Ad‑Hoc API in StackExchange.Redis to run commands that don’t have a dedicated wrapper in the library — and then applying it to probabilistic data structures like Bloom Filters and Top‑K.
+
+🔑 Key Concepts
+Execute / ExecuteAsync → Run any Redis command directly by name.
+
+Arguments → Pass parameters either inline (db.ExecuteAsync("SET", "foo", "bar")) or as an object array.
+
+Command Flags → Control behavior (e.g. demand replica, prefer master, fire‑and‑forget).
+
+🚀 Probabilistic Data Structures
+These are compact, approximate data structures useful for big datasets:
+
+Bloom Filter → Efficiently test if an item may be in a set (false positives possible, but never false negatives).
+
+Reserve space: BF.RESERVE
+
+Add items: BF.MADD
+
+Query: BF.EXISTS
+
+Top‑K → Track the most frequent items (“heavy hitters”) in a stream.
+
+Reserve: TOPK.RESERVE
+
+Increment counts: TOPK.INCRBY
+
+List results: TOPK.LIST (optionally with counts).
+
+✅ Example Flow
+Bloom Filter
+
+csharp
+await db.ExecuteAsync("BF.RESERVE", "bf", 0.01, 20000);
+await db.ExecuteAsync("BF.MADD", bloomList, CommandFlags.FireAndForget);
+var exists = await db.ExecuteAsync("BF.EXISTS", "bf", "the");
+Console.WriteLine((int)exists); // 1 means "may exist"
+Top‑K
+
+csharp
+await db.ExecuteAsync("TOPK.RESERVE", "topk", 10, 20, 10, .925);
+await db.ExecuteAsync("TOPK.INCRBY", topKList, CommandFlags.FireAndForget);
+var res = await db.ExecuteAsync("TOPK.LIST", "topk");
+var arr = ((RedisResult[])res!).Select(x => x.ToString());
+Console.WriteLine($"Top 10: {string.Join(", ", arr)}");
+📊 Why It Matters
+Flexibility → You can run any Redis command, even ones not wrapped in the library.
+
+Performance → Bloom Filters and Top‑K give fast, memory‑efficient approximations.
+
+Scalability → Useful for huge datasets where exact answers are too costly.
+
+👉 In short: this hands‑on teaches you how to use ExecuteAsync for custom Redis commands and demonstrates it with Bloom Filters (membership tests) and Top‑K (frequency tracking).
+
+
+
+
+
+
+
+
+
+
+-RedisTimeSeries — a Redis module that lets you store and query time‑tagged numeric data (like sensor readings, stock prices, or metrics). You’re using the NRedisTimeSeries extension on top of StackExchange.Redis, so the connection setup is the same, but you get extra methods for time series operations.
+
+🔑 Flow of the Example
+Create a time series → TimeSeriesCreateAsync("sensor", …) defines a key that will hold timestamped values.
+
+Define compaction rules → You set up extra series (sensor:avg, sensor:min, sensor:max) and rules so Redis automatically aggregates the raw data every 5 seconds.
+
+Produce data → A background task adds a random integer every second with TimeSeriesAddAsync("sensor", "*", value).
+
+Consume raw data → Another task fetches the latest reading each second using TimeSeriesGetAsync.
+
+Consume aggregated data → A task runs every 5 seconds, querying the compacted series with TimeSeriesMGetAsync and printing averages, mins, and maxes.
+
+Run until keypress → Console.ReadKey() keeps the producer and consumers alive until you stop them.
+
+📊 Why This Matters
+Scalability → You can handle continuous streams of data efficiently.
+
+Aggregation → Redis does the heavy lifting of computing averages/min/max, so your app doesn’t need to.
+
+Flexibility → Labels let you filter and query multiple series at once.
+
+
+
+
+
+-modeling objects : 
+[Document(StorageType = StorageType.Json, Prefixes = new[] { "employee" }, IndexName = "employee-idx")]
+public class Employee
+{
+    [RedisIdField]
+    public string? Id { get; set; }
+
+    [Indexed]
+    public int Age { get; set; }
+
+    [Searchable]
+    public string? Name { get; set; }
+
+    public Address? Address { get; set; }
+}
+Exactly — Redis OM .NET is about taking your C# models and making them first‑class documents inside Redis, with attributes that control how they’re stored and queried. Let’s break down the key pieces you just saw:
+
+🔑 Core Attributes
+DocumentAttribute
+
+Decorates the class you want to store in Redis (Employee, Sale).
+
+Defines storage type (JSON vs Hash), key prefix, and index name.
+
+JSON is recommended because it handles complex objects and collections better.
+
+RedisIdFieldAttribute
+
+Marks the property that will serve as the unique ID.
+
+If you don’t provide one, Redis OM generates a ULID by default.
+
+Typically applied to Id in your model.
+
+IndexedAttribute
+
+Marks fields you want to query or sort on.
+
+Works on strings, numbers, enums, GeoLoc, and even nested classes.
+
+Lets you cascade indexing into sub‑fields.
+
+SearchableAttribute
+
+Enables full‑text search on string fields.
+
+Queries like == in LINQ become full‑text matches instead of exact string equality.
+
+Useful for fields like Name or Address.
+
+DocumentAttribute → Decorate your classes (Employee, Sale) to tell Redis OM how to store them (JSON vs Hash), what key prefix to use, and what index name to assign.
+
+RedisIdField → Mark the Id property so each object has a unique identifier. This makes updates and deletes possible.
+
+Indexed vs Searchable →
+
+Indexed → exact matches, ranges, sorting (e.g., Age, Name).
+
+Searchable → full‑text search on strings (e.g., StreetAddress).
+
+Indexing embedded documents →
+
+Use JsonPath to index specific sub‑fields (like $.Location).
+
+Use CascadeDepth to automatically index nested objects to a certain depth.
+
+Indexing collections → Arrays/lists of strings (like Sales) can be indexed directly.
+
+RedisConnectionProvider → Connect to Redis with a URI (redis://localhost:6379) and get access to higher‑level abstractions like RedisCollection<T>.
+
+Create indexes → Call CreateIndexAsync(typeof(Employee)) and CreateIndexAsync(typeof(Sale)) to actually build the indexes in Redis.
+
+Drop indexes → DropIndex removes the index but keeps data; DropIndexAndAssociatedRecords removes both index and data (demo‑only).
+
+
+
+
+real index types 
+Scalar indexing → Index simple fields like Age, Name, Total.
+
+Searchable indexing → Full‑text search on strings (like StreetAddress).
+
+Embedded document indexing → Index nested objects using JSONPath or CascadeDepth.
+
+Collection indexing → Index arrays/lists of strings (like Sales).
+
+
+
+-json Path $.
+Suppose you store this JSON in Redis:
+
+json
+{
+  "Employee": {
+    "Id": "123",
+    "Name": "Alice",
+    "Address": {
+      "StreetAddress": "123 Main Street",
+      "PostalCode": "90210"
+    }
+  }
+}
+Indexing:
+[Indexed(JsonPath = "$.Employee.Address.PostalCode")] → makes PostalCode searchable.
+
+Querying:
+JSON.GET employee:123 $.Employee.Address.PostalCode → returns "90210".
+
+Updating:
+JSON.SET employee:123 $.Employee.Address.PostalCode "10001" → changes the postal code to "10001".
+
+
+
+ 

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\test\\Redis\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{09731821-FD7A-3870-0E65-E6438C9187F4}|Redis\\Redis.csproj|g:\\test\\redis\\redis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09731821-FD7A-3870-0E65-E6438C9187F4}|Redis\\Redis.csproj|solutionrelative:redis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\test\\Redis\\Redis\\Program.cs",
+              "RelativeDocumentMoniker": "Redis\\Program.cs",
+              "ToolTip": "G:\\test\\Redis\\Redis\\Program.cs*",
+              "RelativeToolTip": "Redis\\Program.cs*",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAAAJoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T18:44:05.47Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
