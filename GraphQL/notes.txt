@@ -1,0 +1,106 @@
+1- one single endpoint to make all requests
+2-single endpoint for exact needed data so hit one get exact all data you need
+3-advantage of grapghql over rest
+Single endpoint: Instead of juggling multiple REST routes, GraphQL exposes one endpoint for queries, mutations, and subscriptions.
+
+Precise data: Clients ask for only the fields they need, reducing payload size by up to 60–80% compared to REST in mobile scenarios.
+
+Nested queries: You can fetch related data (e.g., user + posts + comments) in one request, avoiding the “n+1 problem” common in REST.
+
+Strongly typed schema: Guarantees predictable responses and enables code generation for clients.
+
+Real‑time subscriptions: Built‑in support for live updates, unlike REST which needs extra infrastructure.
+
+
+
+- queries and resolvers
+Resolver = the function behind a GraphQL field.
+It tells GraphQL how to get the data for that field.
+Without resolvers, your schema would exist but wouldn’t know how to return values.
+
+request for resolver
+query {
+  getEmployees {
+    id
+    name
+    age
+  }
+}
+
+
+
+{
+  "data": {
+    "getEmployees": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "age": 30
+      },
+      {
+        "id": 2,
+        "name": "Bob",
+        "age": 25
+      },
+      {
+        "id": 3,
+        "name": "Charlie",
+        "age": 40
+      }
+    ]
+  }
+}
+------------
+query with a param
+
+{
+  employeeById(id: 2) {
+    id
+    name
+    age
+  }
+}
+
+{
+  "data": {
+    "employeeById": {
+      "id": 2,
+      "name": "Bob",
+      "age": 25
+    }
+  }
+}
+_________________________________________________________________________________________________________________________________________
+mutations  create update delete
+
+mutation {
+  createEmployee(name: "Charlie", age: 40) {
+    id
+    name
+    age
+  }
+}
+
+mutation {
+  deleteEmployee(id: 2)
+}
+_________________________________________________________________________________________________________________________________________
+subscriptions
+A subscription in GraphQL is the third operation type (alongside queries and mutations) that lets clients receive real‑time updates from the server.
+
+🔑 What Subscriptions Do
+Query → read data (like getEmployee).
+
+Mutation → write/change data (like createEmployee).
+
+Subscription → stay connected and get notified when something changes.
+
+Think of it like:
+
+Queries = “Give me data now.”
+
+Mutations = “Change this data.”
+
+Subscriptions = “Tell me whenever this data changes.”
+
+
