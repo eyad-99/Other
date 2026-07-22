@@ -70,8 +70,7 @@
               "RelativeToolTip": "GrapghQLClient\\schema.graphql",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-07-22T17:56:02.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-22T17:56:02.183Z"
             },
             {
               "$type": "Document",
@@ -83,8 +82,7 @@
               "RelativeToolTip": "GrapghQLClient\\.graphqlrc.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-22T17:46:06.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-22T17:46:06.382Z"
             },
             {
               "$type": "Document",
@@ -96,8 +94,7 @@
               "RelativeToolTip": "GrapghQLClient\\Generated\\GrapghQLClient.Client.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-22T17:43:05.095Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-22T17:43:05.095Z"
             },
             {
               "$type": "Document",
@@ -107,7 +104,7 @@
               "RelativeDocumentMoniker": "GrapghQLClient\\test.graphql",
               "ToolTip": "G:\\test\\GraphQL\\GrapghQLClient\\test.graphql",
               "RelativeToolTip": "GrapghQLClient\\test.graphql",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-07-22T17:41:20.507Z",
               "EditorCaption": ""
@@ -118,9 +115,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\test\\GraphQL\\GrapghQLClient\\Program.cs",
               "RelativeDocumentMoniker": "GrapghQLClient\\Program.cs",
-              "ToolTip": "G:\\test\\GraphQL\\GrapghQLClient\\Program.cs*",
-              "RelativeToolTip": "GrapghQLClient\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABCAAAAAAAAAA==",
+              "ToolTip": "G:\\test\\GraphQL\\GrapghQLClient\\Program.cs",
+              "RelativeToolTip": "GrapghQLClient\\Program.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAkwCYAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-22T17:34:03.14Z",
               "EditorCaption": ""
@@ -147,8 +144,7 @@
               "RelativeToolTip": "GraphQL\\Schema\\Mutation.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAuwC4AAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T09:22:19.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-16T09:22:19.409Z"
             },
             {
               "$type": "Document",

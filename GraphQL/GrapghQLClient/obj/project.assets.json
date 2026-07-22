@@ -531,6 +531,18 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "System.Reactive/7.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net8.0/System.Reactive.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/System.Reactive.dll": {}
+        },
+        "build": {
+          "build/System.Reactive.targets": {}
+        }
       }
     }
   },
@@ -1419,6 +1431,32 @@
         "system.io.hashing.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "System.Reactive/7.0.0": {
+      "sha512": "VYaSP2Kt+45GFnr3q7c/b4awT48VvueOJV4jPjdUXi5MxC9mSUy+HkJYtm8rGZ6fC3tNHG9gBu/YwNAR/FYqhg==",
+      "type": "package",
+      "path": "system.reactive/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/System.Reactive.Analyzers.dll",
+        "build/System.Reactive.PackagesConfigCheck.targets",
+        "build/System.Reactive.targets",
+        "icon.png",
+        "lib/net472/System.Reactive.dll",
+        "lib/net8.0-windows10.0.19041/System.Reactive.dll",
+        "lib/net8.0/System.Reactive.dll",
+        "lib/netstandard2.0/System.Reactive.dll",
+        "lib/uap10.0.18362/System.Reactive.dll",
+        "readme.md",
+        "ref/net472/System.Reactive.dll",
+        "ref/net8.0-windows10.0.19041/System.Reactive.dll",
+        "ref/net8.0/System.Reactive.dll",
+        "ref/netstandard2.0/System.Reactive.dll",
+        "ref/uap10.0.18362/System.Reactive.dll",
+        "system.reactive.7.0.0.nupkg.sha512",
+        "system.reactive.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1426,7 +1464,8 @@
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.23.0",
       "StrawberryShake >= 16.5.1",
       "StrawberryShake.Transport.Http >= 16.5.1",
-      "StrawberryShake.Transport.WebSockets >= 16.5.1"
+      "StrawberryShake.Transport.WebSockets >= 16.5.1",
+      "System.Reactive >= 7.0.0"
     ]
   },
   "packageFolders": {
@@ -1459,6 +1498,7 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -1477,6 +1517,7 @@
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
@@ -1494,6 +1535,10 @@
           "StrawberryShake.Transport.WebSockets": {
             "target": "Package",
             "version": "[16.5.1, )"
+          },
+          "System.Reactive": {
+            "target": "Package",
+            "version": "[7.0.0, )"
           }
         },
         "imports": [

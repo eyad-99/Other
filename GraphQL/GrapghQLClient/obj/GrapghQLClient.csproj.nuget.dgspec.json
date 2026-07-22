@@ -67,6 +67,10 @@
             "StrawberryShake.Transport.WebSockets": {
               "target": "Package",
               "version": "[16.5.1, )"
+            },
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [

@@ -312,6 +312,310 @@ namespace GrapghQLDemo.Client
     {
     }
 
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultTypeGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class CreateEmployeeResult : global::System.IEquatable<CreateEmployeeResult>, ICreateEmployeeResult
+    {
+        public CreateEmployeeResult(global::GrapghQLDemo.Client.ICreateEmployee_CreateEmployee createEmployee)
+        {
+            CreateEmployee = createEmployee;
+        }
+
+        public global::GrapghQLDemo.Client.ICreateEmployee_CreateEmployee CreateEmployee { get; }
+
+        public virtual global::System.Boolean Equals(CreateEmployeeResult? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (CreateEmployee.Equals(other.CreateEmployee));
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((CreateEmployeeResult)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                hash ^= 397 * CreateEmployee.GetHashCode();
+                return hash;
+            }
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultTypeGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class CreateEmployee_CreateEmployee_Employee : global::System.IEquatable<CreateEmployee_CreateEmployee_Employee>, ICreateEmployee_CreateEmployee_Employee
+    {
+        public CreateEmployee_CreateEmployee_Employee(global::System.Int32 id, global::System.String name, global::System.Int32 age)
+        {
+            Id = id;
+            Name = name;
+            Age = age;
+        }
+
+        public global::System.Int32 Id { get; }
+        public global::System.String Name { get; }
+        public global::System.Int32 Age { get; }
+
+        public virtual global::System.Boolean Equals(CreateEmployee_CreateEmployee_Employee? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (global::System.Object.Equals(Id, other.Id)) && Name.Equals(other.Name) && global::System.Object.Equals(Age, other.Age);
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((CreateEmployee_CreateEmployee_Employee)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                hash ^= 397 * Id.GetHashCode();
+                hash ^= 397 * Name.GetHashCode();
+                hash ^= 397 * Age.GetHashCode();
+                return hash;
+            }
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultInterfaceGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial interface ICreateEmployeeResult
+    {
+        public global::GrapghQLDemo.Client.ICreateEmployee_CreateEmployee CreateEmployee { get; }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultInterfaceGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial interface ICreateEmployee_CreateEmployee
+    {
+        public global::System.Int32 Id { get; }
+        public global::System.String Name { get; }
+        public global::System.Int32 Age { get; }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultInterfaceGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial interface ICreateEmployee_CreateEmployee_Employee : ICreateEmployee_CreateEmployee
+    {
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultTypeGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class OnEmployeeCreatedResult : global::System.IEquatable<OnEmployeeCreatedResult>, IOnEmployeeCreatedResult
+    {
+        public OnEmployeeCreatedResult(global::GrapghQLDemo.Client.IOnEmployeeCreated_OnEmployeeCreated onEmployeeCreated)
+        {
+            OnEmployeeCreated = onEmployeeCreated;
+        }
+
+        public global::GrapghQLDemo.Client.IOnEmployeeCreated_OnEmployeeCreated OnEmployeeCreated { get; }
+
+        public virtual global::System.Boolean Equals(OnEmployeeCreatedResult? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (OnEmployeeCreated.Equals(other.OnEmployeeCreated));
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((OnEmployeeCreatedResult)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                hash ^= 397 * OnEmployeeCreated.GetHashCode();
+                return hash;
+            }
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultTypeGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class OnEmployeeCreated_OnEmployeeCreated_Employee : global::System.IEquatable<OnEmployeeCreated_OnEmployeeCreated_Employee>, IOnEmployeeCreated_OnEmployeeCreated_Employee
+    {
+        public OnEmployeeCreated_OnEmployeeCreated_Employee(global::System.Int32 id, global::System.String name, global::System.Int32 age)
+        {
+            Id = id;
+            Name = name;
+            Age = age;
+        }
+
+        public global::System.Int32 Id { get; }
+        public global::System.String Name { get; }
+        public global::System.Int32 Age { get; }
+
+        public virtual global::System.Boolean Equals(OnEmployeeCreated_OnEmployeeCreated_Employee? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (global::System.Object.Equals(Id, other.Id)) && Name.Equals(other.Name) && global::System.Object.Equals(Age, other.Age);
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((OnEmployeeCreated_OnEmployeeCreated_Employee)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                hash ^= 397 * Id.GetHashCode();
+                hash ^= 397 * Name.GetHashCode();
+                hash ^= 397 * Age.GetHashCode();
+                return hash;
+            }
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultInterfaceGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial interface IOnEmployeeCreatedResult
+    {
+        public global::GrapghQLDemo.Client.IOnEmployeeCreated_OnEmployeeCreated OnEmployeeCreated { get; }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultInterfaceGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial interface IOnEmployeeCreated_OnEmployeeCreated
+    {
+        public global::System.Int32 Id { get; }
+        public global::System.String Name { get; }
+        public global::System.Int32 Age { get; }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultInterfaceGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial interface IOnEmployeeCreated_OnEmployeeCreated_Employee : IOnEmployeeCreated_OnEmployeeCreated
+    {
+    }
+
     // StrawberryShake.CodeGeneration.CSharp.Generators.OperationDocumentGenerator
     /// <summary>
     /// Represents the operation service of the GetEmployees GraphQL operation
@@ -620,6 +924,291 @@ namespace GrapghQLDemo.Client
         global::System.IObservable<global::StrawberryShake.IOperationResult<IEmployeeByIdResult>> Watch(global::System.Int32 id, global::StrawberryShake.ExecutionStrategy? strategy = null);
     }
 
+    // StrawberryShake.CodeGeneration.CSharp.Generators.OperationDocumentGenerator
+    /// <summary>
+    /// Represents the operation service of the CreateEmployee GraphQL operation
+    /// <code>
+    /// mutation CreateEmployee($name: String!, $age: Int!) {
+    ///   createEmployee(name: $name, age: $age) {
+    ///     __typename
+    ///     id
+    ///     name
+    ///     age
+    ///     ... on Employee {
+    ///       id
+    ///     }
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class CreateEmployeeMutationDocument : global::StrawberryShake.IDocument
+    {
+        private CreateEmployeeMutationDocument()
+        {
+        }
+
+        public static CreateEmployeeMutationDocument Instance { get; } = new CreateEmployeeMutationDocument();
+        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
+        public global::System.ReadOnlySpan<global::System.Byte> Body => "mutation CreateEmployee($name: String!, $age: Int!) { createEmployee(name: $name, age: $age) { __typename id name age ... on Employee { id } } }"u8;
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "19013c3a50d66b67f136f38a5a68424a");
+
+        public override global::System.String ToString()
+        {
+#if NETCOREAPP3_1_OR_GREATER
+        return global::System.Text.Encoding.UTF8.GetString(Body);
+#else
+            return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
+#endif
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.OperationServiceGenerator
+    /// <summary>
+    /// Represents the operation service of the CreateEmployee GraphQL operation
+    /// <code>
+    /// mutation CreateEmployee($name: String!, $age: Int!) {
+    ///   createEmployee(name: $name, age: $age) {
+    ///     __typename
+    ///     id
+    ///     name
+    ///     age
+    ///     ... on Employee {
+    ///       id
+    ///     }
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class CreateEmployeeMutation : global::GrapghQLDemo.Client.ICreateEmployeeMutation
+    {
+        private readonly global::StrawberryShake.IOperationExecutor<ICreateEmployeeResult> _operationExecutor;
+        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _stringFormatter;
+        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _intFormatter;
+        private readonly global::System.Collections.Immutable.ImmutableArray<global::System.Action<global::StrawberryShake.OperationRequest>> _configure = global::System.Collections.Immutable.ImmutableArray<global::System.Action<global::StrawberryShake.OperationRequest>>.Empty;
+        public CreateEmployeeMutation(global::StrawberryShake.IOperationExecutor<ICreateEmployeeResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
+            _stringFormatter = serializerResolver.GetInputValueFormatter("String");
+            _intFormatter = serializerResolver.GetInputValueFormatter("Int");
+        }
+
+        private CreateEmployeeMutation(global::StrawberryShake.IOperationExecutor<ICreateEmployeeResult> operationExecutor, global::System.Collections.Immutable.ImmutableArray<global::System.Action<global::StrawberryShake.OperationRequest>> configure, global::StrawberryShake.Serialization.IInputValueFormatter @intFormatter, global::StrawberryShake.Serialization.IInputValueFormatter @stringFormatter)
+        {
+            _operationExecutor = operationExecutor;
+            _configure = configure;
+            _intFormatter = @intFormatter;
+            _stringFormatter = @stringFormatter;
+        }
+
+        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(ICreateEmployeeResult);
+
+        public global::GrapghQLDemo.Client.ICreateEmployeeMutation With(global::System.Action<global::StrawberryShake.OperationRequest> configure)
+        {
+            return new global::GrapghQLDemo.Client.CreateEmployeeMutation(_operationExecutor, _configure.Add(configure), _intFormatter, _stringFormatter);
+        }
+
+        public global::GrapghQLDemo.Client.ICreateEmployeeMutation WithRequestUri(global::System.Uri requestUri)
+        {
+            return With(r => r.ContextData["StrawberryShake.Transport.Http.HttpConnection.RequestUri"] = requestUri);
+        }
+
+        public global::GrapghQLDemo.Client.ICreateEmployeeMutation WithHttpClient(global::System.Net.Http.HttpClient httpClient)
+        {
+            return With(r => r.ContextData["StrawberryShake.Transport.Http.HttpConnection.HttpClient"] = httpClient);
+        }
+
+        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ICreateEmployeeResult>> ExecuteAsync(global::System.String name, global::System.Int32 age, global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var request = CreateRequest(name, age);
+            foreach (var configure in _configure)
+            {
+                configure(request);
+            }
+
+            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        public global::System.IObservable<global::StrawberryShake.IOperationResult<ICreateEmployeeResult>> Watch(global::System.String name, global::System.Int32 age, global::StrawberryShake.ExecutionStrategy? strategy = null)
+        {
+            var request = CreateRequest(name, age);
+            return _operationExecutor.Watch(request, strategy);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::System.String name, global::System.Int32 age)
+        {
+            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
+            variables.Add("name", FormatName(name));
+            variables.Add("age", FormatAge(age));
+            return CreateRequest(variables);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return new global::StrawberryShake.OperationRequest(id: CreateEmployeeMutationDocument.Instance.Hash.Value, name: "CreateEmployee", document: CreateEmployeeMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
+        }
+
+        private global::System.Object? FormatName(global::System.String value)
+        {
+            if (value is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(value));
+            }
+
+            return _stringFormatter.Format(value);
+        }
+
+        private global::System.Object? FormatAge(global::System.Int32 value)
+        {
+            return _intFormatter.Format(value);
+        }
+
+        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return CreateRequest(variables!);
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.OperationServiceInterfaceGenerator
+    /// <summary>
+    /// Represents the operation service of the CreateEmployee GraphQL operation
+    /// <code>
+    /// mutation CreateEmployee($name: String!, $age: Int!) {
+    ///   createEmployee(name: $name, age: $age) {
+    ///     __typename
+    ///     id
+    ///     name
+    ///     age
+    ///     ... on Employee {
+    ///       id
+    ///     }
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial interface ICreateEmployeeMutation : global::StrawberryShake.IOperationRequestFactory
+    {
+        global::GrapghQLDemo.Client.ICreateEmployeeMutation With(global::System.Action<global::StrawberryShake.OperationRequest> configure);
+        global::GrapghQLDemo.Client.ICreateEmployeeMutation WithRequestUri(global::System.Uri requestUri);
+        global::GrapghQLDemo.Client.ICreateEmployeeMutation WithHttpClient(global::System.Net.Http.HttpClient httpClient);
+        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ICreateEmployeeResult>> ExecuteAsync(global::System.String name, global::System.Int32 age, global::System.Threading.CancellationToken cancellationToken = default);
+        global::System.IObservable<global::StrawberryShake.IOperationResult<ICreateEmployeeResult>> Watch(global::System.String name, global::System.Int32 age, global::StrawberryShake.ExecutionStrategy? strategy = null);
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.OperationDocumentGenerator
+    /// <summary>
+    /// Represents the operation service of the OnEmployeeCreated GraphQL operation
+    /// <code>
+    /// subscription OnEmployeeCreated {
+    ///   onEmployeeCreated {
+    ///     __typename
+    ///     id
+    ///     name
+    ///     age
+    ///     ... on Employee {
+    ///       id
+    ///     }
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class OnEmployeeCreatedSubscriptionDocument : global::StrawberryShake.IDocument
+    {
+        private OnEmployeeCreatedSubscriptionDocument()
+        {
+        }
+
+        public static OnEmployeeCreatedSubscriptionDocument Instance { get; } = new OnEmployeeCreatedSubscriptionDocument();
+        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Subscription;
+        public global::System.ReadOnlySpan<global::System.Byte> Body => "subscription OnEmployeeCreated { onEmployeeCreated { __typename id name age ... on Employee { id } } }"u8;
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "a0feb564f951a62d81409c58ffae8eb5");
+
+        public override global::System.String ToString()
+        {
+#if NETCOREAPP3_1_OR_GREATER
+        return global::System.Text.Encoding.UTF8.GetString(Body);
+#else
+            return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
+#endif
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.OperationServiceGenerator
+    /// <summary>
+    /// Represents the operation service of the OnEmployeeCreated GraphQL operation
+    /// <code>
+    /// subscription OnEmployeeCreated {
+    ///   onEmployeeCreated {
+    ///     __typename
+    ///     id
+    ///     name
+    ///     age
+    ///     ... on Employee {
+    ///       id
+    ///     }
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class OnEmployeeCreatedSubscription : global::GrapghQLDemo.Client.IOnEmployeeCreatedSubscription
+    {
+        private readonly global::StrawberryShake.IOperationExecutor<IOnEmployeeCreatedResult> _operationExecutor;
+        public OnEmployeeCreatedSubscription(global::StrawberryShake.IOperationExecutor<IOnEmployeeCreatedResult> operationExecutor)
+        {
+            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
+        }
+
+        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IOnEmployeeCreatedResult);
+
+        public global::System.IObservable<global::StrawberryShake.IOperationResult<IOnEmployeeCreatedResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null)
+        {
+            var request = CreateRequest();
+            return _operationExecutor.Watch(request, strategy);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest()
+        {
+            return CreateRequest(null);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return new global::StrawberryShake.OperationRequest(id: OnEmployeeCreatedSubscriptionDocument.Instance.Hash.Value, name: "OnEmployeeCreated", document: OnEmployeeCreatedSubscriptionDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default);
+        }
+
+        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return CreateRequest();
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.OperationServiceInterfaceGenerator
+    /// <summary>
+    /// Represents the operation service of the OnEmployeeCreated GraphQL operation
+    /// <code>
+    /// subscription OnEmployeeCreated {
+    ///   onEmployeeCreated {
+    ///     __typename
+    ///     id
+    ///     name
+    ///     age
+    ///     ... on Employee {
+    ///       id
+    ///     }
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial interface IOnEmployeeCreatedSubscription : global::StrawberryShake.IOperationRequestFactory
+    {
+        global::System.IObservable<global::StrawberryShake.IOperationResult<IOnEmployeeCreatedResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null);
+    }
+
     // StrawberryShake.CodeGeneration.CSharp.Generators.ClientGenerator
     /// <summary>
     /// Represents the GrapghQLClient GraphQL client
@@ -629,15 +1218,21 @@ namespace GrapghQLDemo.Client
     {
         private readonly global::GrapghQLDemo.Client.IGetEmployeesQuery _getEmployees;
         private readonly global::GrapghQLDemo.Client.IEmployeeByIdQuery _employeeById;
-        public GrapghQLClient(global::GrapghQLDemo.Client.IGetEmployeesQuery getEmployees, global::GrapghQLDemo.Client.IEmployeeByIdQuery employeeById)
+        private readonly global::GrapghQLDemo.Client.ICreateEmployeeMutation _createEmployee;
+        private readonly global::GrapghQLDemo.Client.IOnEmployeeCreatedSubscription _onEmployeeCreated;
+        public GrapghQLClient(global::GrapghQLDemo.Client.IGetEmployeesQuery getEmployees, global::GrapghQLDemo.Client.IEmployeeByIdQuery employeeById, global::GrapghQLDemo.Client.ICreateEmployeeMutation createEmployee, global::GrapghQLDemo.Client.IOnEmployeeCreatedSubscription onEmployeeCreated)
         {
             _getEmployees = getEmployees ?? throw new global::System.ArgumentNullException(nameof(getEmployees));
             _employeeById = employeeById ?? throw new global::System.ArgumentNullException(nameof(employeeById));
+            _createEmployee = createEmployee ?? throw new global::System.ArgumentNullException(nameof(createEmployee));
+            _onEmployeeCreated = onEmployeeCreated ?? throw new global::System.ArgumentNullException(nameof(onEmployeeCreated));
         }
 
         public static global::System.String ClientName => "GrapghQLClient";
         public global::GrapghQLDemo.Client.IGetEmployeesQuery GetEmployees => _getEmployees;
         public global::GrapghQLDemo.Client.IEmployeeByIdQuery EmployeeById => _employeeById;
+        public global::GrapghQLDemo.Client.ICreateEmployeeMutation CreateEmployee => _createEmployee;
+        public global::GrapghQLDemo.Client.IOnEmployeeCreatedSubscription OnEmployeeCreated => _onEmployeeCreated;
     }
 
     // StrawberryShake.CodeGeneration.CSharp.Generators.ClientInterfaceGenerator
@@ -650,6 +1245,10 @@ namespace GrapghQLDemo.Client
         global::GrapghQLDemo.Client.IGetEmployeesQuery GetEmployees { get; }
 
         global::GrapghQLDemo.Client.IEmployeeByIdQuery EmployeeById { get; }
+
+        global::GrapghQLDemo.Client.ICreateEmployeeMutation CreateEmployee { get; }
+
+        global::GrapghQLDemo.Client.IOnEmployeeCreatedSubscription OnEmployeeCreated { get; }
     }
 }
 
@@ -820,6 +1419,142 @@ namespace GrapghQLDemo.Client.State
         public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
         {
             return new EmployeeByIdResultInfo(EmployeeById, _entityIds, version);
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultDataFactoryGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class CreateEmployeeResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.CreateEmployeeResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, CreateEmployee_CreateEmployee_Employee> _createEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper;
+        public CreateEmployeeResultFactory(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, CreateEmployee_CreateEmployee_Employee> createEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _createEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper = createEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(createEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper));
+        }
+
+        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::GrapghQLDemo.Client.ICreateEmployeeResult);
+
+        public CreateEmployeeResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        {
+            if (snapshot is null)
+            {
+                snapshot = _entityStore.CurrentSnapshot;
+            }
+
+            if (dataInfo is CreateEmployeeResultInfo info)
+            {
+                return new CreateEmployeeResult(MapNonNullableICreateEmployee_CreateEmployee(info.CreateEmployee, snapshot));
+            }
+
+            throw new global::System.ArgumentException("CreateEmployeeResultInfo expected.");
+        }
+
+        private global::GrapghQLDemo.Client.ICreateEmployee_CreateEmployee MapNonNullableICreateEmployee_CreateEmployee(global::StrawberryShake.EntityId entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            if (entityId.Name.Equals("Employee", global::System.StringComparison.Ordinal))
+            {
+                return _createEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper.Map(snapshot.GetEntity<global::GrapghQLDemo.Client.State.EmployeeEntity>(entityId) ?? throw new global::StrawberryShake.GraphQLClientException());
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        global::System.Object global::StrawberryShake.IOperationResultDataFactory.Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot)
+        {
+            return Create(dataInfo, snapshot);
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultInfoGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class CreateEmployeeResultInfo : global::StrawberryShake.IOperationResultDataInfo
+    {
+        private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
+        private readonly global::System.UInt64 _version;
+        public CreateEmployeeResultInfo(global::StrawberryShake.EntityId createEmployee, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
+        {
+            CreateEmployee = createEmployee;
+            _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
+            _version = version;
+        }
+
+        public global::StrawberryShake.EntityId CreateEmployee { get; }
+        public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
+        public global::System.UInt64 Version => _version;
+
+        public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
+        {
+            return new CreateEmployeeResultInfo(CreateEmployee, _entityIds, version);
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultDataFactoryGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class OnEmployeeCreatedResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.OnEmployeeCreatedResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, OnEmployeeCreated_OnEmployeeCreated_Employee> _onEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper;
+        public OnEmployeeCreatedResultFactory(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, OnEmployeeCreated_OnEmployeeCreated_Employee> onEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _onEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper = onEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper ?? throw new global::System.ArgumentNullException(nameof(onEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper));
+        }
+
+        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::GrapghQLDemo.Client.IOnEmployeeCreatedResult);
+
+        public OnEmployeeCreatedResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        {
+            if (snapshot is null)
+            {
+                snapshot = _entityStore.CurrentSnapshot;
+            }
+
+            if (dataInfo is OnEmployeeCreatedResultInfo info)
+            {
+                return new OnEmployeeCreatedResult(MapNonNullableIOnEmployeeCreated_OnEmployeeCreated(info.OnEmployeeCreated, snapshot));
+            }
+
+            throw new global::System.ArgumentException("OnEmployeeCreatedResultInfo expected.");
+        }
+
+        private global::GrapghQLDemo.Client.IOnEmployeeCreated_OnEmployeeCreated MapNonNullableIOnEmployeeCreated_OnEmployeeCreated(global::StrawberryShake.EntityId entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            if (entityId.Name.Equals("Employee", global::System.StringComparison.Ordinal))
+            {
+                return _onEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper.Map(snapshot.GetEntity<global::GrapghQLDemo.Client.State.EmployeeEntity>(entityId) ?? throw new global::StrawberryShake.GraphQLClientException());
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        global::System.Object global::StrawberryShake.IOperationResultDataFactory.Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot)
+        {
+            return Create(dataInfo, snapshot);
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultInfoGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class OnEmployeeCreatedResultInfo : global::StrawberryShake.IOperationResultDataInfo
+    {
+        private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
+        private readonly global::System.UInt64 _version;
+        public OnEmployeeCreatedResultInfo(global::StrawberryShake.EntityId onEmployeeCreated, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
+        {
+            OnEmployeeCreated = onEmployeeCreated;
+            _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
+            _version = version;
+        }
+
+        public global::StrawberryShake.EntityId OnEmployeeCreated { get; }
+        public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
+        public global::System.UInt64 Version => _version;
+
+        public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
+        {
+            return new OnEmployeeCreatedResultInfo(OnEmployeeCreated, _entityIds, version);
         }
     }
 
@@ -1032,6 +1767,194 @@ namespace GrapghQLDemo.Client.State
         }
     }
 
+    // StrawberryShake.CodeGeneration.CSharp.Generators.JsonResultBuilderGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class CreateEmployeeBuilder : global::StrawberryShake.OperationResultBuilder<global::GrapghQLDemo.Client.ICreateEmployeeResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.Int32, global::System.Int32> _intParser;
+        public CreateEmployeeBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.ICreateEmployeeResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
+            ResultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
+            _intParser = serializerResolver.GetLeafValueParser<global::System.Int32, global::System.Int32>("Int") ?? throw new global::System.ArgumentException("No serializer for type `Int` found.");
+        }
+
+        protected override global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.ICreateEmployeeResult> ResultDataFactory { get; }
+
+        protected override global::StrawberryShake.IOperationResultDataInfo BuildData(global::System.Text.Json.JsonElement obj)
+        {
+            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
+            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
+            global::StrawberryShake.EntityId createEmployeeId = default !;
+            _entityStore.Update(session =>
+            {
+                createEmployeeId = Update_NonNullableICreateEmployee_CreateEmployeeEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "createEmployee"), entityIds);
+                snapshot = session.CurrentSnapshot;
+            });
+            return new CreateEmployeeResultInfo(createEmployeeId, entityIds, snapshot.Version);
+        }
+
+        private global::StrawberryShake.EntityId Update_NonNullableICreateEmployee_CreateEmployeeEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            if (obj.Value.ValueKind == global::System.Text.Json.JsonValueKind.Null)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
+            entityIds.Add(entityId);
+            if (entityId.Name.Equals("Employee", global::System.StringComparison.Ordinal))
+            {
+                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::GrapghQLDemo.Client.State.EmployeeEntity? entity))
+                {
+                    session.SetEntity(entityId, new global::GrapghQLDemo.Client.State.EmployeeEntity(Deserialize_NonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), Deserialize_NonNullableString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "name")), Deserialize_NonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "age"))));
+                }
+                else
+                {
+                    session.SetEntity(entityId, new global::GrapghQLDemo.Client.State.EmployeeEntity(Deserialize_NonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), Deserialize_NonNullableString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "name")), Deserialize_NonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "age"))));
+                }
+
+                return entityId;
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.Int32 Deserialize_NonNullableInt32(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            if (obj.Value.ValueKind == global::System.Text.Json.JsonValueKind.Null)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            return _intParser.Parse(obj.Value.GetInt32()!);
+        }
+
+        private global::System.String Deserialize_NonNullableString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            if (obj.Value.ValueKind == global::System.Text.Json.JsonValueKind.Null)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.JsonResultBuilderGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class OnEmployeeCreatedBuilder : global::StrawberryShake.OperationResultBuilder<global::GrapghQLDemo.Client.IOnEmployeeCreatedResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.Int32, global::System.Int32> _intParser;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
+        public OnEmployeeCreatedBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.IOnEmployeeCreatedResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
+            ResultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
+            _intParser = serializerResolver.GetLeafValueParser<global::System.Int32, global::System.Int32>("Int") ?? throw new global::System.ArgumentException("No serializer for type `Int` found.");
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
+        }
+
+        protected override global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.IOnEmployeeCreatedResult> ResultDataFactory { get; }
+
+        protected override global::StrawberryShake.IOperationResultDataInfo BuildData(global::System.Text.Json.JsonElement obj)
+        {
+            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
+            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
+            global::StrawberryShake.EntityId onEmployeeCreatedId = default !;
+            _entityStore.Update(session =>
+            {
+                onEmployeeCreatedId = Update_NonNullableIOnEmployeeCreated_OnEmployeeCreatedEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "onEmployeeCreated"), entityIds);
+                snapshot = session.CurrentSnapshot;
+            });
+            return new OnEmployeeCreatedResultInfo(onEmployeeCreatedId, entityIds, snapshot.Version);
+        }
+
+        private global::StrawberryShake.EntityId Update_NonNullableIOnEmployeeCreated_OnEmployeeCreatedEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            if (obj.Value.ValueKind == global::System.Text.Json.JsonValueKind.Null)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
+            entityIds.Add(entityId);
+            if (entityId.Name.Equals("Employee", global::System.StringComparison.Ordinal))
+            {
+                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::GrapghQLDemo.Client.State.EmployeeEntity? entity))
+                {
+                    session.SetEntity(entityId, new global::GrapghQLDemo.Client.State.EmployeeEntity(Deserialize_NonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), Deserialize_NonNullableString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "name")), Deserialize_NonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "age"))));
+                }
+                else
+                {
+                    session.SetEntity(entityId, new global::GrapghQLDemo.Client.State.EmployeeEntity(Deserialize_NonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), Deserialize_NonNullableString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "name")), Deserialize_NonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "age"))));
+                }
+
+                return entityId;
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.Int32 Deserialize_NonNullableInt32(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            if (obj.Value.ValueKind == global::System.Text.Json.JsonValueKind.Null)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            return _intParser.Parse(obj.Value.GetInt32()!);
+        }
+
+        private global::System.String Deserialize_NonNullableString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            if (obj.Value.ValueKind == global::System.Text.Json.JsonValueKind.Null)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
+        }
+    }
+
     // StrawberryShake.CodeGeneration.CSharp.Generators.ResultFromEntityTypeMapperGenerator
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
     public partial class GetEmployees_GetEmployees_EmployeeFromEmployeeEntityMapper : global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, GetEmployees_GetEmployees_Employee>
@@ -1071,6 +1994,48 @@ namespace GrapghQLDemo.Client.State
             }
 
             return new EmployeeById_EmployeeById_Employee(entity.Id, entity.Name, entity.Age);
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultFromEntityTypeMapperGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class CreateEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper : global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, CreateEmployee_CreateEmployee_Employee>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        public CreateEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper(global::StrawberryShake.IEntityStore entityStore)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+        }
+
+        public CreateEmployee_CreateEmployee_Employee Map(global::GrapghQLDemo.Client.State.EmployeeEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        {
+            if (snapshot is null)
+            {
+                snapshot = _entityStore.CurrentSnapshot;
+            }
+
+            return new CreateEmployee_CreateEmployee_Employee(entity.Id, entity.Name, entity.Age);
+        }
+    }
+
+    // StrawberryShake.CodeGeneration.CSharp.Generators.ResultFromEntityTypeMapperGenerator
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.0.0")]
+    public partial class OnEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper : global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, OnEmployeeCreated_OnEmployeeCreated_Employee>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        public OnEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper(global::StrawberryShake.IEntityStore entityStore)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+        }
+
+        public OnEmployeeCreated_OnEmployeeCreated_Employee Map(global::GrapghQLDemo.Client.State.EmployeeEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        {
+            if (snapshot is null)
+            {
+                snapshot = _entityStore.CurrentSnapshot;
+            }
+
+            return new OnEmployeeCreated_OnEmployeeCreated_Employee(entity.Id, entity.Name, entity.Age);
         }
     }
 
@@ -1144,8 +2109,12 @@ namespace Microsoft.Extensions.DependencyInjection
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => new global::GrapghQLDemo.Client.State.GrapghQLClientStoreAccessor(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IEntityStore>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IEntityIdSerializer>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Collections.Generic.IEnumerable<global::StrawberryShake.IOperationRequestFactory>>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Collections.Generic.IEnumerable<global::StrawberryShake.IOperationResultDataFactory>>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp))));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.GetEmployeesQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.EmployeeByIdQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.CreateEmployeeMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.OnEmployeeCreatedSubscription>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.IGetEmployeesQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.IEmployeeByIdQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.ICreateEmployeeMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.IOnEmployeeCreatedSubscription>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.GrapghQLClient>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.IGrapghQLClient>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             return new global::StrawberryShake.ClientBuilder<global::GrapghQLDemo.Client.State.GrapghQLClientStoreAccessor>("GrapghQLClient", services, serviceCollection);
@@ -1155,6 +2124,11 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             global::Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddSingleton<global::StrawberryShake.IEntityStore, global::StrawberryShake.EntityStore>(services);
             global::Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddSingleton<global::StrawberryShake.IOperationStore>(services, sp => new global::StrawberryShake.OperationStore(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IEntityStore>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Transport.WebSockets.IWebSocketConnection>(services, sp =>
+            {
+                var sessionPool = global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.WebSockets.ISessionPool>(parentServices);
+                return new global::StrawberryShake.Transport.WebSockets.WebSocketConnection(async ct => await sessionPool.CreateAsync("GrapghQLClient", ct));
+            });
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Transport.Http.IHttpConnection>(services, sp =>
             {
                 var clientFactory = global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Net.Http.IHttpClientFactory>(parentServices);
@@ -1162,6 +2136,8 @@ namespace Microsoft.Extensions.DependencyInjection
             });
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, global::GrapghQLDemo.Client.GetEmployees_GetEmployees_Employee>, global::GrapghQLDemo.Client.State.GetEmployees_GetEmployees_EmployeeFromEmployeeEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, global::GrapghQLDemo.Client.EmployeeById_EmployeeById_Employee>, global::GrapghQLDemo.Client.State.EmployeeById_EmployeeById_EmployeeFromEmployeeEntityMapper>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, global::GrapghQLDemo.Client.CreateEmployee_CreateEmployee_Employee>, global::GrapghQLDemo.Client.State.CreateEmployee_CreateEmployee_EmployeeFromEmployeeEntityMapper>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::GrapghQLDemo.Client.State.EmployeeEntity, global::GrapghQLDemo.Client.OnEmployeeCreated_OnEmployeeCreated_Employee>, global::GrapghQLDemo.Client.State.OnEmployeeCreated_OnEmployeeCreated_EmployeeFromEmployeeEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.AnySerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.Base64StringSerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.BooleanSerializer>(services);
@@ -1204,6 +2180,22 @@ namespace Microsoft.Extensions.DependencyInjection
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IResultPatcher<global::System.Text.Json.JsonDocument>, global::StrawberryShake.Json.JsonResultPatcher>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::GrapghQLDemo.Client.EmployeeByIdQuery>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::GrapghQLDemo.Client.IEmployeeByIdQuery>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.EmployeeByIdQuery>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.ICreateEmployeeResult>, global::GrapghQLDemo.Client.State.CreateEmployeeResultFactory>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.ICreateEmployeeResult>>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.ICreateEmployeeMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::GrapghQLDemo.Client.ICreateEmployeeResult>, global::GrapghQLDemo.Client.State.CreateEmployeeBuilder>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::GrapghQLDemo.Client.ICreateEmployeeResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::GrapghQLDemo.Client.ICreateEmployeeResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::GrapghQLDemo.Client.ICreateEmployeeResult>>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IResultPatcher<global::System.Text.Json.JsonDocument>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IResultPatcher<global::System.Text.Json.JsonDocument>, global::StrawberryShake.Json.JsonResultPatcher>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::GrapghQLDemo.Client.CreateEmployeeMutation>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::GrapghQLDemo.Client.ICreateEmployeeMutation>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.CreateEmployeeMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.IOnEmployeeCreatedResult>, global::GrapghQLDemo.Client.State.OnEmployeeCreatedResultFactory>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::GrapghQLDemo.Client.IOnEmployeeCreatedResult>>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.IOnEmployeeCreatedSubscription>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::GrapghQLDemo.Client.IOnEmployeeCreatedResult>, global::GrapghQLDemo.Client.State.OnEmployeeCreatedBuilder>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::GrapghQLDemo.Client.IOnEmployeeCreatedResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::GrapghQLDemo.Client.IOnEmployeeCreatedResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.WebSockets.IWebSocketConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::GrapghQLDemo.Client.IOnEmployeeCreatedResult>>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IResultPatcher<global::System.Text.Json.JsonDocument>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IResultPatcher<global::System.Text.Json.JsonDocument>, global::StrawberryShake.Json.JsonResultPatcher>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::GrapghQLDemo.Client.OnEmployeeCreatedSubscription>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::GrapghQLDemo.Client.IOnEmployeeCreatedSubscription>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.OnEmployeeCreatedSubscription>(sp));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityIdSerializer, global::GrapghQLDemo.Client.State.GrapghQLClientEntityIdFactory>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::GrapghQLDemo.Client.GrapghQLClient>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::GrapghQLDemo.Client.IGrapghQLClient>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::GrapghQLDemo.Client.GrapghQLClient>(sp));

@@ -44,3 +44,4 @@ G:\test\GraphQL\GrapghQLClient\obj\Debug\net10.0\refint\GrapghQLClient.dll
 G:\test\GraphQL\GrapghQLClient\obj\Debug\net10.0\GrapghQLClient.pdb
 G:\test\GraphQL\GrapghQLClient\obj\Debug\net10.0\GrapghQLClient.genruntimeconfig.cache
 G:\test\GraphQL\GrapghQLClient\obj\Debug\net10.0\ref\GrapghQLClient.dll
+G:\test\GraphQL\GrapghQLClient\bin\Debug\net10.0\System.Reactive.dll

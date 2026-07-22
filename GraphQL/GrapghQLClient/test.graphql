@@ -14,3 +14,18 @@ query EmployeeById($id: Int!) {
   }
 }
 
+mutation CreateEmployee($name: String!, $age: Int!) {
+  createEmployee(name: $name, age: $age) {
+    id
+    name
+    age
+  }
+}
+
+subscription OnEmployeeCreated {
+  onEmployeeCreated {
+    id
+    name
+    age
+  }
+}
