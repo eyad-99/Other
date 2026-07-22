@@ -356,3 +356,45 @@ Here, the same search field can return either a Book or an Author. They don’t 
 _________________________________________________________________________________________________________________________________________
 
 grapghql client
+
+steps to call grapghql server 
+
+1- PS G:\test\GraphQL\GrapghQLClient> dotnet tool install StrawberryShake.Tools --global
+2-dotnet add package StrawberryShake --version 16.5.1
+3-dotnet add package StrawberryShake.Transport.Http --version 16.5.1
+4-dotnet add package StrawberryShake.Transport.WebSockets --version 16.5.1
+5- dotnet graphql init http://localhost:5036/graphql/
+6-dotnet graphql generate
+7-dotnet run
+
+
+this is namespace name in .grapghql.json        "namespace": "GrapghQLDemo.Client",
+based on it here is main 
+
+using GrapghQLDemo.Client;
+using Microsoft.Extensions.DependencyInjection;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        var services = new ServiceCollection();
+
+        services.AddGrapghQLClient() // matches the "name" in .graphqlrc.json
+                .ConfigureHttpClient(client =>
+                {
+                    client.BaseAddress = new Uri("http://localhost:5036/graphql/");
+                });
+
+        var provider = services.BuildServiceProvider();
+        var client = provider.GetRequiredService<IGrapghQLClient>();
+
+        var result = await client.GetEmployees.ExecuteAsync();
+
+        foreach (var emp in result.Data.GetEmployees)
+        {
+            Console.WriteLine($"{emp.Id} - {emp.Name} - {emp.Age}");
+        }
+    }
+}
+-generated code comes from all .grapghql you wrote not from geberated from the init

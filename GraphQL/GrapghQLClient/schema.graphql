@@ -1,0 +1,27 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Query {
+  getEmployee: Employee!
+  getEmployees: [Employee!]!
+  employeeById(id: Int!): Employee!
+}
+
+type Mutation {
+  updateEmployee(id: Int!, name: String!, age: Int!): Employee!
+  deleteEmployee(id: Int!): Boolean!
+  createEmployee(name: String!, age: Int!): Employee!
+}
+
+type Subscription {
+  onEmployeeCreated: Employee!
+}
+
+type Employee {
+  id: Int!
+  name: String!
+  age: Int!
+}

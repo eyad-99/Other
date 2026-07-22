@@ -3,32 +3,52 @@
   "WorkspaceRootPath": "G:\\test\\GraphQL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\mutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\mutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|g:\\test\\graphql\\grapghqlclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|solutionrelative:grapghqlclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\subscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\subscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|g:\\test\\graphql\\grapghqlclient\\test.graphql||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|solutionrelative:grapghqlclient\\test.graphql||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|g:\\test\\graphql\\grapghqlclient\\schema.graphql||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|solutionrelative:grapghqlclient\\schema.graphql||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\query.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\query.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|g:\\test\\graphql\\grapghqlclient\\generated\\grapghqlclient.client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|solutionrelative:grapghqlclient\\generated\\grapghqlclient.client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\coursetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\coursetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|g:\\test\\graphql\\grapghqlclient\\.graphqlrc.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9B03CA89-286A-4431-A04C-FF33E64E039C}|GrapghQLClient\\GrapghQLClient.csproj|solutionrelative:grapghqlclient\\.graphqlrc.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\instructortype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\instructortype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\mutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\mutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\stuenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAFF2599-3F82-4E9C-BA8D-17BFAD8E7428}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\stuenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\subscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\subscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\stuenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\stuenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\instructortype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\instructortype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\coursetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\coursetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\schema\\query.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\schema\\query.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|g:\\test\\graphql\\graphql\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{466A63FF-AC8F-E41D-1AFA-5471D1860BF7}|GraphQL\\GraphQL.csproj|solutionrelative:graphql\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +58,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "schema.graphql",
+              "DocumentMoniker": "G:\\test\\GraphQL\\GrapghQLClient\\schema.graphql",
+              "RelativeDocumentMoniker": "GrapghQLClient\\schema.graphql",
+              "ToolTip": "G:\\test\\GraphQL\\GrapghQLClient\\schema.graphql",
+              "RelativeToolTip": "GrapghQLClient\\schema.graphql",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-07-22T17:56:02.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": ".graphqlrc.json",
+              "DocumentMoniker": "G:\\test\\GraphQL\\GrapghQLClient\\.graphqlrc.json",
+              "RelativeDocumentMoniker": "GrapghQLClient\\.graphqlrc.json",
+              "ToolTip": "G:\\test\\GraphQL\\GrapghQLClient\\.graphqlrc.json",
+              "RelativeToolTip": "GrapghQLClient\\.graphqlrc.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-22T17:46:06.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GrapghQLClient.Client.cs",
+              "DocumentMoniker": "G:\\test\\GraphQL\\GrapghQLClient\\Generated\\GrapghQLClient.Client.cs",
+              "RelativeDocumentMoniker": "GrapghQLClient\\Generated\\GrapghQLClient.Client.cs",
+              "ToolTip": "G:\\test\\GraphQL\\GrapghQLClient\\Generated\\GrapghQLClient.Client.cs",
+              "RelativeToolTip": "GrapghQLClient\\Generated\\GrapghQLClient.Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T17:43:05.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "test.graphql",
+              "DocumentMoniker": "G:\\test\\GraphQL\\GrapghQLClient\\test.graphql",
+              "RelativeDocumentMoniker": "GrapghQLClient\\test.graphql",
+              "ToolTip": "G:\\test\\GraphQL\\GrapghQLClient\\test.graphql",
+              "RelativeToolTip": "GrapghQLClient\\test.graphql",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-07-22T17:41:20.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\test\\GraphQL\\GrapghQLClient\\Program.cs",
+              "RelativeDocumentMoniker": "GrapghQLClient\\Program.cs",
+              "ToolTip": "G:\\test\\GraphQL\\GrapghQLClient\\Program.cs*",
+              "RelativeToolTip": "GrapghQLClient\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T17:34:03.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Subscription.cs",
               "DocumentMoniker": "G:\\test\\GraphQL\\GraphQL\\Schema\\Subscription.cs",
               "RelativeDocumentMoniker": "GraphQL\\Schema\\Subscription.cs",
@@ -50,25 +135,24 @@
               "RelativeToolTip": "GraphQL\\Schema\\Subscription.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T09:45:30.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-16T09:45:30.832Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Mutation.cs",
               "DocumentMoniker": "G:\\test\\GraphQL\\GraphQL\\Schema\\Mutation.cs",
               "RelativeDocumentMoniker": "GraphQL\\Schema\\Mutation.cs",
               "ToolTip": "G:\\test\\GraphQL\\GraphQL\\Schema\\Mutation.cs",
               "RelativeToolTip": "GraphQL\\Schema\\Mutation.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAuwC4AAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-16T09:22:19.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "StuentType.cs",
               "DocumentMoniker": "G:\\test\\GraphQL\\GraphQL\\Schema\\StuentType.cs",
               "RelativeDocumentMoniker": "GraphQL\\Schema\\StuentType.cs",
@@ -76,12 +160,11 @@
               "RelativeToolTip": "GraphQL\\Schema\\StuentType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T08:43:11.785Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-16T08:43:11.785Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "InstructorType.cs",
               "DocumentMoniker": "G:\\test\\GraphQL\\GraphQL\\Schema\\InstructorType.cs",
               "RelativeDocumentMoniker": "GraphQL\\Schema\\InstructorType.cs",
@@ -89,12 +172,11 @@
               "RelativeToolTip": "GraphQL\\Schema\\InstructorType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T08:42:54.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-16T08:42:54.043Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "CourseType.cs",
               "DocumentMoniker": "G:\\test\\GraphQL\\GraphQL\\Schema\\CourseType.cs",
               "RelativeDocumentMoniker": "GraphQL\\Schema\\CourseType.cs",
@@ -102,12 +184,11 @@
               "RelativeToolTip": "GraphQL\\Schema\\CourseType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T08:42:38.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-16T08:42:38.733Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "Query.cs",
               "DocumentMoniker": "G:\\test\\GraphQL\\GraphQL\\Schema\\Query.cs",
               "RelativeDocumentMoniker": "GraphQL\\Schema\\Query.cs",
@@ -115,12 +196,11 @@
               "RelativeToolTip": "GraphQL\\Schema\\Query.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAADwvyAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-11T04:51:16.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-11T04:51:16.68Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\test\\GraphQL\\GraphQL\\Program.cs",
               "RelativeDocumentMoniker": "GraphQL\\Program.cs",
@@ -128,8 +208,7 @@
               "RelativeToolTip": "GraphQL\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-11T04:41:43.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-11T04:41:43.822Z"
             }
           ]
         }

@@ -45,7 +45,6 @@ G:\test\GraphQL\GraphQL\obj\Debug\net10.0\staticwebassets.build.json.cache
 G:\test\GraphQL\GraphQL\obj\Debug\net10.0\staticwebassets.development.json
 G:\test\GraphQL\GraphQL\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 G:\test\GraphQL\GraphQL\obj\Debug\net10.0\swae.build.ex.cache
-G:\test\GraphQL\GraphQL\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 G:\test\GraphQL\GraphQL\obj\Debug\net10.0\GraphQL.csproj.Up2Date
 G:\test\GraphQL\GraphQL\obj\Debug\net10.0\GraphQL.dll
 G:\test\GraphQL\GraphQL\obj\Debug\net10.0\refint\GraphQL.dll

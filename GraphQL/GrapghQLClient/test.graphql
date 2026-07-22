@@ -1,0 +1,16 @@
+﻿query GetEmployees {
+  getEmployees {
+    id
+    name
+    age
+  }
+}
+
+query EmployeeById($id: Int!) {
+  employeeById(id: $id) {
+    id
+    name
+    age
+  }
+}
+

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GrapghQLClient": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
