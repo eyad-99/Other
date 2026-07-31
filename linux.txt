@@ -1,0 +1,230 @@
+-    ~   ==>    (tilde) symbol is shorthand for a user’s home directory.  Home directory: For the current user, ~ expands to their home folder.
+Example: If your username is eyad, then ~ = /home/eyad.
+Other users: You can use ~username to refer to another user’s home directory.
+Example: ~root = /root.
+-   directory = folder
+- pwd   => current directory
+- ls => ontent of current working directory
+- change currecnt directoy => cd   like windows   for example   cd /home/sam/doc 
+- touch => create empty file inside current directory         touch test.txt
+- cd .. => erg3 5atwa 3al current directory       cd ../..   erga3 5atwteen
+- clear => fady el shell
+-   .    current working directory
+-  🔑 Absolute Path (starts with /)
+Absolute path means the path is specified from the root directory /.
+Example:
+cd /usr/local/bin
+→ This takes you directly to /usr/local/bin, no matter where you currently are.
+🔑 Relative Path (without /)
+Relative path means the path is specified relative to your current working directory.
+Example:
+cd Documents
+→ If you’re in /home/eyad, this moves you to /home/eyad/Documents.
+
+-ls /usr
+You’re listing the contents of the /usr directory, which is part of the Linux filesystem hierarchy. The leading / means it’s an absolute path, starting from the root directory.
+
+-ls ~ /usr
+you’re asking Linux to list the contents of two directories at once:
+~ → expands to your home directory (e.g., /home/eyad).
+/usr → the absolute path to the /usr directory.
+So the command will output two separate listings:
+The files and folders inside your home directory.
+The files and folders inside /usr.
+
+-  file ableh .  yb2a hidden files
+
+
+
+
+
+
+
+
+-🔑 What You See in ls -l
+Each line represents one file or directory, with fields like:
+
+Code
+-rw-r--r--  1 eyad eyad   1234 Jul 31 21:30 myfile.txt
+Breakdown:
+File type & permissions → -rw-r--r--
+
+- = regular file (or d for directory, l for symlink).
+
+rw- = owner can read/write.
+
+r-- = group can read.
+
+r-- = others can read.
+
+Link count → 1
+
+Number of hard links to the file.
+
+Owner → eyad
+
+The user who owns the file.
+
+Group → eyad
+
+The group that owns the file.
+
+Size → 1234
+
+File size in bytes.
+
+Timestamp → Jul 31 21:30
+
+Last modification time.
+
+File name → myfile.txt
+
+The actual name of the file.
+
+
+
+
+
+
+
+-file filename    more important info about the file
+- mkdir   make new directory at current location
+- cp text  dir1    copy text file to dir1       copy file to directory
+-cp -r dir1  dir2     copy dir1 directory to dir2          copy directoy to directory
+- mv =>                mv file.txt /home/eyad/Documents/  → Moves file.txt into the Documents folder.    ,   mv oldname.txt newname.txt   → Renames oldname.txt to newname.txt.
+- rm =>  remove files       rm file.txt
+- rm -r  =>  remove directories   rm -r myfolder
+- -r recrsive option   hatlaeha bteegy kteer m3 el directories   3ashan t loop 3ala ely gowa w hakaza
+- In Linux, a soft link (symbolic link) is like a shortcut pointing to another file or directory, while a hard link is another name for the same file data (inode). The key difference is that soft links break if the target is moved or deleted, but hard links remain valid until all linked names are removed.
+hard link :Points directly to the same inode (the file’s data structure).    hard link pointer mn el akher
+soft link : A separate file that stores the path to another file or directory.  shortcut to original file if original file removed or moved soft link is breaked
+
+- create soft link => ln -s target linkname  ,   target → the file or directory you want to link to.   ,  linkname → the name of the symbolic link (shortcut).
+ln -s /etc/passwd mylink   → Creates a symlink mylink pointing to /etc/passwd.
+
+
+
+- hard link  =>   ln target linkname ,  target → the existing file you want to link to. , linkname → the new hard link name. ,    ln original.txt hardlink.txt
+
+
+
+-cat  
+In Linux, cat is a command used to read, concatenate, and display file contents. It’s short for concatenate.
+
+🔑 Main Uses of cat
+View file contents
+
+bash
+cat file.txt
+→ Prints the contents of file.txt to the terminal.
+
+Concatenate multiple files
+
+bash
+cat file1.txt file2.txt > combined.txt
+→ Joins file1.txt and file2.txt into a new file combined.txt.
+
+Create a new file
+
+bash
+cat > newfile.txt
+→ Lets you type text directly into newfile.txt (press CTRL+D to save and exit).
+
+Append to a file
+
+bash
+cat >> existing.txt
+→ Adds new content to the end of existing.txt.
+🔑 Redirection Operators
+< → Input redirection
+
+Feeds a file into a command as stdin.
+
+Example:
+
+bash
+cat < file.txt
+→ Reads file.txt and prints its contents (same as cat file.txt).
+
+> → Output redirection (overwrite)
+
+Sends command output to a file, replacing its contents.
+
+Example:
+
+bash
+cat file.txt > newfile.txt
+→ Copies contents of file.txt into newfile.txt, overwriting if it exists.
+
+>> → Output redirection (append)
+
+Sends command output to a file, adding to the end instead of overwriting.
+
+Example:
+
+bash
+cat file.txt >> existing.txt
+→ Appends contents of file.txt to existing.txt.
+
+
+
+
+
+
+-pipeline
+How Pipelines Work
+Pipe operator → |
+
+Takes the output of the command on the left and feeds it as input to the command on the right.
+
+📘 Examples
+Simple pipeline:
+
+bash
+ls -l | less
+→ Shows the long listing of files, but scrollable with less.
+
+Filter with grep:
+
+bash
+ps aux | grep firefox
+→ Lists running processes, then filters only those containing “firefox”.
+
+Count lines:
+
+bash
+cat file.txt | wc -l
+→ Counts the number of lines in file.txt.
+
+Chain multiple commands:
+
+bash
+dmesg | grep error | wc -l
+→ Finds kernel log entries containing “error” and counts them.
+
+⚖️ Why Pipelines Are Useful
+Combine simple commands into complex workflows.
+
+Avoid creating temporary files.
+
+Efficient for text processing and system monitoring.
+
+
+
+
+- echo => print
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
