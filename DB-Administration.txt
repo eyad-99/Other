@@ -341,6 +341,12 @@ For availability groups, it’s the set of databases in the group.
 
 -setup availability group in sql server  :   https://www.youtube.com/watch?v=geHsiNMT4C0&list=PL1565idytjORaZmzpGwJ3HQ08HaD63GkQ&index=12
 
+-Quorum = the minimum number of voting elements (nodes + witnesses) that must agree the cluster is healthy.
+
+If quorum is lost, the cluster goes offline to avoid data corruption.
+
+SQL Server HA features like Always On Availability Groups and Failover Cluster Instances rely on WSFC quorum to decide failover eligibility.
+
 
 
 
