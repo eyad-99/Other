@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kafka-test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e07febee534e7f160e39d11fb63f88d6443381c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d6f2a7e196aa31768ed7457490d81ea1ccd4ad9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kafka-test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kafka-test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

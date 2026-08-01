@@ -16,3 +16,25 @@
 1-build image : docker build -t my-image .
 2- run container : docker run -d -p 8080:8080 --name my-container my-image
 3- docker stop :  docker stop docker-test-container
+
+
+
+
+
+Cluster → A set of machines (nodes) managed by Kubernetes. Contains a control plane and worker nodes.
+
+Node → A worker machine (VM or physical) that runs pods. Each node has a kubelet and container runtime.
+
+Pod → The smallest deployable unit in Kubernetes. A pod can contain one or more containers that share storage and networking.
+
+Deployment → Defines how many replicas of a pod should run and manages rolling updates/rollbacks.
+
+Service → Provides a stable network endpoint (IP/DNS) to access pods, with built‑in load balancing.
+
+Namespace → Logical partitioning of a cluster to isolate resources (e.g., dev, staging, prod).
+
+ConfigMap → Stores non‑sensitive configuration data for pods.
+
+Secret → Stores sensitive data (passwords, tokens, keys) securely.
+
+Ingress → Manages external access to services, typically HTTP/HTTPS routes.

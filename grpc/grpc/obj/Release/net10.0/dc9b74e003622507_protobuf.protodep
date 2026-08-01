@@ -1,0 +1,2 @@
+obj\Release\net10.0/Protobuf.cs \
+obj\Release\net10.0/ProtobufGrpc.cs: ../grpcapi/protos/protobuf.proto
