@@ -21,20 +21,72 @@
 
 
 
-Cluster → A set of machines (nodes) managed by Kubernetes. Contains a control plane and worker nodes.
+-Docker Compose is a tool that lets you define and run multi‑container applications using a single YAML configuration file
+-Docker Swarm is Docker’s built‑in clustering and orchestration solution that allows you to manage a group of Docker Engines as a single virtual system, enabling containerized applications to scale across multiple hosts with built‑in load balancing, service discovery, and fault tolerance. 
 
-Node → A worker machine (VM or physical) that runs pods. Each node has a kubelet and container runtime.
 
-Pod → The smallest deployable unit in Kubernetes. A pod can contain one or more containers that share storage and networking.
+-Docker Network is the system that allows containers to communicate with each other, the host, and external services. By default, containers connect to a built‑in bridge network, but Docker also supports user‑defined networks and multiple drivers for different networking needs. 
 
-Deployment → Defines how many replicas of a pod should run and manages rolling updates/rollbacks.
 
-Service → Provides a stable network endpoint (IP/DNS) to access pods, with built‑in load balancing.
+bridge	Default driver; containers communicate via IP inside the same host.
+host	Removes isolation; container shares the host’s network stack.
+none	Completely isolates the container (no networking).
+overlay	Connects containers across multiple Docker hosts (used in Swarm).
+macvlan	Assigns containers their own MAC addresses, appearing as physical devices.
+ipvlan	Connects containers to external VLANs with fine‑grained control.
 
-Namespace → Logical partitioning of a cluster to isolate resources (e.g., dev, staging, prod).
+🟦 Bridge
+Example:
 
-ConfigMap → Stores non‑sensitive configuration data for pods.
+bash
+docker network create my_bridge
+docker run -d --network my_bridge --name app1 nginx
+docker run -d --network my_bridge --name app2 alpine ping app1
+→ app2 can ping app1 by name inside the same host.
 
-Secret → Stores sensitive data (passwords, tokens, keys) securely.
+🟧 Host
+Example:
 
-Ingress → Manages external access to services, typically HTTP/HTTPS routes.
+bash
+docker run -d --network host nginx
+→ The container shares the host’s IP and ports. If host is 192.168.1.10, the web server is directly on that IP.
+
+⬛ None
+Example:
+
+bash
+docker run -d --network none alpine sleep 1000
+→ Container has no network access at all. Only useful for jobs that don’t need networking.
+
+🌐 Overlay
+Example (requires Swarm):
+
+bash
+docker swarm init
+docker network create -d overlay my_overlay
+docker service create --name web --network my_overlay nginx
+→ Containers on different hosts in the swarm can talk over my_overlay.
+
+🟨 Macvlan
+Example:
+
+bash
+docker network create -d macvlan \
+  --subnet=192.168.1.0/24 \
+  --gateway=192.168.1.1 \
+  -o parent=eth0 my_macvlan
+docker run -d --network my_macvlan nginx
+→ Container gets its own IP on the LAN (like 192.168.1.50) and looks like a physical device.
+
+🟥 Ipvlan
+Example:
+
+bash
+docker network create -d ipvlan \
+  --subnet=192.168.1.0/24 \
+  --gateway=192.168.1.1 \
+  -o parent=eth0 my_ipvlan
+docker run -d --network my_ipvlan nginx
+→ Similar to macvlan, but containers share the host’s MAC and only differ by IP.
+
+-Docker Volume is a way to persist data generated and used by Docker containers, so the data isn’t lost when containers stop or are removed.

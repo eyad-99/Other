@@ -1,0 +1,122 @@
+-kubernates : (often abbreviated as K8s) is an open‑source platform for automating the deployment, scaling, and management of containerized applications. It acts as an orchestrator, ensuring your applications run reliably across clusters of machines, with built‑in load balancing, self‑healing, and scaling.
+-🟦 Master Node
+Role: Controls and manages the cluster.
+
+Components:
+
+1-API Server → Entry point for all commands (kubectl).
+
+2-Scheduler → Decides which node runs each pod.  
+
+3-Controller Manager → Ensures the desired state (e.g., 3 replicas) matches the actual state.     ,   keep track of what happening in the cluster.
+
+4-etcd → Key‑value store holding cluster configuration and state.
+
+Analogy: Think of it as the brain of Kubernetes.
+
+🟩 Worker Node
+Role: Runs the actual applications (containers).
+
+Components:
+
+1-Kubelet → Talks to the master, makes sure containers are running as instructed.
+
+2-Container Runtime → Runs containers (Docker, containerd, etc.).
+
+3-Kube Proxy → Handles networking and load balancing for pods.
+
+Analogy: Think of it as the muscle that does the work.
+
+
+
+
+
+-🟦 Control Plane
+The control plane is the collection of components that manage the cluster’s state.
+
+It includes the API Server, Scheduler, Controller Manager, and etcd.
+
+Its job is to decide what should happen (e.g., scheduling pods, scaling replicas, restarting failed pods).
+
+🟩 Master Node
+The master node is the machine (physical or virtual) that runs the control plane components.
+
+
+-In Kubernetes, a virtual network is automatically created to let pods, services, and nodes communicate with each other, regardless of where they run in the cluster.
+This is part of Kubernetes’ networking model, which ensures every pod gets its own IP address and can talk to other pods without needing manual port mapping.
+
+
+
+
+
+
+-a Pod is the smallest deployable unit. It’s essentially a wrapper around one or more containers, plus the networking and storage resources they need.  Pods are scheduled onto nodes by the control plane.
+In Kubernetes, a Pod is the basic unit of deployment — it’s how Kubernetes runs containers. Think of it as a wrapper that groups one or more containers together with shared resources.
+Exactly — in Kubernetes, a pod usually contains just one container. That’s the most common and recommended setup.
+🔑 Why Usually One Container per Pod
+Simplicity: Easier to manage, scale, and update.
+Scaling: You scale pods (replicas), not containers inside a pod.
+Isolation: Each pod has its own IP and resources, keeping workloads separate.
+Best practice: One pod = one main process.
+
+
+-In Kubernetes, a Service is an abstraction that provides a stable way to access pods. Since pods are ephemeral (they can be created, destroyed, or rescheduled on different nodes), their IP addresses change. A Service solves this by giving a fixed IP and DNS name that automatically routes traffic to the right pods.
+-an Ingress is specifically designed to route external traffic to Services, and those Services then forward traffic to the right pods.
+
+
+-Kubernetes, a ConfigMap is an object used to store configuration data in key‑value pairs. It allows you to separate configuration from application code, so you don’t need to rebuild containers when configs change.
+-secret : store secred data like users and passwords
+-volume : persist data
+
+
+
+
+- a Deployment is a higher‑level object that manages pods and ensures they run in a desired state. It’s the standard way to run stateless applications because it handles scaling, rolling updates, and self‑healing automatically.
+🔑 Key Features of a Deployment
+Replica management: Ensures the right number of pod replicas are running.
+Rolling updates: Updates pods gradually, avoiding downtime.
+Rollback: Can revert to a previous version if something goes wrong.
+Self‑healing: Recreates pods if they crash or nodes fail.
+deployment for statless applications
+
+
+
+-statefulset
+Imagine a MySQL cluster:
+Pod mysql-0 is the primary.
+Pod mysql-1 and mysql-2 are replicas.
+Each pod needs a stable hostname (mysql-0.mysql, mysql-1.mysql) so replication can be configured.
+Each pod needs its own persistent volume to store its unique data.
+A Deployment would break this setup because pods would lose their identity and storage when rescheduled. A StatefulSet guarantees both.
+
+
+
+-Use a StatefulSet when pods need stable identities, persistent storage, and ordered scaling — like databases, Kafka, or Zookeeper.
+
+-db often hosted outisde kubernates cluster
+Reasons Databases Are Often External
+Persistence requirements: Databases need highly reliable, durable storage. Kubernetes clusters are designed for ephemeral workloads, so external DBs often sit on specialized storage systems.
+Operational complexity: Running a production‑grade DB inside Kubernetes requires careful tuning (storage classes, StatefulSets, backups, failover). Many teams prefer managed DB services instead.
+Scaling mismatch: Apps scale horizontally easily in Kubernetes, but databases often scale vertically or require complex clustering.
+Managed services: Cloud providers offer robust managed DBs (e.g., AWS RDS, Azure SQL, Google Cloud SQL) with built‑in backups, replication, and monitoring.
+
+
+
+-all request to cluster must go to api server component in control plane  , request goes in yaml or in json sometimes
+
+
+-each config file has 3 parts
+1- metadata
+2-specification:  each kind has its attribute service different than deployment so on each has its own attribute
+3- status auto generated by k8s  : etcd hold current status
+
+
+
+-kubectl : commad line tool    talk to api server to execute 
+-minikube : as master and node processes run on one machine to make it easy to controll   for local and test   ne container or vm to run
+minikube run as docker container , docker inside minikube to run our app containers
+
+
+-better to put service and deplyment related together in one file
+- template : configuation for pods .  because deplyment manage pods
+
