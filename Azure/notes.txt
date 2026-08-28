@@ -265,3 +265,50 @@ sr=b → Resource type (blob).
 sp=r → Permission (read only).
 
 sig=... → Cryptographic signature that validates the token.
+
+***************************************************************************************************************************************************************************
+Azure service bus
+
+Peek mode = safe inspection, no removal.
+
+Receive mode = actual consumption, with either reliable (PeekLock) or fast (ReceiveAndDelete) semantics.
+
+
+
+The simplest analogy
+Think of:
+
+RabbitMQ / Azure Service Bus
+
+📦 A delivery service
+"I've got a package. Please deliver it to a worker."
+
+Kafka
+
+📖 A durable journal
+"Here is a chronological record of everything that happened. Consumers can read it at their own pace."
+
+That's why I said Service Bus is conceptually closer to RabbitMQ than Kafka.
+
+
+
+
+
+
+azure service bus topic  
+🔑 What is a Topic?
+A Service Bus topic is like a queue, but instead of delivering messages to a single consumer, it fans them out to multiple subscriptions.
+
+Each subscription behaves like a virtual queue that receives a copy of the message.
+
+You can apply filters and actions on subscriptions so that different consumers receive different subsets of messages.
+
+
+**********************************************************************************************************************************************************
+
+I see why it feels confusing — because in PaaS (Platform as a Service) you don’t manage servers directly, and in serverless you also don’t manage servers. The difference is subtle but important:
+
+🔑 Why PaaS ≠ Always Serverless
+PaaS: Azure manages the servers, OS, runtime, scaling, and patching for you. But your app still runs continuously on provisioned compute (e.g., Azure App Service). You’re billed for the instance/tier, even if your app is idle.
+
+Serverless: Azure manages everything and your code runs only when triggered. There are no continuously running instances. You’re billed per execution/time, not for idle capacity.
