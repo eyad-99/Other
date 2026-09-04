@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "G:\\test\\Azure\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7CC103BD-FEC0-4176-8243-55E63FCA5977}|DurableFunction\\DurableFunction.csproj|g:\\test\\azure\\durablefunction\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CC103BD-FEC0-4176-8243-55E63FCA5977}|DurableFunction\\DurableFunction.csproj|solutionrelative:durablefunction\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Function1.cs",
+              "DocumentMoniker": "G:\\test\\Azure\\DurableFunction\\Function1.cs",
+              "RelativeDocumentMoniker": "DurableFunction\\Function1.cs",
+              "ToolTip": "G:\\test\\Azure\\DurableFunction\\Function1.cs",
+              "RelativeToolTip": "DurableFunction\\Function1.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACUAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-28T20:24:56.397Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -312,3 +312,10 @@ I see why it feels confusing — because in PaaS (Platform as a Service) you don
 PaaS: Azure manages the servers, OS, runtime, scaling, and patching for you. But your app still runs continuously on provisioned compute (e.g., Azure App Service). You’re billed for the instance/tier, even if your app is idle.
 
 Serverless: Azure manages everything and your code runs only when triggered. There are no continuously running instances. You’re billed per execution/time, not for idle capacity.
+
+
+
+
+*******************************************************************************************************************************************************************************************
+azure function
+Azure Durable Functions are an extension of Azure Functions that let you build stateful workflows in a serverless environment. They manage checkpoints, retries, and state automatically, so you can orchestrate long‑running, reliable processes without writing complex state management code.
