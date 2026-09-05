@@ -6,6 +6,11 @@ using Mvc.StorageAccount.Demo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+
+
+
 // Add services to the container.
 var storageConnectionString = builder.Configuration["AzureStorage:ConnectionString"];
 
@@ -39,6 +44,10 @@ builder.Services.AddScoped<IBlobStorageService, BlobStorageService>();
 builder.Services.AddScoped<IQueueService, QueueService>();
 
 builder.Services.AddControllersWithViews();
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 200 * 1024 * 1024; // 200 MB
+});
 
 var app = builder.Build();
 

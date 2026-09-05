@@ -1,0 +1,66 @@
+import { Component } from '@angular/core';
+import { BlobClient } from '@azure/storage-blob';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  uploadProgress: number = 0;
+  uploadComplete: boolean = false;
+  errorMessage: string | null = null;
+
+  constructor(private http: HttpClient) {}
+
+  async onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (!file) return;
+
+    try {
+      // Call your ASP.NET backend to get a SAS URL for this blob
+      const sasUrl = await this.http
+        .get<string>(`https://localhost:5001/api/blob/sas?blobName=${file.name}`)
+        .toPromise();
+
+      if (!sasUrl) {
+        throw new Error('Failed to get SAS URL');
+      }
+
+      // Upload directly to Azure Blob Storage
+      const blobClient = new BlobClient(sasUrl);
+      await blobClient.uploadBrowserData(file, {
+        blockSize: 4 * 1024 * 1024, // 4 MB chunks
+        concurrency: 5,
+        onProgress: (ev) => {
+          this.uploadProgress = Math.round((ev.loadedBytes / file.size) * 100);
+        }
+      });
+
+      this.uploadComplete = true;
+    } catch (err: any) {
+      this.errorMessage = err.message;
+    }
+  }
+}
+*********************************************************************************************************************************************
+
+<div style="padding:20px;">
+  <h2>Azure Blob Upload POC</h2>
+
+  <input type="file" (change)="onFileSelected($event)" />
+
+  <div *ngIf="uploadProgress > 0 && !uploadComplete">
+    <p>Progress: {{uploadProgress}}%</p>
+    <progress [value]="uploadProgress" max="100"></progress>
+  </div>
+
+  <div *ngIf="uploadComplete">
+    <p style="color:green;">Upload complete!</p>
+  </div>
+
+  <div *ngIf="errorMessage">
+    <p style="color:red;">Error: {{errorMessage}}</p>
+  </div>
+</div>

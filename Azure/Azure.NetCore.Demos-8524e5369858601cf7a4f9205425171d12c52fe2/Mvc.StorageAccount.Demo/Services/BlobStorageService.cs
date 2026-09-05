@@ -1,7 +1,9 @@
 ﻿using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs.Specialized;
 using Azure.Storage.Sas;
 using Mvc.StorageAccount.Demo.Services;
+using System.Text;
 
 public class BlobStorageService : IBlobStorageService
 {
@@ -39,6 +41,39 @@ public class BlobStorageService : IBlobStorageService
 
         return blobName;
     }
+
+    public async Task<string> UploadLargeBlobResumable(IFormFile formFile, string blobName)
+    {
+        var container = await GetContainerAsync();
+        var blobClient = container.GetBlockBlobClient(blobName);
+
+        // Choose block size (e.g., 4 MB)
+        const int blockSize = 4 * 1024 * 1024;
+        var blockIds = new List<string>();
+
+        using var stream = formFile.OpenReadStream();
+        int blockNumber = 0;
+        byte[] buffer = new byte[blockSize];
+        int bytesRead;
+
+        while ((bytesRead = await stream.ReadAsync(buffer, 0, blockSize)) > 0)
+        {
+            string blockId = Convert.ToBase64String(
+                Encoding.UTF8.GetBytes(blockNumber.ToString("d6"))
+            );
+            using var ms = new MemoryStream(buffer, 0, bytesRead);
+
+            await blobClient.StageBlockAsync(blockId, ms);
+            blockIds.Add(blockId);
+            blockNumber++;
+        }
+
+        // Commit all blocks
+        await blobClient.CommitBlockListAsync(blockIds);
+
+        return blobName;
+    }
+
 
     public async Task<string> GetBlobUrl(string imageName)
     {
