@@ -15,7 +15,7 @@ public class BlobStorageService : IBlobStorageService
         _blobServiceClient = blobServiceClient;
     }
 
-    private async Task<BlobContainerClient> GetContainerAsync()
+    public async Task<BlobContainerClient> GetContainerAsync()
     {
         var container = _blobServiceClient.GetBlobContainerClient(_containerName);
         await container.CreateIfNotExistsAsync();

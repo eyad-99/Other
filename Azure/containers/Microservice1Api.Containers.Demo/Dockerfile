@@ -4,13 +4,15 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
+ENV ASPNETCORE_URLS=http://+:80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["Microservice1Api.Containers.Demo/Microservice1Api.Containers.Demo.csproj", "Microservice1Api.Containers.Demo/"]
-RUN dotnet restore "Microservice1Api.Containers.Demo/Microservice1Api.Containers.Demo.csproj"
+# Since you are already inside Microservice1Api.Containers.Demo, just copy the file directly
+COPY ["Microservice1Api.Containers.Demo.csproj", "."]
+RUN dotnet restore "Microservice1Api.Containers.Demo.csproj"
 COPY . .
-WORKDIR "/src/Microservice1Api.Containers.Demo"
+WORKDIR "/src"
 RUN dotnet build "Microservice1Api.Containers.Demo.csproj" -c Release -o /app/build
 
 FROM build AS publish

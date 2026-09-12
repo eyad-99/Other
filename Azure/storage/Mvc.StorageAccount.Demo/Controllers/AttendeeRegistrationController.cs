@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Azure.Storage.Sas;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Mvc.StorageAccount.Demo.Data;
 using Mvc.StorageAccount.Demo.Models;
@@ -157,5 +158,28 @@ namespace Mvc.StorageAccount.Demo.Controllers
                 return View();
             }
         }
+
+        [HttpGet("api/blob/sas")]
+        public async Task<IActionResult> GetUploadSasUrl(string blobName)
+        {
+            var container = await _blobStorageService.GetContainerAsync();
+            var blobClient = container.GetBlobClient(blobName);
+
+            var sasBuilder = new BlobSasBuilder
+            {
+                BlobContainerName = container.Name,
+                BlobName = blobClient.Name,
+                ExpiresOn = DateTime.UtcNow.AddMinutes(10),
+                Protocol = SasProtocol.Https,
+                Resource = "b"
+            };
+
+            sasBuilder.SetPermissions(BlobSasPermissions.Write | BlobSasPermissions.Create | BlobSasPermissions.Add);
+
+            var sasUri = blobClient.GenerateSasUri(sasBuilder);
+
+            return Ok(new { uploadUrl = sasUri.ToString() });
+        }
+
     }
 }

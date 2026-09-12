@@ -1,0 +1,9 @@
+<h2>Azure Blob Upload</h2>
+<input type="file" (change)="onFileSelected($event)" />
+
+<div *ngIf="progress > 0">
+  <p>Progress: {{progress}}%</p>
+  <progress [value]="progress" max="100"></progress>
+</div>
+
+<router-outlet></router-outlet>
