@@ -1,9 +1,64 @@
-<h2>Azure Blob Upload</h2>
-<input type="file" (change)="onFileSelected($event)" />
+<div class="container">
 
-<div *ngIf="progress > 0">
-  <p>Progress: {{progress}}%</p>
-  <progress [value]="progress" max="100"></progress>
+  <h2>Azure Blob Upload</h2>
+
+  <input
+    type="file"
+    (change)="onFileSelected($event)"
+    [disabled]="uploading()"
+  />
+
+  @if (uploading() || uploadComplete()) {
+
+    <div class="upload-box">
+
+      <div class="progress-header">
+
+        <span>
+          @if (uploading()) {
+            Uploading...
+          } @else {
+            Upload complete
+          }
+        </span>
+
+        <strong>
+          {{ progress() }}%
+        </strong>
+
+      </div>
+
+      <div class="progress-background">
+
+        <div
+          class="progress-bar"
+          [style.width.%]="progress()">
+        </div>
+
+      </div>
+
+      <div class="progress-text">
+        {{ progress() }}%
+      </div>
+
+    </div>
+
+  }
+
+  @if (uploadComplete()) {
+
+    <div class="success">
+      Upload completed successfully!
+    </div>
+
+  }
+
+  @if (errorMessage()) {
+
+    <div class="error">
+      {{ errorMessage() }}
+    </div>
+
+  }
+
 </div>
-
-<router-outlet></router-outlet>
