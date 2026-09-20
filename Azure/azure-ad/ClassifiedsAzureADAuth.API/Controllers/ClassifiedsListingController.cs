@@ -13,7 +13,6 @@ using IdentityModel.Client;
 
 namespace ClassifiedsAzureADAuth.API.Controllers
 {
-
     [ApiController]
     [Route("[controller]")]
     public class ClassifiedsListingController : ControllerBase
@@ -33,26 +32,28 @@ namespace ClassifiedsAzureADAuth.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<ClassifiedsListing>> GetAsync()
+        [Authorize(Policy = "AllAccess")]
+
+       public async Task<IEnumerable<ClassifiedsListing>> GetAsync()
         {
             var currentToken = await HttpContext.GetTokenAsync("access_token");
             var httpClient = httpClientFactory.CreateClient();
             var tokenEndpointResponse = await httpClient.RequestTokenAsync(
                 new TokenRequest 
                 { 
-                    Address = "https://login.microsoftonline.com/4e3149fe-4596-4f1d-858a-882973ab5062/oauth2/v2.0/token",
+                    Address = "https://login.microsoftonline.com/70c07c26-601e-415b-9a91-c351a5ad357b/oauth2/v2.0/token",
                     GrantType = "urn:ietf:params:oauth:grant-type:jwt-bearer",
-                    ClientId = "a9d87f9d-bc8a-4c5b-8af3-87292c4872b9",
-                    ClientSecret = "0ps7Q~DJfbKkDA5cRK1NSapz3e8TlrOuzAemm",
+                    ClientId = "bc33e163-b67b-470b-8ebc-a40c86e3e3db",
+                    ClientSecret = "AxC8Q~dSza0SbaiJKGxHaypWJXj_-HG.6CaaOdai",
                     Parameters =
                     {
                         {"assertion",currentToken},
-                        {"scope","api://b6d35d14-91e0-4e05-afa7-a8919b56011b/AllAccess"},
+                        {"scope","api://d52c2b15-dbf6-4664-8b84-482bb5aa5777/.default"},
                         {"requested_token_use","on_behalf_of"},
                     }
                 });
 
-            var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:44313/weatherforecast");
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:44319/weatherforecast");
             request.Headers.Authorization = new AuthenticationHeaderValue(JwtBearerDefaults.AuthenticationScheme, tokenEndpointResponse.AccessToken);
 
             var response = await httpClient.SendAsync(request);

@@ -1,0 +1,43 @@
+active directory : software used to handle users usename , password , permission , roles so on   (open id and outh 2 identity provider)  now named as microsoft entra id
+
+
+-
+🔎 Does Azure itself use Active Directory?
+Yes — Azure itself is built on top of Active Directory concepts. The “normal” Azure Active Directory (now called Microsoft Entra ID) is the identity backbone of the entire Azure platform. Every subscription, resource group, and resource is tied to a tenant in Entra ID. That means:
+
+When you sign in with your Microsoft account or organizational account, you’re authenticating against Entra ID.
+
+Azure RBAC (role‑based access control) is enforced through Entra ID users, groups, and service principals.
+
+Tokens issued by Entra ID are what let you manipulate Azure resources via the portal, CLI, or APIs.
+
+🔎 Can you invite friends and let them manipulate resources?
+Yes — you can add external users (called guest users) into your tenant:
+
+You invite them by email → they become a guest account in your Entra ID tenant.
+
+You assign them roles (like Contributor, Reader, Owner) on subscriptions or resource groups.
+
+They then authenticate via their own Microsoft/Entra ID account, but permissions are controlled by your tenant.
+
+So in practice:
+
+You → tenant admin.
+
+Friend → guest user in your tenant.
+
+You grant them RBAC roles → they can manage Azure resources.
+
+🔎 Summary
+Azure doesn’t just provide Active Directory — it uses it internally for all identity and access.
+
+Authentication (via Entra ID) is mandatory before any resource manipulation.
+
+You can invite external users as guests and give them RBAC roles to manage your Azure resources.
+
+
+
+
+********************************************************************************************************************************************************************
+1- register app
+- client secret is like app password to make azure make sure that sign in or out request comes from this app realy

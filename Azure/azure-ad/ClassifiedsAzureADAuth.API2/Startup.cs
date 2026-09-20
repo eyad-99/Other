@@ -32,8 +32,8 @@ namespace ClassifiedsAzureADAuth.API2
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
-                    options.Audience = "api://b6d35d14-91e0-4e05-afa7-a8919b56011b";
-                    options.Authority = "https://login.microsoftonline.com/4e3149fe-4596-4f1d-858a-882973ab5062/";
+                    options.Audience = "api://d52c2b15-dbf6-4664-8b84-482bb5aa5777";
+                    options.Authority = "https://login.microsoftonline.com/70c07c26-601e-415b-9a91-c351a5ad357b";
                 });
 
             services.AddSwaggerGen(c =>

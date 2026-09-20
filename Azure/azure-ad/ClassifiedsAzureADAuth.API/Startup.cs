@@ -30,12 +30,60 @@ namespace ClassifiedsAzureADAuth.API
 
             services.AddControllers();
             services.AddHttpClient();
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options => {
-                    options.Audience = "";
-                    options.Authority = "";
+                .AddJwtBearer(options =>
+                {
+                    options.Audience =
+                        "api://bc33e163-b67b-470b-8ebc-a40c86e3e3db";
+
+                    options.Authority =
+                        "https://login.microsoftonline.com/70c07c26-601e-415b-9a91-c351a5ad357b";
+
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnAuthenticationFailed = context =>
+                        {
+                            Console.WriteLine("========== JWT AUTH FAILED ==========");
+                            Console.WriteLine(context.Exception.ToString());
+
+                            return Task.CompletedTask;
+                        },
+
+                        OnTokenValidated = context =>
+                        {
+                            Console.WriteLine("========== JWT VALIDATED ==========");
+
+                            foreach (var claim in context.Principal.Claims)
+                            {
+                                Console.WriteLine(
+                                    $"{claim.Type} = {claim.Value}");
+                            }
+
+                            return Task.CompletedTask;
+                        },
+
+                        OnChallenge = context =>
+                        {
+                            Console.WriteLine("========== JWT CHALLENGE ==========");
+                            Console.WriteLine($"Error: {context.Error}");
+                            Console.WriteLine($"Description: {context.ErrorDescription}");
+
+                            return Task.CompletedTask;
+                        }
+                    };
                 });
+
+
+            services.AddAuthorization(options =>
+
+{
+             
+options.AddPolicy("AllAccess",
+
+policy => policy.RequireClaim("http://schemas.microsoft.com/identity/claims/scope",
+            "AllAccess"));
+                
+});
 
             services.AddSwaggerGen(c =>
             {

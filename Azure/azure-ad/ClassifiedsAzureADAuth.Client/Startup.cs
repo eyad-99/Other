@@ -31,8 +31,16 @@ namespace ClassifiedsAzureADAuth.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAdB2C"));
+                    .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
 
+            services.Configure<OpenIdConnectOptions>(
+    OpenIdConnectDefaults.AuthenticationScheme,
+    options =>
+    {
+        options.SaveTokens = true;
+        options.Scope.Add(
+        "api://bc33e163-b67b-470b-8ebc-a40c86e3e3db/AllAccess");
+    });
             services.AddAuthorization(options =>
             {
                 // By default, all incoming requests will be authorized according to the default policy
