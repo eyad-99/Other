@@ -32,7 +32,7 @@ namespace ClassifiedsAzureADAuth.API2
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
-                    options.Audience = "api://d52c2b15-dbf6-4664-8b84-482bb5aa5777";
+                    options.Audience = "api://dfd44d9e-73b8-43fe-b705-3a179610eef2";
                     options.Authority = "https://login.microsoftonline.com/70c07c26-601e-415b-9a91-c351a5ad357b";
                 });
 

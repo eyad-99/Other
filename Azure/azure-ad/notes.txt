@@ -41,3 +41,50 @@ You can invite external users as guests and give them RBAC roles to manage your 
 ********************************************************************************************************************************************************************
 1- register app
 - client secret is like app password to make azure make sure that sign in or out request comes from this app realy
+
+
+
+1. User clicks Sign In
+2
+2. App creates code_verifier   hash key  
+3
+3. App sends code_challenge to Azure       string after hash with code verifier
+4
+4. User logs in
+5
+5. Azure returns Authorization Code
+6
+6. App sends:
+7
+Authorization Code
+8
+code_verifier
+9
+7. Azure verifies PKCE
+10
+8. Azure returns tokens
+11
+9. ASP.NET creates .AspNetCore.Cookies
+12
+10. Browser is signed in
+
+
+
+
+
+
+
+***************************************
+oaut validate jwt token   
+Issuer = Who created the ticket? (Azure AD tenant)
+Audience = Which application can accept this ticket?
+
+
+
+ClassifiedsAzureADAuth.API2		
+
+
+
+api://dfd44d9e-73b8-43fe-b705-3a179610eef2
+api://dfd44d9e-73b8-43fe-b705-3a179610eef2/AllAccess
+eru8Q~REQXzE-aoQY6TUGaZumze8cmjdT1aSWb4y

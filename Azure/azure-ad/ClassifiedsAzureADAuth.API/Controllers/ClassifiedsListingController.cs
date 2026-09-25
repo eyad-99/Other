@@ -44,11 +44,11 @@ namespace ClassifiedsAzureADAuth.API.Controllers
                     Address = "https://login.microsoftonline.com/70c07c26-601e-415b-9a91-c351a5ad357b/oauth2/v2.0/token",
                     GrantType = "urn:ietf:params:oauth:grant-type:jwt-bearer",
                     ClientId = "bc33e163-b67b-470b-8ebc-a40c86e3e3db",
-                    ClientSecret = "AxC8Q~dSza0SbaiJKGxHaypWJXj_-HG.6CaaOdai",
+                    ClientSecret = "eru8Q~REQXzE-aoQY6TUGaZumze8cmjdT1aSWb4y",
                     Parameters =
                     {
                         {"assertion",currentToken},
-                        {"scope","api://d52c2b15-dbf6-4664-8b84-482bb5aa5777/.default"},
+                        {"scope","api://dfd44d9e-73b8-43fe-b705-3a179610eef2/.default"},
                         {"requested_token_use","on_behalf_of"},
                     }
                 });
