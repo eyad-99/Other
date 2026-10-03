@@ -1,0 +1,108 @@
+1- you need hangfire.aspnetcore nugetpackage   and data storage provider like hangfire.sqlserver
+
+
+2- app enqueue job in job storage (db server connected to hangfire server ), hangfire poll(from db server) untill find one to process  then record result also in same db server
+
+
+3- job types :
+
+
+-fire-and-forget
+
+You fire the job (enqueue it), then your request doesn't wait for it ("forget" about waiting for the result).
+It doesn't mean Hangfire literally forgets the job. Hangfire stores it in SQL Server, so it can process/retry it.
+
+or Run this job in the background as soon as possible, without making the HTTP request wait for it to finish.
+
+Client
+  │
+  │ POST /fire-and-forget
+  ↓
+Server
+  │
+  ├── Queue job in Hangfire
+  │
+  └── Return response immediately
+           ↓
+      Hangfire Worker
+           ↓
+       SendEmail()
+
+
+
+
+
+
+-delayed job
+Create the job now, but tell Hangfire to execute it later.
+
+jobs.Schedule<DemoJobs>(
+    x => x.SendReminder(),
+    TimeSpan.FromSeconds(30));
+
+NOW
+ │
+ │ Create job
+ ↓
+Hangfire stores it in SQL Server
+ │
+ │ wait 30 seconds
+ ↓
+30 seconds later
+ │
+ ↓
+SendReminder() executes
+
+
+
+
+
+
+-Recurring job means:
+
+Tell Hangfire to execute the same job repeatedly according to a schedule.
+
+RecurringJob.AddOrUpdate<DemoJobs>(
+    "cleanup-job",
+    x => x.Cleanup(),
+    Cron.Minutely);
+
+Hangfire
+   │
+   ├── 5:00 → Cleanup()
+   ├── 5:01 → Cleanup()
+   ├── 5:02 → Cleanup()
+   ├── 5:03 → Cleanup()
+   └── ...
+
+
+-continuation
+
+Continuation job means:
+Run a second job only after another job has finished.
+
+var firstJob = jobs.Enqueue<DemoJobs>(
+    x => x.ProcessFile());
+
+var secondJob = jobs.ContinueJobWith<DemoJobs>(
+    firstJob,
+    x => x.ResizeFile());
+
+jobs.ContinueJobWith<DemoJobs>(
+    secondJob,
+    x => x.OptimizeFile());
+
+ProcessFile()
+     │
+     │ succeeds
+     ↓
+ResizeFile()
+     │
+     │ succeeds
+     ↓
+OptimizeFile()
+
+
+
+
+

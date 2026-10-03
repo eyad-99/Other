@@ -1,0 +1,16 @@
+G:\test\Hamgfire\Client\bin\Debug\net10.0\Client.exe
+G:\test\Hamgfire\Client\bin\Debug\net10.0\Client.deps.json
+G:\test\Hamgfire\Client\bin\Debug\net10.0\Client.runtimeconfig.json
+G:\test\Hamgfire\Client\bin\Debug\net10.0\Client.dll
+G:\test\Hamgfire\Client\bin\Debug\net10.0\Client.pdb
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.GeneratedMSBuildEditorConfig.editorconfig
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.AssemblyInfoInputs.cache
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.AssemblyInfo.cs
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.csproj.CoreCompileInputs.cache
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.sourcelink.json
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.dll
+G:\test\Hamgfire\Client\obj\Debug\net10.0\refint\Client.dll
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.pdb
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.genruntimeconfig.cache
+G:\test\Hamgfire\Client\obj\Debug\net10.0\ref\Client.dll
+G:\test\Hamgfire\Client\obj\Debug\net10.0\Client.csproj.Up2Date
