@@ -1205,11 +1205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\test\\Hamgfire\\server\\server.csproj",
+      "projectUniqueName": "G:\\test\\Hangfire\\server\\server.csproj",
       "projectName": "server",
-      "projectPath": "G:\\test\\Hamgfire\\server\\server.csproj",
+      "projectPath": "G:\\test\\Hangfire\\server\\server.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\test\\Hamgfire\\server\\obj\\",
+      "outputPath": "G:\\test\\Hangfire\\server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

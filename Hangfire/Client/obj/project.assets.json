@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\test\\Hamgfire\\Client\\Client.csproj",
+      "projectUniqueName": "G:\\test\\Hangfire\\Client\\Client.csproj",
       "projectName": "Client",
-      "projectPath": "G:\\test\\Hamgfire\\Client\\Client.csproj",
+      "projectPath": "G:\\test\\Hangfire\\Client\\Client.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\test\\Hamgfire\\Client\\obj\\",
+      "outputPath": "G:\\test\\Hangfire\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
