@@ -1,0 +1,16 @@
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\bin\Debug\net10.0\CleanOrders.Application.deps.json
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\bin\Debug\net10.0\CleanOrders.Application.dll
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\bin\Debug\net10.0\CleanOrders.Application.pdb
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\bin\Debug\net10.0\CleanOrders.Domain.dll
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\bin\Debug\net10.0\CleanOrders.Domain.pdb
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrders.Application.csproj.AssemblyReference.cache
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrders.Application.GeneratedMSBuildEditorConfig.editorconfig
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrders.Application.AssemblyInfoInputs.cache
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrders.Application.AssemblyInfo.cs
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrders.Application.csproj.CoreCompileInputs.cache
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrders.Application.sourcelink.json
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrd.E74EFB95.Up2Date
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrders.Application.dll
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\refint\CleanOrders.Application.dll
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\CleanOrders.Application.pdb
+G:\test\clean architicture\CleanOrders\CleanOrders.Application\obj\Debug\net10.0\ref\CleanOrders.Application.dll

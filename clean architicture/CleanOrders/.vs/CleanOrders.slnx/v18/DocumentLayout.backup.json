@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\test\\clean architicture\\CleanOrders\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{32410965-4D1D-443C-9E14-D0E66F30CE69}|CleanOrders.Application\\CleanOrders.Application.csproj|g:\\test\\clean architicture\\cleanorders\\cleanorders.application\\confirmorderusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32410965-4D1D-443C-9E14-D0E66F30CE69}|CleanOrders.Application\\CleanOrders.Application.csproj|solutionrelative:cleanorders.application\\confirmorderusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32410965-4D1D-443C-9E14-D0E66F30CE69}|CleanOrders.Application\\CleanOrders.Application.csproj|g:\\test\\clean architicture\\cleanorders\\cleanorders.application\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32410965-4D1D-443C-9E14-D0E66F30CE69}|CleanOrders.Application\\CleanOrders.Application.csproj|solutionrelative:cleanorders.application\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53F76CBA-2A55-4B8A-934E-04B40936B5E4}|CleanOrders.Api\\CleanOrders.Api.csproj|g:\\test\\clean architicture\\cleanorders\\cleanorders.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53F76CBA-2A55-4B8A-934E-04B40936B5E4}|CleanOrders.Api\\CleanOrders.Api.csproj|solutionrelative:cleanorders.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{216AE43B-35D1-4016-AAB6-84864D33A984}|CleanOrders.Infrastructure\\CleanOrders.Infrastructure.csproj|g:\\test\\clean architicture\\cleanorders\\cleanorders.infrastructure\\inmemoryorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{216AE43B-35D1-4016-AAB6-84864D33A984}|CleanOrders.Infrastructure\\CleanOrders.Infrastructure.csproj|solutionrelative:cleanorders.infrastructure\\inmemoryorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{111095F6-EDC6-4532-9F18-EF799434A233}|CleanOrders.Domain\\CleanOrders.Domain.csproj|g:\\test\\clean architicture\\cleanorders\\cleanorders.domain\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{111095F6-EDC6-4532-9F18-EF799434A233}|CleanOrders.Domain\\CleanOrders.Domain.csproj|solutionrelative:cleanorders.domain\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32410965-4D1D-443C-9E14-D0E66F30CE69}|CleanOrders.Application\\CleanOrders.Application.csproj|g:\\test\\clean architicture\\cleanorders\\cleanorders.application\\cleanorders.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{32410965-4D1D-443C-9E14-D0E66F30CE69}|CleanOrders.Application\\CleanOrders.Application.csproj|solutionrelative:cleanorders.application\\cleanorders.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Api\\Program.cs",
+              "RelativeDocumentMoniker": "CleanOrders.Api\\Program.cs",
+              "ToolTip": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Api\\Program.cs",
+              "RelativeToolTip": "CleanOrders.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:56:16.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CleanOrders.Application",
+              "DocumentMoniker": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Application\\CleanOrders.Application.csproj",
+              "RelativeDocumentMoniker": "CleanOrders.Application\\CleanOrders.Application.csproj",
+              "ToolTip": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Application\\CleanOrders.Application.csproj",
+              "RelativeToolTip": "CleanOrders.Application\\CleanOrders.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-14T15:50:30.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InMemoryOrderRepository.cs",
+              "DocumentMoniker": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Infrastructure\\InMemoryOrderRepository.cs",
+              "RelativeDocumentMoniker": "CleanOrders.Infrastructure\\InMemoryOrderRepository.cs",
+              "ToolTip": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Infrastructure\\InMemoryOrderRepository.cs",
+              "RelativeToolTip": "CleanOrders.Infrastructure\\InMemoryOrderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:49:24.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Application\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "CleanOrders.Application\\IOrderRepository.cs",
+              "ToolTip": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Application\\IOrderRepository.cs",
+              "RelativeToolTip": "CleanOrders.Application\\IOrderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:48:02.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConfirmOrderUseCase.cs",
+              "DocumentMoniker": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Application\\ConfirmOrderUseCase.cs",
+              "RelativeDocumentMoniker": "CleanOrders.Application\\ConfirmOrderUseCase.cs",
+              "ToolTip": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Application\\ConfirmOrderUseCase.cs*",
+              "RelativeToolTip": "CleanOrders.Application\\ConfirmOrderUseCase.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:47:29.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Order.cs",
+              "DocumentMoniker": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Domain\\Order.cs",
+              "RelativeDocumentMoniker": "CleanOrders.Domain\\Order.cs",
+              "ToolTip": "G:\\test\\clean architicture\\CleanOrders\\CleanOrders.Domain\\Order.cs",
+              "RelativeToolTip": "CleanOrders.Domain\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:46:46.456Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

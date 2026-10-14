@@ -1,0 +1,167 @@
+-layred architicture
+
+1- can be any number of layers not just 3 
+2-flexible layering system one layer can talk to anu layer down not the just first one under it
+3-we reason about a layer without worrying about immplementaion
+4-can susbstitute layer with different immplementaion
+5-minimize dependecies between layers
+6- high cohesion : el class aw e component yb2a m3ah kol ely by7tago kadrl el mostatat3 3ashan lama t3adedl matlefsh f 50 mkan
+
+
+
+
+
+7-  2 type of business logic   
+- domain business logic having to do purly with domain example : calculation of insurance premuim   
+- application logic : having to do with app responsibility, often reffered as workflow logic
+-3and2 tareteen ll klam dah   
+
+1. Operation Script (Transaction Script)
+An operation script implements a use case as a procedure that contains the steps and business rules needed to complete it.
+For example, in a .NET e-commerce application:
+public class PlaceOrderService
+{
+    public async Task PlaceOrder(int orderId)
+    {
+        var order = await _repository.GetById(orderId);
+
+        if (order.Total <= 0)
+            throw new Exception("Invalid total");
+
+        order.IsConfirmed = true;
+
+        await _repository.Save(order);
+    }
+}
+
+
+The service contains both the workflow and the business rule.
+- Application logic: Load the order and save it.
+- Business logic: Check the total and confirm the order.
+This is simple and often suitable for CRUD applications or use cases with straightforward rules.
+2. Domain Facade
+A Domain Facade provides a simplified interface to domain operations. It delegates the actual business behavior to domain objects or domain services.
+For example:
+public class Order
+{
+    public decimal Total { get; private set; }
+    public bool IsConfirmed { get; private set; }
+
+    public void Confirm()
+    {
+        if (Total <= 0)
+            throw new InvalidOperationException("Invalid total");
+
+        IsConfirmed = true;
+    }
+}
+
+
+The application service coordinates the use case:
+public class PlaceOrderService
+{
+    public async Task PlaceOrder(int orderId)
+    {
+        var order = await _repository.GetById(orderId);
+
+        order.Confirm();
+
+        await _repository.Save(order);
+    }
+}
+
+
+Here, the application service coordinates the operation, while the Order entity owns the rule that protects its state.
+
+
+
+
+
+
+
+
+8- hexagonal   This isolates business logic from infrastructure and makes the application easier to test and change.
+  . Outgoing port — the core depends on an abstraction so business logic not purly indpendent still depend on (port layer) almost still layered app but here business donot depend on data access it depend on port and adapter depend 
+
+
+Ports and Adapters is another name for Hexagonal Architecture. They are not two different concepts: ports and adapters are the main building blocks of Hexagonal Architecture.
+1. What is Hexagonal Architecture?
+Hexagonal Architecture is an architectural style introduced by Alistair Cockburn. It aims to keep your application's core business logic independent of external technologies, such as databases, web APIs, and user interfaces.
+It is called hexagonal because diagrams often represent the application core as a hexagon. The six sides are just illustrative; the architecture does not require exactly six components.
+2. What are Ports and Adapters?
+
+Ports
+Interfaces defining how the application communicates
+
+Adapters:will depend on technology   sql server adapter encapsulate sql server library, my sql adapter, email adapter encapsulate smtp, rabbitmq adapter encapsulate rabiitmq library
+Translate between external technologies and application interfaces
+
+
+Application Core
+Use cases and business logic
+
+
+
+Port
+A port defines a way to interact with the application or a capability the application needs. In .NET, it is often represented by an interface.
+For example:
+public interface IOrderRepository
+{
+    Task<Order?> GetByIdAsync(int id);
+    Task SaveAsync(Order order);
+}
+
+
+The application needs to load and save orders, but it doesn't specify how the data is stored.
+Adapter
+An adapter implements or uses a port to connect the application to a specific technology.
+public class SqlOrderRepository : IOrderRepository
+{
+    private readonly AppDbContext _db;
+
+    public SqlOrderRepository(AppDbContext db)
+    {
+        _db = db;
+    }
+
+    public Task<Order?> GetByIdAsync(int id)
+        => _db.Orders.FindAsync(id).AsTask();
+
+    public async Task SaveAsync(Order order)
+    {
+        _db.Orders.Update(order);
+        await _db.SaveChangesAsync();
+    }
+}
+
+
+Here, SqlOrderRepository is an adapter that connects the application to SQL Server through EF Core.
+
+4. How does this relate to Clean Architecture?
+They share a major principle: the core application should not depend directly on external infrastructure details.
+- Hexagonal Architecture explains the system in terms of ports and adapters.
+- Clean Architecture organizes the system into layers and emphasizes the dependency rule.
+- Both can use interfaces, dependency inversion, and infrastructure implementations.
+You can implement Clean Architecture using ports and adapters; they are compatible approaches, not competing architectures.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9-use cases
+-boundary object object that interfces with system actors : interfce, proxies,  gateways  , adapter in hexagonal
+-entity : system data      customer ,   order  business layer
+-controlers , interactor object that mediate betwen objects and entities, they orchestrate the execution of command   port in hexagonal

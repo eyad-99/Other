@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "CleanOrders.Application/1.0.0": {
+        "dependencies": {
+          "CleanOrders.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CleanOrders.Application.dll": {}
+        }
+      },
+      "CleanOrders.Domain/1.0.0": {
+        "runtime": {
+          "CleanOrders.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CleanOrders.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CleanOrders.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

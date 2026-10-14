@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/App(usecase)/">
+    <Project Path="CleanOrders.Application/CleanOrders.Application.csproj" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="CleanOrders.Domain/CleanOrders.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="CleanOrders.Infrastructure/CleanOrders.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/UI/">
+    <Project Path="CleanOrders.Api/CleanOrders.Api.csproj" />
+  </Folder>
+</Solution>
