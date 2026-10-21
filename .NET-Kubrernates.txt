@@ -60,3 +60,26 @@ Volume	                                                          Storage made av
 PersistentVolume (PV)	                                          A cluster storage resource, backed by actual storage.
 PersistentVolumeClaim (PVC)	                                  A request for storage by an application.
 StorageClass	                                                 Defines how Kubernetes can provision storage dynamically.
+
+
+
+
+
+
+
+
+
+
+
+
+
+_________________________________________________________________________
+
+YAML property	Value	Meaning
+containerPort	8080	Documents the port your application is expected to listen on inside the container. It does not configure the app's listener by itself.
+targetPort	8080	The destination port on the selected pod to which the Service forwards traffic.
+port	80	The port exposed by the Service inside the Kubernetes cluster.
+nodePort	30080	The port exposed on each node's network interface, subject to the cluster's networking configuration.
+Notice that containerPort and targetPort are both 8080, but they have different jobs:
+- containerPort describes the container's expected port.
+- targetPort tells the Service where to send traffic.
