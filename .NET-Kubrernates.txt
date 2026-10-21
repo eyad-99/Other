@@ -1,0 +1,62 @@
+https://www.youtube.com/watch?v=uh4V2IjSrlI
+
+
+
+1-Contsiner orchestration
+- service descovery
+- scaling 
+- health monitoring
+- failover , networking , sceduele
+
+2- kubernates cluster
+-master nodes
+has component called api server expose set og apis for client totalk to master node clientd like cli , dashboard , other clients
+,each request get to api server logged in etcd db its db of api server
+,scheduler  find best worker node to hold your container  after find donot do anything just tell the api and api save this info
+
+-worker nodes
+kubelet   whatch api server to see if any work to be schduled on that worker if it find a container it call  container runtime
+,container runtime (docker ,rocket,etc)
+
+eyadkubernates
+-controller manager 
+component work all time to monitor and check if current state of the cluster is the desired state
+
+
+
+
+_______________________________________________
+1-pods:smallest unit to deploy in kubernates  app container always live inside the pod   , could contain multiple container live inside of it if multiple container they will share same network namespace
+
+also pod can jave volume inside of it not just containers  can be cosumed by contsiner living inside that pod
+pod usually represent single unit of an aplication
+
+
+ports
+
+Port	               Belongs to	              Example
+containerPort	Container configuration	               8080
+targetPort	Destination port inside the Pod	       8080
+port	        Kubernetes Service	               80
+nodePort	Kubernetes Node (if configured)	       30080
+
+
+2- replica set
+A ReplicaSet in Kubernetes ensures that a specified number of identical Pod replicas are running at all times.
+For example, if you want 3 copies of your .NET API running, a ReplicaSet maintains 3 Pods.
+Think of it this way: Labels tell the ReplicaSet which Pods to count; replicas: 3 tells it how many Pods to maintain.
+
+3- depoyment   to roolout, rollback fature fo our replica set wnta tale3 b version gdeeda mattl3sh 3ala kol el pod el fel replica mara wa7da
+btshta8al ezai : b3ml new replica set w t7ot pod mn el gdeed gowaha law tmam mwrt pod mn el replica el adeem w hakaza l7ad ama el replica el adeem el pods ely gowaha tfda
+
+
+4-services: a Service provides a stable network endpoint for accessing a group of Pods. and load balancer
+
+5-In Kubernetes, a Volume lets a container access storage outside its own container filesystem. It's especially important when running databases because containers and Pods can be replaced.
+
+
+Term	                                                          Meaning
+Volume	                                                          Storage made available to containers in a Pod.
+PersistentVolume (PV)	                                          A cluster storage resource, backed by actual storage.
+PersistentVolumeClaim (PVC)	                                  A request for storage by an application.
+StorageClass	                                                 Defines how Kubernetes can provision storage dynamically.
