@@ -1,0 +1,425 @@
+Domain-Driven Design (DDD) means designing your software around the real business rules and concepts, not just database tables or API endpoints.
+******************************************************************************************************
+In DDD, there are two levels: Strategic DDD and Tactical DDD.
+1. Strategic DDD — What should we build and how does it fit together?
+Focuses on the big picture of the business.
+
+Example: In an e-commerce system, you identify separate business areas:
+- Ordering: Create and manage orders.
+- Payments: Process payments.
+- Shipping: Deliver orders.
+You also define how these areas relate and communicate.
+
+
+
+2. Tactical DDD — How do we implement the business model in code?
+Focuses on the building blocks inside a business area.
+
+For example, inside the Ordering area:
+Pattern	                         Meaning
+Entity	                        Has an identity, e.g. Order
+Value Object	                Defined by its values, e.g. Money
+Aggregate	                Group of objects protected by business rules
+Repository	                Loads and saves domain objects
+Domain Service	                Business logic that doesn't naturally belong to one entity
+
+Remember the difference
+
+Strategic = how to divide and organize the business.
+Tactical = how to model each part in code.
+
+
+****************************************************
+
+- ba3d ama tfham el sub domains e3mlohom clasification
+1-core
+2-generic
+3-supporting
+*********************************************
+
+-Ubiquitous Language
+ is a DDD concept meaning: everyone on the team uses the same language for the same business concepts.
+Example: an e-commerce system.
+
+Instead of developers saying UpdateStatus(), while business people say “Confirm Order,” use the business term directly in the code
+
+
+**************************************
+A Domain Model is a representation of your business concepts, their relationships, and their business rules in code.
+
+For example, in an e-commerce system:
+public class Order
+{
+    public decimal TotalPrice { get; private set; }
+    public bool IsPaid { get; private set; }
+
+    public void Pay()
+    {
+        IsPaid = true;
+    }
+
+    public void Confirm()
+    {
+        if (!IsPaid)
+            throw new Exception("Order must be paid first.");
+    }
+}
+
+
+Here, Order is part of your domain model because it represents a real business concept and contains business behavior.
+
+Remember:
+- Domain model: represents the business and its rules.
+- Database model: represents how data is stored.
+- DTO: represents data transferred between your API and its clients.
+In DDD, the domain model is where important business rules live, rather than putting all the logic in controllers or services.
+
+
+domain odel vs db model in ddd
+In DDD, the difference is simple:
+
+Domain model: represents business concepts and rules.
+
+Database model: represents how data is stored in the database.
+
+Example: an e-commerce order.
+
+1. Domain model
+public class Order
+{
+    public bool IsPaid { get; private set; }
+
+    public void Confirm()
+    {
+        if (!IsPaid)
+            throw new Exception("Order must be paid first.");
+    }
+}
+
+It protects the business rule: you cannot confirm an unpaid order.
+
+2. Database model
+public class OrderEntity
+{
+    public int Id { get; set; }
+    public bool IsPaid { get; set; }
+}
+
+This represents the data EF Core stores in the database.
+
+Why separate them?
+The domain model focuses on business behavior; the database model focuses on persistence.
+
+They don't have to be separate classes. In simpler applications, the same class can serve both purposes. In DDD, you separate them when doing so helps protect complex business rules from persistence concerns.
+Important: DDD does not require separate domain and database classes. The goal is to protect your business rules, not to create more classes.
+
+
+
+
+
+************************************************************************************************************************************************************************
+A Bounded Context in DDD is a boundary within which a business model and its terminology have one specific meaning.
+
+Imagine an e-commerce system:
+Ordering Context
+
+Order = products purchased, price, order status
+
+
+Shipping Context
+
+Order = delivery address, package, shipment status
+
+
+Both contexts deal with an order, but they care about different information and business rules.
+
+Why not use one model everywhere?
+
+Because each part of the business has different responsibilities. Bounded contexts let each part have a model designed for its own needs.
+
+Remember:
+
+- Bounded Context: Where a model's meaning and rules apply.
+- Domain Model: The business concepts and rules inside that boundary.
+- Ubiquitous Language: The shared terminology used within that context.
+******************************************************************************************************************************************************************************************
+Context Map 
+is a diagram showing how different Bounded Contexts relate to and communicate with each other.
+
+Imagine an e-commerce system:
+Ordering Context
+
+Creates orders
+
+Order details / events
+Shipping Context
+
+Arranges delivery
+
+Notification Context
+
+Sends delivery updates
+
+
+The Context Map shows:
+- Which Bounded Contexts exist.
+- Which contexts depend on or communicate with others.
+- How they integrate, such as through APIs or events.
+Remember the difference:
+- Bounded Context: The boundary of one business model.
+- Context Map: The picture of the relationships between multiple business models.
+A Context Map is a design tool; it doesn't have to be a specific technical implementation.
+
+
+
+
+In DDD, Context Map relationship patterns describe how two Bounded Contexts work together.
+
+The commonly discussed patterns are:
+Pattern	Simple meaning
+1. Shared Kernel	Two contexts share a small part of the domain model or code.
+2. Customer-Supplier	One context provides a service; the other depends on it. The customer can influence the supplier's priorities.
+3. Conformist	One context simply adopts the model provided by another, without influencing it.
+4. Anti-Corruption Layer (ACL)	One context translates another context's model to protect its own domain model.
+5. Separate Ways	Contexts remain independent and don't integrate.
+6. Partnership	Two teams coordinate their changes because both depend on each other.
+7. Open Host Service (OHS)	A context provides a well-defined service/API for other contexts to use
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+tactical pattern :
+1-A Value Object
+ in DDD is an object defined by its values, not by an identity (ID).  color address  , equality immutable when update you actually create a new one.
+ it is a concept it can hold business logic for example adress validation
+**************
+rich model data and behaviors  (busines rules , validation)
+animic models data only
+*************************
+2-An Entity in DDD is an object that has a unique identity that distinguishes it from other objects, even if their properties are identical.
+customers,orders
+has id, mutable unlike value objects
+**************************************
+3-Aggregate   composition
+
+
+is a group of related objects that must follow business rules together and stay consistent.
+Example: Order and Order Items
+Order (Aggregate Root)
+
+Controls changes to the order
+
+OrderItem
+
+Product, quantity, price
+
+
+Imagine an order must contain at least one item.
+
+You shouldn't allow other parts of the application to remove items directly and leave the order empty. Instead, they ask the Order to perform the operation.
+public class Order
+{
+    private readonly List<OrderItem> _items = new();
+
+    public void RemoveItem(int itemId)
+    {
+        if (_items.Count == 1)
+            throw new InvalidOperationException(
+                "An order must have at least one item.");
+
+        _items.RemoveAll(x => x.Id == itemId);
+    }
+}
+
+
+What is the Aggregate Root?
+The Aggregate Root is the main entity through which external code accesses and modifies the aggregate.
+
+Here, Order is the root, and OrderItem is managed through it.
+
+*****************************************************
+Domain events
+is something important that has already happened in the business.
+
+Example: E-commerce
+When an order is paid, the system raises an event:
+public record OrderPaid(int OrderId);
+
+
+
+Other parts of the system can react to this event:
+- Shipping: Prepare the order for delivery.
+- Notification: Send a confirmation email.
+- Loyalty: Award points to the customer.
+Order
+
+Payment completed
+
+Domain Event: OrderPaid
+
+Shipping
+
+Email
+
+Loyalty
+
+
+
+Why use domain events?
+Without events, the Order code might directly call shipping, email, and loyalty services, becoming tightly coupled to them.
+
+
+Remember: A domain event describes a past business fact — OrderPaid, not PayOrder.
+A domain event is not automatically a message sent to a message broker; it can first be handled inside the same application.
+
+*******************************************************
+-a Domain Service contains business logic that doesn't naturally belong to a single entity or value object.
+Example: Money transfer
+You want to transfer money between two bank accounts.
+public class TransferService
+{
+    public void Transfer(Account from, Account to, decimal amount)
+    {
+        from.Withdraw(amount);
+        to.Deposit(amount);
+    }
+}
+
+
+Why a service? The operation involves two accounts, so it doesn't naturally belong to just one account.
+Types of services in DDD
+Type	Responsibility	Example
+Domain Service	Business rules	Transfer money between accounts
+Application Service	Coordinates a use case	Load accounts, call transfer, save changes
+Infrastructure Service	Technical operations	Send email, access an external API
+Remember:
+- Domain service = business logic
+- Application service = orchestrates the workflow
+- Infrastructure service = technical implementation
+*********************************************************************************************************************************************
+repositories
+In DDD, a Repository is responsible for retrieving and saving domain objects, usually entities and aggregates, without exposing database details to the domain.
+Example: Order Repository
+You want to get an order from the database.
+
+1. Define the repository interface (typically in the Domain or Application layer):
+public interface IOrderRepository
+{
+    Task<Order?> GetByIdAsync(int id);
+    Task SaveAsync(Order order);
+}
+
+
+2. Implement it using EF Core (Infrastructure layer):
+public class OrderRepository : IOrderRepository
+{
+    private readonly AppDbContext _db;
+
+    public OrderRepository(AppDbContext db)
+    {
+        _db = db;
+    }
+
+    public Task<Order?> GetByIdAsync(int id)
+        => _db.Orders.FirstOrDefaultAsync(o => o.Id == id);
+
+    public async Task SaveAsync(Order order)
+    {
+        await _db.SaveChangesAsync();
+    }
+}
+
+
+3. Use it in your application service:
+var order = await repository.GetByIdAsync(1);
+order?.Confirm();
+await repository.SaveAsync(order);
+
+
+Remember
+- Repository interface: Defines what the application needs.
+- Repository implementation: Knows how to access the database.
+- Aggregate Root: Usually the object you load and save through the repository.
+Key idea: Your business code works with Order, not with SQL queries or EF Core details.
+
+*****************************************************************************************************************
+The main difference is: a Use Case coordinates a business operation; a Domain Service contains a business rule involving domain objects.
+
+Example: transferring money between bank accounts.
+1. Use Case — the workflow
+public class TransferMoneyUseCase
+{
+    public async Task Execute(int fromId, int toId, decimal amount)
+    {
+        var from = await repository.GetByIdAsync(fromId);
+        var to = await repository.GetByIdAsync(toId);
+
+        transferService.Transfer(from, to, amount);
+
+        await repository.SaveAsync(from);
+        await repository.SaveAsync(to);
+    }
+}
+
+
+It coordinates loading accounts, performing the transfer, and saving changes.
+2. Domain Service — the business operation
+public class TransferService
+{
+    public void Transfer(Account from, Account to, decimal amount)
+    {
+        from.Withdraw(amount);
+        to.Deposit(amount);
+    }
+}
+
+
+It implements the domain operation involving two accounts.
+Remember
+Use Case	Domain Service
+Coordinates the workflow	Implements domain logic
+Loads and saves data	Applies business rules
+Example: TransferMoneyUseCase	Example: TransferService
+Important: Not every use case needs a domain service. If the business logic belongs naturally inside an entity, the use case can call that entity directly.
+
+********************************************
+ Factory is responsible for creating complex domain objects while ensuring they are created in a valid state.
+Example: Creating an Order
+Instead of creating an order and setting everything manually:
+var order = new Order();
+order.Items = items;
+order.CustomerId = customerId;
+// What if required data is missing?
+
+
+Use a factory:
+public static class OrderFactory
+{
+    public static Order Create(int customerId, List<OrderItem> items)
+    {
+        if (items.Count == 0)
+            throw new Exception("Order must have items.");
+
+        return new Order(customerId, items);
+    }
+}
+
+
+Usage:
+var order = OrderFactory.Create(customerId, items);
+
+
+The factory ensures the order is created with the required data.
+When do you need a factory?
+- When object creation is complex.
+- When several objects must be created together.
+- When creation requires validation or setup.
+Remember: A Repository retrieves and saves objects; a Factory creates objects.
+
+For simple objects, a constructor is often enough. You don't need a factory for every entity.
+   
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+tenant : your own dedicated identity enviroment in microsoft entra. it store your users, app registeration, and security policies
+
+scope : the specific permission your api expose , client must request those scope to access protected resource in azure all scope prefixed with : api:  appid when register it
+
+authentication schema : define which handler to use  to validate incomin access token
+authority: url of you tenant
+audience : app id that access token is intended for  app id or client id
+
+
+-you also need to register client app like postman , angular.---> ba3d mat3rf el client lazm tdelo permisiion 3ala el source zai msln backeend be scope mo7adad kaman permission ==(app+scope)
+
+-oauth2 : industry standard protocol for letting apps securely access apis on behalf of users
+-authorization code with (pkce) a secure f;ow for public users like postman that donot use a client secret, using a one time code challenge to prvent token interception
+
+
+-save tokens = true tosave token in auth ticket to be used anywhere else after
+
